@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO.Ports;
 
 namespace ElectronicScale2MES
 {
@@ -19,7 +20,7 @@ namespace ElectronicScale2MES
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            openChildForm(new ScaleConnect());
+            
         }
         private Form activeForm = null;
         private void openChildForm(Form childForm)

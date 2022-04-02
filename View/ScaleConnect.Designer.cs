@@ -76,6 +76,7 @@ namespace ElectronicScale2MES
             this.txtDataIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDataIn.Size = new System.Drawing.Size(202, 185);
             this.txtDataIn.TabIndex = 3;
+            this.txtDataIn.TextChanged += new System.EventHandler(this.txtDataIn_TextChanged);
             // 
             // groupBox3
             // 
@@ -101,6 +102,7 @@ namespace ElectronicScale2MES
             this.chBoxAddToOldData.TabIndex = 4;
             this.chBoxAddToOldData.Text = "Add to old data";
             this.chBoxAddToOldData.UseVisualStyleBackColor = true;
+            this.chBoxAddToOldData.CheckedChanged += new System.EventHandler(this.chBoxAddToOldData_CheckedChanged);
             // 
             // chBoxAlwaysUpdate
             // 
@@ -111,6 +113,7 @@ namespace ElectronicScale2MES
             this.chBoxAlwaysUpdate.TabIndex = 3;
             this.chBoxAlwaysUpdate.Text = "Always Update";
             this.chBoxAlwaysUpdate.UseVisualStyleBackColor = true;
+            this.chBoxAlwaysUpdate.CheckedChanged += new System.EventHandler(this.chBoxAlwaysUpdate_CheckedChanged);
             // 
             // btClearData
             // 
@@ -120,6 +123,7 @@ namespace ElectronicScale2MES
             this.btClearData.TabIndex = 2;
             this.btClearData.Text = "Clear Data";
             this.btClearData.UseVisualStyleBackColor = true;
+            this.btClearData.Click += new System.EventHandler(this.btClearData_Click);
             // 
             // progressBar1
             // 
@@ -136,6 +140,7 @@ namespace ElectronicScale2MES
             this.btClose.TabIndex = 1;
             this.btClose.Text = "Close";
             this.btClose.UseVisualStyleBackColor = true;
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // btOpen
             // 
@@ -146,6 +151,7 @@ namespace ElectronicScale2MES
             this.btOpen.Text = "Open";
             this.btOpen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btOpen.UseVisualStyleBackColor = true;
+            this.btOpen.Click += new System.EventHandler(this.btOpen_Click);
             // 
             // groupBox2
             // 
@@ -270,6 +276,10 @@ namespace ElectronicScale2MES
             this.cbComPort.Size = new System.Drawing.Size(121, 24);
             this.cbComPort.TabIndex = 0;
             // 
+            // serialPort1
+            // 
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
             // ScaleConnect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,6 +288,7 @@ namespace ElectronicScale2MES
             this.Controls.Add(this.groupBox1);
             this.Name = "ScaleConnect";
             this.Text = "ScaleConnect";
+            this.Load += new System.EventHandler(this.ScaleConnect_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);

@@ -18,21 +18,6 @@ namespace ElectronicScale2MES
         {
             InitializeComponent();
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            string[] ports = SerialPort.GetPortNames();
-            cbComPort.Items.AddRange(ports);
-
-            btOpen.Enabled = true;
-            btClose.Enabled = false;
-            serialPort1.DtrEnable = false;
-            serialPort1.RtsEnable = false;
-
-            chBoxAlwaysUpdate.Checked = false;
-            chBoxAddToOldData.Checked = true;
-
-            cbComPort.Enabled = true;
-        }
 
         private void btOpen_Click(object sender, EventArgs e)
         {
@@ -141,7 +126,25 @@ namespace ElectronicScale2MES
 
         private void txtDataIn_TextChanged(object sender, EventArgs e) //tự cuộn xuống cuối bảng
         {
-
+            txtDataIn.SelectionStart = txtDataIn.Text.Length;
+            txtDataIn.ScrollToCaret();
         }
+
+        private void ScaleConnect_Load(object sender, EventArgs e)
+        {
+            string[] ports = SerialPort.GetPortNames();
+            cbComPort.Items.AddRange(ports);
+
+            btOpen.Enabled = true;
+            btClose.Enabled = false;
+            serialPort1.DtrEnable = false;
+            serialPort1.RtsEnable = false;
+
+            chBoxAlwaysUpdate.Checked = false;
+            chBoxAddToOldData.Checked = true;
+
+            cbComPort.Enabled = true;
+        }
+
     }
 }
