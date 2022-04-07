@@ -1,5 +1,4 @@
 ﻿using java.lang.management;
-using java.text;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -32,12 +31,11 @@ namespace ElectronicScale2MES
 
         private static long getDiffTime()
         {
-            SimpleDateFormat sdf = new SimpleDateFormat("HHmmssSSS");
             
             long diff_long = getCurrentTime() - START_TMP;
-            //DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             //DateTime sdt = new DateTime.("HHmmssfff");
-            String s = sdf.format(diff_long); //(start.AddMilliseconds(diff_long).ToLocalTime()).ToString("HHmmssfff");
+            String s = (start.AddMilliseconds(diff_long).ToLocalTime()).ToString("HHmmssfff");
             diff_long = long.Parse(diff_long / 86400000L + s);
             return diff_long;
         }
