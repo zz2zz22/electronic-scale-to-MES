@@ -99,5 +99,15 @@ namespace ElectronicScale2MES.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap scale2MESpng {
+            get {
+                object obj = ResourceManager.GetObject("scale2MESpng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

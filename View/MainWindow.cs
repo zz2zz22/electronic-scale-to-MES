@@ -20,7 +20,7 @@ namespace ElectronicScale2MES
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            
+            Properties.Settings.Default.ScaleStatus = false;
         }
         private Form activeForm = null;
         private void openChildForm(Form childForm)
@@ -35,9 +35,22 @@ namespace ElectronicScale2MES
             childForm.BringToFront();
             childForm.Show();
         }
-        private void xuiButton1_Click(object sender, EventArgs e)
+        private void xuibtn_scaleConnect_Click(object sender, EventArgs e)
         {
-            openChildForm(new ScaleConnect());
+            
+            if (Properties.Settings.Default.ScaleStatus == false)
+            {
+                openChildForm(new ScaleConnect());
+            }
+            else
+            {
+                MessageBox.Show("Chương trình đã được kết nối với cân điện tử!");
+            }
+        }
+
+        private void xuibtn_mainTask_Click(object sender, EventArgs e)
+        {
+            openChildForm(new MainTask());
         }
     }
 }

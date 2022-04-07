@@ -31,11 +31,11 @@ namespace ElectronicScale2MES
         {
             this.xuiWifiPercentageAPI1 = new XanderUI.XUIWifiPercentageAPI();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.xuiButton3 = new XanderUI.XUIButton();
-            this.xuiButton2 = new XanderUI.XUIButton();
-            this.xuibtn_scaleConnect = new XanderUI.XUIButton();
             this.tlp_mainWindow = new System.Windows.Forms.TableLayoutPanel();
             this.xuiWidgetPanel1 = new XanderUI.XUIWidgetPanel();
+            this.xuibtn_setting = new XanderUI.XUIButton();
+            this.xuibtn_mainTask = new XanderUI.XUIButton();
+            this.xuibtn_scaleConnect = new XanderUI.XUIButton();
             this.ptb_logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.tlp_mainWindow.SuspendLayout();
@@ -52,8 +52,8 @@ namespace ElectronicScale2MES
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.xuiButton3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.xuiButton2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.xuibtn_setting, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.xuibtn_mainTask, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.xuibtn_scaleConnect, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -62,70 +62,6 @@ namespace ElectronicScale2MES
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 175);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // xuiButton3
-            // 
-            this.xuiButton3.BackgroundColor = System.Drawing.Color.White;
-            this.xuiButton3.ButtonImage = global::ElectronicScale2MES.Properties.Resources.key_person;
-            this.xuiButton3.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuiButton3.ButtonText = "SETTINGS";
-            this.xuiButton3.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.xuiButton3.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.xuiButton3.CornerRadius = 5;
-            this.xuiButton3.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xuiButton3.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuiButton3.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.xuiButton3.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.xuiButton3.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton3.Location = new System.Drawing.Point(3, 90);
-            this.xuiButton3.Name = "xuiButton3";
-            this.xuiButton3.Size = new System.Drawing.Size(400, 82);
-            this.xuiButton3.TabIndex = 2;
-            this.xuiButton3.TextColor = System.Drawing.Color.DodgerBlue;
-            this.xuiButton3.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // xuiButton2
-            // 
-            this.xuiButton2.BackgroundColor = System.Drawing.Color.White;
-            this.xuiButton2.ButtonImage = global::ElectronicScale2MES.Properties.Resources.list;
-            this.xuiButton2.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuiButton2.ButtonText = "MAIN TASKS";
-            this.xuiButton2.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.xuiButton2.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.xuiButton2.CornerRadius = 5;
-            this.xuiButton2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xuiButton2.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuiButton2.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.xuiButton2.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.xuiButton2.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton2.Location = new System.Drawing.Point(409, 3);
-            this.xuiButton2.Name = "xuiButton2";
-            this.xuiButton2.Size = new System.Drawing.Size(400, 81);
-            this.xuiButton2.TabIndex = 1;
-            this.xuiButton2.TextColor = System.Drawing.Color.DodgerBlue;
-            this.xuiButton2.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // xuibtn_scaleConnect
-            // 
-            this.xuibtn_scaleConnect.BackgroundColor = System.Drawing.Color.White;
-            this.xuibtn_scaleConnect.ButtonImage = global::ElectronicScale2MES.Properties.Resources.puzzle;
-            this.xuibtn_scaleConnect.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuibtn_scaleConnect.ButtonText = "SCALE CONNECT";
-            this.xuibtn_scaleConnect.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.xuibtn_scaleConnect.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.xuibtn_scaleConnect.CornerRadius = 5;
-            this.xuibtn_scaleConnect.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xuibtn_scaleConnect.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuibtn_scaleConnect.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.xuibtn_scaleConnect.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.xuibtn_scaleConnect.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuibtn_scaleConnect.Location = new System.Drawing.Point(3, 3);
-            this.xuibtn_scaleConnect.Name = "xuibtn_scaleConnect";
-            this.xuibtn_scaleConnect.Size = new System.Drawing.Size(400, 81);
-            this.xuibtn_scaleConnect.TabIndex = 0;
-            this.xuibtn_scaleConnect.TextColor = System.Drawing.Color.DodgerBlue;
-            this.xuibtn_scaleConnect.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuibtn_scaleConnect.Click += new System.EventHandler(this.xuiButton1_Click);
             // 
             // tlp_mainWindow
             // 
@@ -148,6 +84,71 @@ namespace ElectronicScale2MES
             this.xuiWidgetPanel1.Name = "xuiWidgetPanel1";
             this.xuiWidgetPanel1.Size = new System.Drawing.Size(809, 278);
             this.xuiWidgetPanel1.TabIndex = 1;
+            // 
+            // xuibtn_setting
+            // 
+            this.xuibtn_setting.BackgroundColor = System.Drawing.Color.White;
+            this.xuibtn_setting.ButtonImage = global::ElectronicScale2MES.Properties.Resources.key_person;
+            this.xuibtn_setting.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.xuibtn_setting.ButtonText = "SETTINGS";
+            this.xuibtn_setting.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.xuibtn_setting.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_setting.CornerRadius = 5;
+            this.xuibtn_setting.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xuibtn_setting.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.xuibtn_setting.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.xuibtn_setting.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_setting.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.xuibtn_setting.Location = new System.Drawing.Point(3, 90);
+            this.xuibtn_setting.Name = "xuibtn_setting";
+            this.xuibtn_setting.Size = new System.Drawing.Size(400, 82);
+            this.xuibtn_setting.TabIndex = 2;
+            this.xuibtn_setting.TextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_setting.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            // 
+            // xuibtn_mainTask
+            // 
+            this.xuibtn_mainTask.BackgroundColor = System.Drawing.Color.White;
+            this.xuibtn_mainTask.ButtonImage = global::ElectronicScale2MES.Properties.Resources.list;
+            this.xuibtn_mainTask.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.xuibtn_mainTask.ButtonText = "MAIN TASKS";
+            this.xuibtn_mainTask.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.xuibtn_mainTask.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_mainTask.CornerRadius = 5;
+            this.xuibtn_mainTask.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xuibtn_mainTask.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.xuibtn_mainTask.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.xuibtn_mainTask.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_mainTask.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.xuibtn_mainTask.Location = new System.Drawing.Point(409, 3);
+            this.xuibtn_mainTask.Name = "xuibtn_mainTask";
+            this.xuibtn_mainTask.Size = new System.Drawing.Size(400, 81);
+            this.xuibtn_mainTask.TabIndex = 1;
+            this.xuibtn_mainTask.TextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_mainTask.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.xuibtn_mainTask.Click += new System.EventHandler(this.xuibtn_mainTask_Click);
+            // 
+            // xuibtn_scaleConnect
+            // 
+            this.xuibtn_scaleConnect.BackgroundColor = System.Drawing.Color.White;
+            this.xuibtn_scaleConnect.ButtonImage = global::ElectronicScale2MES.Properties.Resources.puzzle;
+            this.xuibtn_scaleConnect.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.xuibtn_scaleConnect.ButtonText = "SCALE CONNECT";
+            this.xuibtn_scaleConnect.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.xuibtn_scaleConnect.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_scaleConnect.CornerRadius = 5;
+            this.xuibtn_scaleConnect.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xuibtn_scaleConnect.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.xuibtn_scaleConnect.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.xuibtn_scaleConnect.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_scaleConnect.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.xuibtn_scaleConnect.Location = new System.Drawing.Point(3, 3);
+            this.xuibtn_scaleConnect.Name = "xuibtn_scaleConnect";
+            this.xuibtn_scaleConnect.Size = new System.Drawing.Size(400, 81);
+            this.xuibtn_scaleConnect.TabIndex = 0;
+            this.xuibtn_scaleConnect.TextColor = System.Drawing.Color.DodgerBlue;
+            this.xuibtn_scaleConnect.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.xuibtn_scaleConnect.Click += new System.EventHandler(this.xuibtn_scaleConnect_Click);
             // 
             // ptb_logo
             // 
@@ -183,8 +184,8 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.PictureBox ptb_logo;
         private XanderUI.XUIWifiPercentageAPI xuiWifiPercentageAPI1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private XanderUI.XUIButton xuiButton3;
-        private XanderUI.XUIButton xuiButton2;
+        private XanderUI.XUIButton xuibtn_setting;
+        private XanderUI.XUIButton xuibtn_mainTask;
         private XanderUI.XUIButton xuibtn_scaleConnect;
         private System.Windows.Forms.TableLayoutPanel tlp_mainWindow;
         private XanderUI.XUIWidgetPanel xuiWidgetPanel1;

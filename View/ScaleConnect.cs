@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,24 +36,29 @@ namespace ElectronicScale2MES
             {
                 MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (btOpen.Enabled)
+            if ( serialPort1.IsOpen)
             {
-                if (progressBar1.Value == 100)
+                
+                Properties.Settings.Default.ScaleStatus = true;
+                if (btOpen.Enabled)
                 {
-                    btOpen.Enabled = false;
-                    btClose.Enabled = true;
+                    if (progressBar1.Value == 100)
+                    {
+                        btOpen.Enabled = false;
+                        btClose.Enabled = true;
+                    }
+                    else
+                    {
+                        btOpen.Enabled = true;
+                        btClose.Enabled = false;
+                    }
                 }
                 else
                 {
-                    btOpen.Enabled = true;
                     btClose.Enabled = false;
                 }
+                cbComPort.Enabled = false;
             }
-            else
-            {
-                btClose.Enabled = false;
-            }
-            cbComPort.Enabled = false;
         }
 
         private void btClose_Click(object sender, EventArgs e)
@@ -60,6 +66,7 @@ namespace ElectronicScale2MES
             if (serialPort1.IsOpen)
             {
                 serialPort1.Close();
+                Properties.Settings.Default.ScaleStatus = false;
                 progressBar1.Value = 0;
             }
             if (btClose.Enabled)
@@ -76,7 +83,7 @@ namespace ElectronicScale2MES
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            dataIn = serialPort1.ReadExisting();
+            dataIn = serialPort1.ReadExisting().Trim();
             this.Invoke(new EventHandler(showData));
         }
 
@@ -88,7 +95,7 @@ namespace ElectronicScale2MES
             }
             else if (chBoxAddToOldData.Checked)
             {
-                txtDataIn.Text += dataIn + Environment.NewLine; //xuống hàng khi nhấn Enter
+                txtDataIn.Text += dataIn + "\n"; 
 
             }
         }
@@ -146,5 +153,10 @@ namespace ElectronicScale2MES
             cbComPort.Enabled = true;
         }
 
+        private void btn_portRefresh_Click(object sender, EventArgs e)
+        {
+            string[] ports = SerialPort.GetPortNames();
+            cbComPort.Items.AddRange(ports);
+        }
     }
 }

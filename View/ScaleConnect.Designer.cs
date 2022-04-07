@@ -51,6 +51,7 @@ namespace ElectronicScale2MES
             this.cbDataBits = new System.Windows.Forms.ComboBox();
             this.cbComPort = new System.Windows.Forms.ComboBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.btn_portRefresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -80,6 +81,7 @@ namespace ElectronicScale2MES
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_portRefresh);
             this.groupBox3.Controls.Add(this.chBoxAddToOldData);
             this.groupBox3.Controls.Add(this.chBoxAlwaysUpdate);
             this.groupBox3.Controls.Add(this.btClearData);
@@ -96,7 +98,7 @@ namespace ElectronicScale2MES
             // chBoxAddToOldData
             // 
             this.chBoxAddToOldData.AutoSize = true;
-            this.chBoxAddToOldData.Location = new System.Drawing.Point(139, 93);
+            this.chBoxAddToOldData.Location = new System.Drawing.Point(135, 121);
             this.chBoxAddToOldData.Name = "chBoxAddToOldData";
             this.chBoxAddToOldData.Size = new System.Drawing.Size(126, 21);
             this.chBoxAddToOldData.TabIndex = 4;
@@ -107,7 +109,7 @@ namespace ElectronicScale2MES
             // chBoxAlwaysUpdate
             // 
             this.chBoxAlwaysUpdate.AutoSize = true;
-            this.chBoxAlwaysUpdate.Location = new System.Drawing.Point(139, 64);
+            this.chBoxAlwaysUpdate.Location = new System.Drawing.Point(135, 92);
             this.chBoxAlwaysUpdate.Name = "chBoxAlwaysUpdate";
             this.chBoxAlwaysUpdate.Size = new System.Drawing.Size(123, 21);
             this.chBoxAlwaysUpdate.TabIndex = 3;
@@ -117,7 +119,7 @@ namespace ElectronicScale2MES
             // 
             // btClearData
             // 
-            this.btClearData.Location = new System.Drawing.Point(139, 35);
+            this.btClearData.Location = new System.Drawing.Point(135, 63);
             this.btClearData.Name = "btClearData";
             this.btClearData.Size = new System.Drawing.Size(107, 23);
             this.btClearData.TabIndex = 2;
@@ -127,14 +129,14 @@ namespace ElectronicScale2MES
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(15, 75);
+            this.progressBar1.Location = new System.Drawing.Point(11, 103);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(118, 23);
             this.progressBar1.TabIndex = 2;
             // 
             // btClose
             // 
-            this.btClose.Location = new System.Drawing.Point(75, 35);
+            this.btClose.Location = new System.Drawing.Point(71, 63);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(58, 23);
             this.btClose.TabIndex = 1;
@@ -144,7 +146,7 @@ namespace ElectronicScale2MES
             // 
             // btOpen
             // 
-            this.btOpen.Location = new System.Drawing.Point(15, 35);
+            this.btOpen.Location = new System.Drawing.Point(11, 63);
             this.btOpen.Name = "btOpen";
             this.btOpen.Size = new System.Drawing.Size(60, 23);
             this.btOpen.TabIndex = 0;
@@ -280,6 +282,16 @@ namespace ElectronicScale2MES
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
+            // btn_portRefresh
+            // 
+            this.btn_portRefresh.Location = new System.Drawing.Point(11, 22);
+            this.btn_portRefresh.Name = "btn_portRefresh";
+            this.btn_portRefresh.Size = new System.Drawing.Size(118, 35);
+            this.btn_portRefresh.TabIndex = 5;
+            this.btn_portRefresh.Text = "Refresh port";
+            this.btn_portRefresh.UseVisualStyleBackColor = true;
+            this.btn_portRefresh.Click += new System.EventHandler(this.btn_portRefresh_Click);
+            // 
             // ScaleConnect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -322,5 +334,6 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.Button btOpen;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.TextBox txtDataIn;
+        private System.Windows.Forms.Button btn_portRefresh;
     }
 }
