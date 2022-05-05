@@ -33,6 +33,7 @@ namespace ElectronicScale2MES
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDataIn = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_portRefresh = new System.Windows.Forms.Button();
             this.chBoxAddToOldData = new System.Windows.Forms.CheckBox();
             this.chBoxAlwaysUpdate = new System.Windows.Forms.CheckBox();
             this.btClearData = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@ namespace ElectronicScale2MES
             this.cbDataBits = new System.Windows.Forms.ComboBox();
             this.cbComPort = new System.Windows.Forms.ComboBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.btn_portRefresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -64,7 +64,7 @@ namespace ElectronicScale2MES
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 216);
+            this.groupBox1.Size = new System.Drawing.Size(766, 289);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -75,7 +75,7 @@ namespace ElectronicScale2MES
             this.txtDataIn.Name = "txtDataIn";
             this.txtDataIn.ReadOnly = true;
             this.txtDataIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDataIn.Size = new System.Drawing.Size(202, 185);
+            this.txtDataIn.Size = new System.Drawing.Size(202, 262);
             this.txtDataIn.TabIndex = 3;
             this.txtDataIn.TextChanged += new System.EventHandler(this.txtDataIn_TextChanged);
             // 
@@ -90,15 +90,25 @@ namespace ElectronicScale2MES
             this.groupBox3.Controls.Add(this.btOpen);
             this.groupBox3.Location = new System.Drawing.Point(282, 21);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(270, 185);
+            this.groupBox3.Size = new System.Drawing.Size(270, 262);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Com Port Status";
             // 
+            // btn_portRefresh
+            // 
+            this.btn_portRefresh.Location = new System.Drawing.Point(11, 22);
+            this.btn_portRefresh.Name = "btn_portRefresh";
+            this.btn_portRefresh.Size = new System.Drawing.Size(176, 35);
+            this.btn_portRefresh.TabIndex = 5;
+            this.btn_portRefresh.Text = "Refresh port";
+            this.btn_portRefresh.UseVisualStyleBackColor = true;
+            this.btn_portRefresh.Click += new System.EventHandler(this.btn_portRefresh_Click);
+            // 
             // chBoxAddToOldData
             // 
             this.chBoxAddToOldData.AutoSize = true;
-            this.chBoxAddToOldData.Location = new System.Drawing.Point(135, 121);
+            this.chBoxAddToOldData.Location = new System.Drawing.Point(22, 222);
             this.chBoxAddToOldData.Name = "chBoxAddToOldData";
             this.chBoxAddToOldData.Size = new System.Drawing.Size(126, 21);
             this.chBoxAddToOldData.TabIndex = 4;
@@ -109,7 +119,7 @@ namespace ElectronicScale2MES
             // chBoxAlwaysUpdate
             // 
             this.chBoxAlwaysUpdate.AutoSize = true;
-            this.chBoxAlwaysUpdate.Location = new System.Drawing.Point(135, 92);
+            this.chBoxAlwaysUpdate.Location = new System.Drawing.Point(22, 193);
             this.chBoxAlwaysUpdate.Name = "chBoxAlwaysUpdate";
             this.chBoxAlwaysUpdate.Size = new System.Drawing.Size(123, 21);
             this.chBoxAlwaysUpdate.TabIndex = 3;
@@ -119,9 +129,9 @@ namespace ElectronicScale2MES
             // 
             // btClearData
             // 
-            this.btClearData.Location = new System.Drawing.Point(135, 63);
+            this.btClearData.Location = new System.Drawing.Point(22, 153);
             this.btClearData.Name = "btClearData";
-            this.btClearData.Size = new System.Drawing.Size(107, 23);
+            this.btClearData.Size = new System.Drawing.Size(107, 34);
             this.btClearData.TabIndex = 2;
             this.btClearData.Text = "Clear Data";
             this.btClearData.UseVisualStyleBackColor = true;
@@ -129,16 +139,16 @@ namespace ElectronicScale2MES
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(11, 103);
+            this.progressBar1.Location = new System.Drawing.Point(11, 124);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(118, 23);
+            this.progressBar1.Size = new System.Drawing.Size(253, 23);
             this.progressBar1.TabIndex = 2;
             // 
             // btClose
             // 
-            this.btClose.Location = new System.Drawing.Point(71, 63);
+            this.btClose.Location = new System.Drawing.Point(102, 63);
             this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(58, 23);
+            this.btClose.Size = new System.Drawing.Size(85, 42);
             this.btClose.TabIndex = 1;
             this.btClose.Text = "Close";
             this.btClose.UseVisualStyleBackColor = true;
@@ -148,10 +158,9 @@ namespace ElectronicScale2MES
             // 
             this.btOpen.Location = new System.Drawing.Point(11, 63);
             this.btOpen.Name = "btOpen";
-            this.btOpen.Size = new System.Drawing.Size(60, 23);
+            this.btOpen.Size = new System.Drawing.Size(85, 42);
             this.btOpen.TabIndex = 0;
             this.btOpen.Text = "Open";
-            this.btOpen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btOpen.UseVisualStyleBackColor = true;
             this.btOpen.Click += new System.EventHandler(this.btOpen_Click);
             // 
@@ -169,7 +178,7 @@ namespace ElectronicScale2MES
             this.groupBox2.Controls.Add(this.cbComPort);
             this.groupBox2.Location = new System.Drawing.Point(6, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 185);
+            this.groupBox2.Size = new System.Drawing.Size(270, 262);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Com Port Control";
@@ -282,21 +291,11 @@ namespace ElectronicScale2MES
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // btn_portRefresh
-            // 
-            this.btn_portRefresh.Location = new System.Drawing.Point(11, 22);
-            this.btn_portRefresh.Name = "btn_portRefresh";
-            this.btn_portRefresh.Size = new System.Drawing.Size(118, 35);
-            this.btn_portRefresh.TabIndex = 5;
-            this.btn_portRefresh.Text = "Refresh port";
-            this.btn_portRefresh.UseVisualStyleBackColor = true;
-            this.btn_portRefresh.Click += new System.EventHandler(this.btn_portRefresh_Click);
-            // 
             // ScaleConnect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 231);
+            this.ClientSize = new System.Drawing.Size(791, 314);
             this.Controls.Add(this.groupBox1);
             this.Name = "ScaleConnect";
             this.Text = "ScaleConnect";

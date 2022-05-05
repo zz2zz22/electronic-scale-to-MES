@@ -31,12 +31,12 @@ namespace ElectronicScale2MES
         {
             this.xuiWifiPercentageAPI1 = new XanderUI.XUIWifiPercentageAPI();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlp_mainWindow = new System.Windows.Forms.TableLayoutPanel();
-            this.xuiWidgetPanel1 = new XanderUI.XUIWidgetPanel();
             this.xuibtn_setting = new XanderUI.XUIButton();
             this.xuibtn_mainTask = new XanderUI.XUIButton();
-            this.xuibtn_scaleConnect = new XanderUI.XUIButton();
+            this.tlp_mainWindow = new System.Windows.Forms.TableLayoutPanel();
+            this.xuiWidgetPanel1 = new XanderUI.XUIWidgetPanel();
             this.ptb_logo = new System.Windows.Forms.PictureBox();
+            this.xuibtn_scaleConnect = new XanderUI.XUIButton();
             this.tableLayoutPanel2.SuspendLayout();
             this.tlp_mainWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
@@ -62,28 +62,6 @@ namespace ElectronicScale2MES
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 175);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // tlp_mainWindow
-            // 
-            this.tlp_mainWindow.ColumnCount = 1;
-            this.tlp_mainWindow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_mainWindow.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tlp_mainWindow.Controls.Add(this.xuiWidgetPanel1, 0, 1);
-            this.tlp_mainWindow.Location = new System.Drawing.Point(12, 86);
-            this.tlp_mainWindow.Name = "tlp_mainWindow";
-            this.tlp_mainWindow.RowCount = 2;
-            this.tlp_mainWindow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_mainWindow.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlp_mainWindow.Size = new System.Drawing.Size(818, 465);
-            this.tlp_mainWindow.TabIndex = 1;
-            // 
-            // xuiWidgetPanel1
-            // 
-            this.xuiWidgetPanel1.ControlsAsWidgets = false;
-            this.xuiWidgetPanel1.Location = new System.Drawing.Point(3, 184);
-            this.xuiWidgetPanel1.Name = "xuiWidgetPanel1";
-            this.xuiWidgetPanel1.Size = new System.Drawing.Size(809, 278);
-            this.xuiWidgetPanel1.TabIndex = 1;
             // 
             // xuibtn_setting
             // 
@@ -128,6 +106,38 @@ namespace ElectronicScale2MES
             this.xuibtn_mainTask.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.xuibtn_mainTask.Click += new System.EventHandler(this.xuibtn_mainTask_Click);
             // 
+            // tlp_mainWindow
+            // 
+            this.tlp_mainWindow.ColumnCount = 1;
+            this.tlp_mainWindow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_mainWindow.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tlp_mainWindow.Controls.Add(this.xuiWidgetPanel1, 0, 1);
+            this.tlp_mainWindow.Location = new System.Drawing.Point(12, 86);
+            this.tlp_mainWindow.Name = "tlp_mainWindow";
+            this.tlp_mainWindow.RowCount = 2;
+            this.tlp_mainWindow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_mainWindow.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlp_mainWindow.Size = new System.Drawing.Size(818, 465);
+            this.tlp_mainWindow.TabIndex = 1;
+            // 
+            // xuiWidgetPanel1
+            // 
+            this.xuiWidgetPanel1.ControlsAsWidgets = false;
+            this.xuiWidgetPanel1.Location = new System.Drawing.Point(3, 184);
+            this.xuiWidgetPanel1.Name = "xuiWidgetPanel1";
+            this.xuiWidgetPanel1.Size = new System.Drawing.Size(809, 278);
+            this.xuiWidgetPanel1.TabIndex = 1;
+            // 
+            // ptb_logo
+            // 
+            this.ptb_logo.Image = global::ElectronicScale2MES.Properties.Resources.download;
+            this.ptb_logo.Location = new System.Drawing.Point(0, 0);
+            this.ptb_logo.Name = "ptb_logo";
+            this.ptb_logo.Size = new System.Drawing.Size(283, 80);
+            this.ptb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptb_logo.TabIndex = 0;
+            this.ptb_logo.TabStop = false;
+            // 
             // xuibtn_scaleConnect
             // 
             this.xuibtn_scaleConnect.BackgroundColor = System.Drawing.Color.White;
@@ -149,16 +159,6 @@ namespace ElectronicScale2MES
             this.xuibtn_scaleConnect.TextColor = System.Drawing.Color.DodgerBlue;
             this.xuibtn_scaleConnect.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.xuibtn_scaleConnect.Click += new System.EventHandler(this.xuibtn_scaleConnect_Click);
-            // 
-            // ptb_logo
-            // 
-            this.ptb_logo.Image = global::ElectronicScale2MES.Properties.Resources.download;
-            this.ptb_logo.Location = new System.Drawing.Point(0, 0);
-            this.ptb_logo.Name = "ptb_logo";
-            this.ptb_logo.Size = new System.Drawing.Size(283, 80);
-            this.ptb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptb_logo.TabIndex = 0;
-            this.ptb_logo.TabStop = false;
             // 
             // MainWindow
             // 
@@ -186,9 +186,9 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private XanderUI.XUIButton xuibtn_setting;
         private XanderUI.XUIButton xuibtn_mainTask;
-        private XanderUI.XUIButton xuibtn_scaleConnect;
         private System.Windows.Forms.TableLayoutPanel tlp_mainWindow;
         private XanderUI.XUIWidgetPanel xuiWidgetPanel1;
+        private XanderUI.XUIButton xuibtn_scaleConnect;
     }
 }
 

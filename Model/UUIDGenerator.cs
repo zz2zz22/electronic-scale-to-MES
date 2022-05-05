@@ -24,18 +24,22 @@ namespace ElectronicScale2MES
 
         private UUIDGenerator() { }
 
+        private static readonly DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
         private static long getCurrentTime()
         {
-            return (long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
+            return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         }
 
         private static long getDiffTime()
         {
-            
             long diff_long = getCurrentTime() - START_TMP;
-            DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            //DateTime sdt = new DateTime.("HHmmssfff");
-            String s = (start.AddMilliseconds(diff_long).ToLocalTime()).ToString("HHmmssfff");
+
+            //DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            TimeSpan time = TimeSpan.FromMilliseconds(diff_long);
+            DateTime startdate = new DateTime(1970, 1, 1) + time;
+            String s = startdate.ToString("HHmmssfff");
+
             diff_long = long.Parse(diff_long / 86400000L + s);
             return diff_long;
         }
@@ -70,7 +74,7 @@ namespace ElectronicScale2MES
             }
 
             last_tmp = sec;
-            String p = HexTransformatUtil.hex10ToAnly(sec * 10000L + sequence) + HexTransformatUtil.hex10ToAnly(long.Parse(PID));
+            String p = HexTransformatUtil.hex10ToAnly(sec * 10000 + sequence) + HexTransformatUtil.hex10ToAnly(long.Parse(PID));
             return p;
         }
 
@@ -112,7 +116,7 @@ namespace ElectronicScale2MES
 
         static UUIDGenerator()
         {
-            PID = ManagementFactory.getRuntimeMXBean().getName().Split('@')[0];        
+            PID = ManagementFactory.getRuntimeMXBean().getName().Split('@')[0];
         }
     }
 }

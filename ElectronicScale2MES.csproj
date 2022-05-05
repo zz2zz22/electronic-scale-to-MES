@@ -183,7 +183,13 @@
   <ItemGroup>
     <Compile Include="Controller\SQLClass\DatabaseSQLServerUtils.cs" />
     <Compile Include="Controller\SQLClass\DatabaseUtils.cs" />
+    <Compile Include="Controller\SQLClass\sqlMesPlanningExcutionCon.cs" />
+    <Compile Include="Model\GetBaseData.cs" />
     <Compile Include="Model\HexTransformatUtil.cs" />
+    <Compile Include="Model\MoveNoGenerator.cs" />
+    <Compile Include="Model\ProdLotNoGenerator.cs" />
+    <Compile Include="Model\SaveVariables.cs" />
+    <Compile Include="Model\UploadMain.cs" />
     <Compile Include="Model\UUIDGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

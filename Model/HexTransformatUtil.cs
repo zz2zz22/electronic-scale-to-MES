@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
-using Lucene.Net.Support;
+using java.text;
+
 
 namespace ElectronicScale2MES
 {
@@ -30,7 +31,7 @@ namespace ElectronicScale2MES
                 {
                     s.Push(hexDigith[(int)(num % (long)Base)]);
                 }
-                while(s.Count != 0)
+                while(s.Count != 0 )
                 {
                     str.Append(s.Pop());
                 }
@@ -46,7 +47,7 @@ namespace ElectronicScale2MES
             if (null != hexValue && !("".Equals(hexValue.Trim())))
             {
                 int Base = hexDigith.Trim().Length;
-                HashMap<string, int> digthMap = new HashMap<string, int>();
+                Dictionary<string, int> digthMap = new Dictionary<string, int>();
                 int count = 0;
                 char[] var4 = hexDigith.Trim().ToCharArray();
                 int sum = var4.Length;
