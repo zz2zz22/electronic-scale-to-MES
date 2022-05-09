@@ -22,10 +22,10 @@ namespace ElectronicScale2MES
             DataTable dt = new DataTable();
             sqlMesPlanningExcutionCon sqlMesPlanningExcutionCon = new sqlMesPlanningExcutionCon();
             StringBuilder sqlGetWO = new StringBuilder();
-            sqlGetWO.Append("select * from work_order where order_uuid in (select work_order_uuid from work_order_process where dispatch_quantity > finish_quantity) AND work_order.order_no LIKE '%SEMI%' AND work_order.delete_flag = '0' order by work_order.create_date");
+            sqlGetWO.Append("select work_order.erp_order_no as ERP_Code, work_order.product_no as Product_Code, work_order.product_name as Product_Name from work_order where order_uuid in (select work_order_uuid from work_order_process where dispatch_quantity > finish_quantity) AND work_order.order_no LIKE '%SEMI%' AND work_order.delete_flag = '0' order by work_order.create_date");
             sqlMesPlanningExcutionCon.sqlDataAdapterFillDatatable(sqlGetWO.ToString(), ref dt);
             return dt;
         }
-        public static DataTable getSearchOrder ()
+       
     }
 }

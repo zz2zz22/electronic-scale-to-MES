@@ -14,10 +14,12 @@ namespace ElectronicScale2MES
     public partial class Scale2MES : Form
     {
         string dataIn;
+        double tempWeight;
+        double totalWeight = 0;
         public Scale2MES()
         {
             InitializeComponent();
-            txb_searchData.Text = UUIDGenerator.getAscId();
+            //txb_searchData.Text = UUIDGenerator.getAscId();
             dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
         }
 
@@ -101,42 +103,17 @@ namespace ElectronicScale2MES
         }
         private void showData(object sender, EventArgs e)
         {
-            if (chBoxAlwaysUpdate.Checked)
+            if (cxb_stackWeight.Checked)
             {
                 lb_dataIn.Text = dataIn;
-                lb_dataIn.ForeColor = Color.White;
-                
+                tempWeight = totalWeight;
+                totalWeight = totalWeight + double.Parse(dataIn);
+                lb_totalWeight.Text = totalWeight.ToString();
             }
-            else if (chBoxAddToOldData.Checked)
+            else if (cxb_updateTotalWeight.Checked)
             {
-                lb_dataIn.Text += dataIn + "\n";
-
-            }
-        }
-
-        private void chBoxAlwaysUpdate_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chBoxAlwaysUpdate.Checked)
-            {
-                chBoxAlwaysUpdate.Checked = true;
-                chBoxAddToOldData.Checked = false;
-            }
-            else
-            {
-                chBoxAddToOldData.Checked = true;
-            }
-        }
-
-        private void chBoxAddToOldData_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chBoxAddToOldData.Checked)
-            {
-                chBoxAlwaysUpdate.Checked = false;
-                chBoxAddToOldData.Checked = true;
-            }
-            else
-            {
-                chBoxAlwaysUpdate.Checked = true;
+                lb_dataIn.Text = dataIn;
+                lb_totalWeight.Text = dataIn;
             }
         }
 
@@ -150,9 +127,6 @@ namespace ElectronicScale2MES
             serialPort1.DtrEnable = false;
             serialPort1.RtsEnable = false;
 
-            chBoxAlwaysUpdate.Checked = false;
-            chBoxAddToOldData.Checked = true;
-
             cbComPort.Enabled = true;
         }
 
@@ -160,6 +134,58 @@ namespace ElectronicScale2MES
         {
             string[] ports = SerialPort.GetPortNames();
             cbComPort.Items.AddRange(ports);
+        }
+
+        private void btn_searchDatatable_Click(object sender, EventArgs e)
+        {
+            DataRow[] results = GetBaseData.getWorkOrderDTtoDataGrid().Select("ERP_Code like '%" + txb_searchErpCode.Text.Trim() + "%' AND Product_Code like '%" + txb_searchProdCode.Text.Trim() + "%' ");
+            if (results.Length > 0)
+            {
+                DataTable searchResultTable = results.CopyToDataTable();
+                dtgv_mesData.DataSource = null;
+                dtgv_mesData.DataSource = searchResultTable;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả nào!");
+            }
+        }
+
+        private void dtgv_mesData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dtgv_mesData.Rows[e.RowIndex];
+                lb_erpCodeInfo.Text = row.Cells[0].Value.ToString();
+                lb_prodCodeInfo.Text = row.Cells[1].Value.ToString();
+                lb_prodNameInfo.Text = row.Cells[2].Value.ToString();
+            }
+        }
+
+        private void cxb_stackWeight_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cxb_stackWeight.Checked)
+            {
+                cxb_stackWeight.Checked = true;
+                cxb_updateTotalWeight.Checked = false;
+            }
+            else
+            {
+                cxb_updateTotalWeight.Checked = true;
+            }
+        }
+
+        private void cxb_updateTotalWeight_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cxb_updateTotalWeight.Checked)
+            {
+                cxb_updateTotalWeight.Checked = true;
+                cxb_stackWeight.Checked = false;
+            }
+            else
+            {
+                cxb_stackWeight.Checked = true;
+            }
         }
     }
 }
