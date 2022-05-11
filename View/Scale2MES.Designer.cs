@@ -32,13 +32,35 @@ namespace ElectronicScale2MES
             this.components = new System.ComponentModel.Container();
             this.dtgv_mesData = new System.Windows.Forms.DataGridView();
             this.txb_searchErpCode = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_selectData = new System.Windows.Forms.Panel();
+            this.txb_searchMatCode = new System.Windows.Forms.TextBox();
             this.btn_searchDatatable = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lb_materialCode = new System.Windows.Forms.Label();
             this.txb_searchProdCode = new System.Windows.Forms.TextBox();
             this.lb_productCode = new System.Windows.Forms.Label();
             this.lb_erpCode = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_mainTask = new System.Windows.Forms.Panel();
+            this.lb_createDateInfo = new System.Windows.Forms.Label();
+            this.lb_createDateInfoLabel = new System.Windows.Forms.Label();
+            this.lb_finishQtyInfo = new System.Windows.Forms.Label();
+            this.lb_finishQtyInfoLabel = new System.Windows.Forms.Label();
+            this.lb_dispatchQtyInfo = new System.Windows.Forms.Label();
+            this.lb_dispatchQtyInfoLabel = new System.Windows.Forms.Label();
+            this.lb_planQtyInfo = new System.Windows.Forms.Label();
+            this.lb_planQtyInfoLabel = new System.Windows.Forms.Label();
+            this.lb_matCodeInfo = new System.Windows.Forms.Label();
+            this.lb_matCodeInfoLabel = new System.Windows.Forms.Label();
+            this.lb_prodCodeInfo = new System.Windows.Forms.Label();
+            this.lb_prodCodeInfoLabel = new System.Windows.Forms.Label();
+            this.lb_erpCodeInfo = new System.Windows.Forms.Label();
+            this.lb_erpCodeInfoLabel = new System.Windows.Forms.Label();
+            this.cxb_updateTotalWeight = new System.Windows.Forms.CheckBox();
+            this.cxb_stackWeight = new System.Windows.Forms.CheckBox();
+            this.btn_resetTotalWeight = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lb_totalWeight = new System.Windows.Forms.Label();
+            this.lb_totalWeightUnit = new System.Windows.Forms.Label();
             this.btn_undoWeightAdding = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lb_dataIn = new System.Windows.Forms.Label();
@@ -60,26 +82,14 @@ namespace ElectronicScale2MES
             this.btClose = new System.Windows.Forms.Button();
             this.btOpen = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lb_totalWeight = new System.Windows.Forms.Label();
-            this.lb_totalWeightUnit = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_resetTotalWeight = new System.Windows.Forms.Button();
-            this.cxb_stackWeight = new System.Windows.Forms.CheckBox();
-            this.cxb_updateTotalWeight = new System.Windows.Forms.CheckBox();
-            this.lb_erpCodeInfoLabel = new System.Windows.Forms.Label();
-            this.lb_erpCodeInfo = new System.Windows.Forms.Label();
-            this.lb_prodCodeInfoLabel = new System.Windows.Forms.Label();
-            this.lb_prodCodeInfo = new System.Windows.Forms.Label();
-            this.lb_prodNameInfoLabel = new System.Windows.Forms.Label();
-            this.lb_prodNameInfo = new System.Windows.Forms.Label();
+            this.btn_resetSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_mesData)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel_selectData.SuspendLayout();
+            this.panel_mainTask.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgv_mesData
@@ -88,7 +98,7 @@ namespace ElectronicScale2MES
             this.dtgv_mesData.AllowUserToDeleteRows = false;
             this.dtgv_mesData.AllowUserToResizeColumns = false;
             this.dtgv_mesData.AllowUserToResizeRows = false;
-            this.dtgv_mesData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
+            this.dtgv_mesData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgv_mesData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_mesData.Location = new System.Drawing.Point(3, 83);
             this.dtgv_mesData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -104,54 +114,64 @@ namespace ElectronicScale2MES
             // 
             // txb_searchErpCode
             // 
-            this.txb_searchErpCode.Location = new System.Drawing.Point(120, 11);
+            this.txb_searchErpCode.Location = new System.Drawing.Point(120, 13);
             this.txb_searchErpCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txb_searchErpCode.Name = "txb_searchErpCode";
-            this.txb_searchErpCode.Size = new System.Drawing.Size(186, 22);
+            this.txb_searchErpCode.Size = new System.Drawing.Size(155, 22);
             this.txb_searchErpCode.TabIndex = 2;
             // 
-            // panel1
+            // panel_selectData
             // 
-            this.panel1.Controls.Add(this.btn_searchDatatable);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txb_searchProdCode);
-            this.panel1.Controls.Add(this.lb_productCode);
-            this.panel1.Controls.Add(this.lb_erpCode);
-            this.panel1.Controls.Add(this.dtgv_mesData);
-            this.panel1.Controls.Add(this.txb_searchErpCode);
-            this.panel1.Location = new System.Drawing.Point(12, 11);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1037, 320);
-            this.panel1.TabIndex = 3;
+            this.panel_selectData.Controls.Add(this.btn_resetSearch);
+            this.panel_selectData.Controls.Add(this.txb_searchMatCode);
+            this.panel_selectData.Controls.Add(this.btn_searchDatatable);
+            this.panel_selectData.Controls.Add(this.lb_materialCode);
+            this.panel_selectData.Controls.Add(this.txb_searchProdCode);
+            this.panel_selectData.Controls.Add(this.lb_productCode);
+            this.panel_selectData.Controls.Add(this.lb_erpCode);
+            this.panel_selectData.Controls.Add(this.dtgv_mesData);
+            this.panel_selectData.Controls.Add(this.txb_searchErpCode);
+            this.panel_selectData.Location = new System.Drawing.Point(12, 11);
+            this.panel_selectData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_selectData.Name = "panel_selectData";
+            this.panel_selectData.Size = new System.Drawing.Size(1037, 320);
+            this.panel_selectData.TabIndex = 3;
+            // 
+            // txb_searchMatCode
+            // 
+            this.txb_searchMatCode.Location = new System.Drawing.Point(409, 13);
+            this.txb_searchMatCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txb_searchMatCode.Name = "txb_searchMatCode";
+            this.txb_searchMatCode.Size = new System.Drawing.Size(168, 22);
+            this.txb_searchMatCode.TabIndex = 8;
             // 
             // btn_searchDatatable
             // 
             this.btn_searchDatatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_searchDatatable.Location = new System.Drawing.Point(895, 16);
+            this.btn_searchDatatable.Location = new System.Drawing.Point(715, 13);
             this.btn_searchDatatable.Name = "btn_searchDatatable";
-            this.btn_searchDatatable.Size = new System.Drawing.Size(104, 49);
+            this.btn_searchDatatable.Size = new System.Drawing.Size(139, 62);
             this.btn_searchDatatable.TabIndex = 7;
             this.btn_searchDatatable.Text = "SEARCH";
             this.btn_searchDatatable.UseVisualStyleBackColor = true;
             this.btn_searchDatatable.Click += new System.EventHandler(this.btn_searchDatatable_Click);
             // 
-            // label6
+            // lb_materialCode
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(322, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 17);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Mã sản xuất";
+            this.lb_materialCode.AutoSize = true;
+            this.lb_materialCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_materialCode.Location = new System.Drawing.Point(297, 16);
+            this.lb_materialCode.Name = "lb_materialCode";
+            this.lb_materialCode.Size = new System.Drawing.Size(106, 17);
+            this.lb_materialCode.TabIndex = 6;
+            this.lb_materialCode.Text = "Material code";
             // 
             // txb_searchProdCode
             // 
-            this.txb_searchProdCode.Location = new System.Drawing.Point(120, 43);
+            this.txb_searchProdCode.Location = new System.Drawing.Point(120, 45);
             this.txb_searchProdCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txb_searchProdCode.Name = "txb_searchProdCode";
-            this.txb_searchProdCode.Size = new System.Drawing.Size(186, 22);
+            this.txb_searchProdCode.Size = new System.Drawing.Size(155, 22);
             this.txb_searchProdCode.TabIndex = 5;
             // 
             // lb_productCode
@@ -174,26 +194,250 @@ namespace ElectronicScale2MES
             this.lb_erpCode.TabIndex = 3;
             this.lb_erpCode.Text = "ERP Code";
             // 
-            // panel2
+            // panel_mainTask
             // 
-            this.panel2.Controls.Add(this.lb_prodNameInfo);
-            this.panel2.Controls.Add(this.lb_prodNameInfoLabel);
-            this.panel2.Controls.Add(this.lb_prodCodeInfo);
-            this.panel2.Controls.Add(this.lb_prodCodeInfoLabel);
-            this.panel2.Controls.Add(this.lb_erpCodeInfo);
-            this.panel2.Controls.Add(this.lb_erpCodeInfoLabel);
-            this.panel2.Controls.Add(this.cxb_updateTotalWeight);
-            this.panel2.Controls.Add(this.cxb_stackWeight);
-            this.panel2.Controls.Add(this.btn_resetTotalWeight);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.btn_undoWeightAdding);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(293, 335);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(756, 327);
-            this.panel2.TabIndex = 4;
+            this.panel_mainTask.Controls.Add(this.lb_createDateInfo);
+            this.panel_mainTask.Controls.Add(this.lb_createDateInfoLabel);
+            this.panel_mainTask.Controls.Add(this.lb_finishQtyInfo);
+            this.panel_mainTask.Controls.Add(this.lb_finishQtyInfoLabel);
+            this.panel_mainTask.Controls.Add(this.lb_dispatchQtyInfo);
+            this.panel_mainTask.Controls.Add(this.lb_dispatchQtyInfoLabel);
+            this.panel_mainTask.Controls.Add(this.lb_planQtyInfo);
+            this.panel_mainTask.Controls.Add(this.lb_planQtyInfoLabel);
+            this.panel_mainTask.Controls.Add(this.lb_matCodeInfo);
+            this.panel_mainTask.Controls.Add(this.lb_matCodeInfoLabel);
+            this.panel_mainTask.Controls.Add(this.lb_prodCodeInfo);
+            this.panel_mainTask.Controls.Add(this.lb_prodCodeInfoLabel);
+            this.panel_mainTask.Controls.Add(this.lb_erpCodeInfo);
+            this.panel_mainTask.Controls.Add(this.lb_erpCodeInfoLabel);
+            this.panel_mainTask.Controls.Add(this.cxb_updateTotalWeight);
+            this.panel_mainTask.Controls.Add(this.cxb_stackWeight);
+            this.panel_mainTask.Controls.Add(this.btn_resetTotalWeight);
+            this.panel_mainTask.Controls.Add(this.button1);
+            this.panel_mainTask.Controls.Add(this.panel4);
+            this.panel_mainTask.Controls.Add(this.btn_undoWeightAdding);
+            this.panel_mainTask.Controls.Add(this.panel3);
+            this.panel_mainTask.Location = new System.Drawing.Point(293, 335);
+            this.panel_mainTask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_mainTask.Name = "panel_mainTask";
+            this.panel_mainTask.Size = new System.Drawing.Size(756, 327);
+            this.panel_mainTask.TabIndex = 4;
+            // 
+            // lb_createDateInfo
+            // 
+            this.lb_createDateInfo.AutoSize = true;
+            this.lb_createDateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_createDateInfo.Location = new System.Drawing.Point(119, 181);
+            this.lb_createDateInfo.Name = "lb_createDateInfo";
+            this.lb_createDateInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_createDateInfo.TabIndex = 24;
+            // 
+            // lb_createDateInfoLabel
+            // 
+            this.lb_createDateInfoLabel.AutoSize = true;
+            this.lb_createDateInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_createDateInfoLabel.Location = new System.Drawing.Point(13, 181);
+            this.lb_createDateInfoLabel.Name = "lb_createDateInfoLabel";
+            this.lb_createDateInfoLabel.Size = new System.Drawing.Size(84, 17);
+            this.lb_createDateInfoLabel.TabIndex = 23;
+            this.lb_createDateInfoLabel.Text = "Create Date";
+            // 
+            // lb_finishQtyInfo
+            // 
+            this.lb_finishQtyInfo.AutoSize = true;
+            this.lb_finishQtyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_finishQtyInfo.Location = new System.Drawing.Point(398, 84);
+            this.lb_finishQtyInfo.Name = "lb_finishQtyInfo";
+            this.lb_finishQtyInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_finishQtyInfo.TabIndex = 22;
+            // 
+            // lb_finishQtyInfoLabel
+            // 
+            this.lb_finishQtyInfoLabel.AutoSize = true;
+            this.lb_finishQtyInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_finishQtyInfoLabel.Location = new System.Drawing.Point(303, 81);
+            this.lb_finishQtyInfoLabel.Name = "lb_finishQtyInfoLabel";
+            this.lb_finishQtyInfoLabel.Size = new System.Drawing.Size(71, 17);
+            this.lb_finishQtyInfoLabel.TabIndex = 21;
+            this.lb_finishQtyInfoLabel.Text = "Finish Qty";
+            // 
+            // lb_dispatchQtyInfo
+            // 
+            this.lb_dispatchQtyInfo.AutoSize = true;
+            this.lb_dispatchQtyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dispatchQtyInfo.Location = new System.Drawing.Point(398, 45);
+            this.lb_dispatchQtyInfo.Name = "lb_dispatchQtyInfo";
+            this.lb_dispatchQtyInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_dispatchQtyInfo.TabIndex = 20;
+            // 
+            // lb_dispatchQtyInfoLabel
+            // 
+            this.lb_dispatchQtyInfoLabel.AutoSize = true;
+            this.lb_dispatchQtyInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dispatchQtyInfoLabel.Location = new System.Drawing.Point(303, 45);
+            this.lb_dispatchQtyInfoLabel.Name = "lb_dispatchQtyInfoLabel";
+            this.lb_dispatchQtyInfoLabel.Size = new System.Drawing.Size(89, 17);
+            this.lb_dispatchQtyInfoLabel.TabIndex = 19;
+            this.lb_dispatchQtyInfoLabel.Text = "Dispatch Qty";
+            // 
+            // lb_planQtyInfo
+            // 
+            this.lb_planQtyInfo.AutoSize = true;
+            this.lb_planQtyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_planQtyInfo.Location = new System.Drawing.Point(398, 9);
+            this.lb_planQtyInfo.Name = "lb_planQtyInfo";
+            this.lb_planQtyInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_planQtyInfo.TabIndex = 18;
+            // 
+            // lb_planQtyInfoLabel
+            // 
+            this.lb_planQtyInfoLabel.AutoSize = true;
+            this.lb_planQtyInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_planQtyInfoLabel.Location = new System.Drawing.Point(304, 9);
+            this.lb_planQtyInfoLabel.Name = "lb_planQtyInfoLabel";
+            this.lb_planQtyInfoLabel.Size = new System.Drawing.Size(62, 17);
+            this.lb_planQtyInfoLabel.TabIndex = 17;
+            this.lb_planQtyInfoLabel.Text = "Plan Qty";
+            // 
+            // lb_matCodeInfo
+            // 
+            this.lb_matCodeInfo.AutoSize = true;
+            this.lb_matCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_matCodeInfo.Location = new System.Drawing.Point(17, 144);
+            this.lb_matCodeInfo.Name = "lb_matCodeInfo";
+            this.lb_matCodeInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_matCodeInfo.TabIndex = 14;
+            // 
+            // lb_matCodeInfoLabel
+            // 
+            this.lb_matCodeInfoLabel.AutoSize = true;
+            this.lb_matCodeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_matCodeInfoLabel.Location = new System.Drawing.Point(3, 111);
+            this.lb_matCodeInfoLabel.Name = "lb_matCodeInfoLabel";
+            this.lb_matCodeInfoLabel.Size = new System.Drawing.Size(95, 17);
+            this.lb_matCodeInfoLabel.TabIndex = 13;
+            this.lb_matCodeInfoLabel.Text = "Material Code";
+            // 
+            // lb_prodCodeInfo
+            // 
+            this.lb_prodCodeInfo.AutoSize = true;
+            this.lb_prodCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_prodCodeInfo.Location = new System.Drawing.Point(17, 81);
+            this.lb_prodCodeInfo.Name = "lb_prodCodeInfo";
+            this.lb_prodCodeInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_prodCodeInfo.TabIndex = 12;
+            // 
+            // lb_prodCodeInfoLabel
+            // 
+            this.lb_prodCodeInfoLabel.AutoSize = true;
+            this.lb_prodCodeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_prodCodeInfoLabel.Location = new System.Drawing.Point(4, 53);
+            this.lb_prodCodeInfoLabel.Name = "lb_prodCodeInfoLabel";
+            this.lb_prodCodeInfoLabel.Size = new System.Drawing.Size(94, 17);
+            this.lb_prodCodeInfoLabel.TabIndex = 11;
+            this.lb_prodCodeInfoLabel.Text = "Product Code";
+            // 
+            // lb_erpCodeInfo
+            // 
+            this.lb_erpCodeInfo.AutoSize = true;
+            this.lb_erpCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_erpCodeInfo.Location = new System.Drawing.Point(82, 9);
+            this.lb_erpCodeInfo.Name = "lb_erpCodeInfo";
+            this.lb_erpCodeInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_erpCodeInfo.TabIndex = 10;
+            // 
+            // lb_erpCodeInfoLabel
+            // 
+            this.lb_erpCodeInfoLabel.AutoSize = true;
+            this.lb_erpCodeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_erpCodeInfoLabel.Location = new System.Drawing.Point(3, 9);
+            this.lb_erpCodeInfoLabel.Name = "lb_erpCodeInfoLabel";
+            this.lb_erpCodeInfoLabel.Size = new System.Drawing.Size(73, 17);
+            this.lb_erpCodeInfoLabel.TabIndex = 8;
+            this.lb_erpCodeInfoLabel.Text = "ERP Code";
+            // 
+            // cxb_updateTotalWeight
+            // 
+            this.cxb_updateTotalWeight.AutoSize = true;
+            this.cxb_updateTotalWeight.Checked = true;
+            this.cxb_updateTotalWeight.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cxb_updateTotalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cxb_updateTotalWeight.Location = new System.Drawing.Point(492, 114);
+            this.cxb_updateTotalWeight.Name = "cxb_updateTotalWeight";
+            this.cxb_updateTotalWeight.Size = new System.Drawing.Size(155, 22);
+            this.cxb_updateTotalWeight.TabIndex = 9;
+            this.cxb_updateTotalWeight.Text = "Update total weight";
+            this.cxb_updateTotalWeight.UseVisualStyleBackColor = true;
+            this.cxb_updateTotalWeight.CheckedChanged += new System.EventHandler(this.cxb_updateTotalWeight_CheckedChanged);
+            // 
+            // cxb_stackWeight
+            // 
+            this.cxb_stackWeight.AutoSize = true;
+            this.cxb_stackWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cxb_stackWeight.Location = new System.Drawing.Point(492, 81);
+            this.cxb_stackWeight.Name = "cxb_stackWeight";
+            this.cxb_stackWeight.Size = new System.Drawing.Size(150, 22);
+            this.cxb_stackWeight.TabIndex = 8;
+            this.cxb_stackWeight.Text = "Add to total weight";
+            this.cxb_stackWeight.UseVisualStyleBackColor = true;
+            this.cxb_stackWeight.CheckedChanged += new System.EventHandler(this.cxb_stackWeight_CheckedChanged);
+            // 
+            // btn_resetTotalWeight
+            // 
+            this.btn_resetTotalWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_resetTotalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_resetTotalWeight.ForeColor = System.Drawing.Color.White;
+            this.btn_resetTotalWeight.Location = new System.Drawing.Point(345, 283);
+            this.btn_resetTotalWeight.Name = "btn_resetTotalWeight";
+            this.btn_resetTotalWeight.Size = new System.Drawing.Size(129, 32);
+            this.btn_resetTotalWeight.TabIndex = 7;
+            this.btn_resetTotalWeight.Text = "RESET";
+            this.btn_resetTotalWeight.UseVisualStyleBackColor = false;
+            this.btn_resetTotalWeight.Click += new System.EventHandler(this.btn_resetTotalWeight_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Yellow;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(538, 232);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(180, 79);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "SAVE TO MES";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Controls.Add(this.lb_totalWeight);
+            this.panel4.Controls.Add(this.lb_totalWeightUnit);
+            this.panel4.Location = new System.Drawing.Point(3, 232);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(336, 83);
+            this.panel4.TabIndex = 5;
+            // 
+            // lb_totalWeight
+            // 
+            this.lb_totalWeight.AutoSize = true;
+            this.lb_totalWeight.Font = new System.Drawing.Font("DS-Digital", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_totalWeight.ForeColor = System.Drawing.Color.White;
+            this.lb_totalWeight.Location = new System.Drawing.Point(3, 0);
+            this.lb_totalWeight.Name = "lb_totalWeight";
+            this.lb_totalWeight.Size = new System.Drawing.Size(204, 79);
+            this.lb_totalWeight.TabIndex = 0;
+            this.lb_totalWeight.Text = "00.00";
+            // 
+            // lb_totalWeightUnit
+            // 
+            this.lb_totalWeightUnit.AutoSize = true;
+            this.lb_totalWeightUnit.BackColor = System.Drawing.Color.Black;
+            this.lb_totalWeightUnit.Font = new System.Drawing.Font("DS-Digital", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_totalWeightUnit.ForeColor = System.Drawing.Color.White;
+            this.lb_totalWeightUnit.Location = new System.Drawing.Point(278, 35);
+            this.lb_totalWeightUnit.Name = "lb_totalWeightUnit";
+            this.lb_totalWeightUnit.Size = new System.Drawing.Size(55, 37);
+            this.lb_totalWeightUnit.TabIndex = 1;
+            this.lb_totalWeightUnit.Text = "KG";
             // 
             // btn_undoWeightAdding
             // 
@@ -430,147 +674,17 @@ namespace ElectronicScale2MES
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // panel4
+            // btn_resetSearch
             // 
-            this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Controls.Add(this.lb_totalWeight);
-            this.panel4.Controls.Add(this.lb_totalWeightUnit);
-            this.panel4.Location = new System.Drawing.Point(3, 232);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(336, 83);
-            this.panel4.TabIndex = 5;
-            // 
-            // lb_totalWeight
-            // 
-            this.lb_totalWeight.AutoSize = true;
-            this.lb_totalWeight.Font = new System.Drawing.Font("DS-Digital", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_totalWeight.ForeColor = System.Drawing.Color.White;
-            this.lb_totalWeight.Location = new System.Drawing.Point(3, 0);
-            this.lb_totalWeight.Name = "lb_totalWeight";
-            this.lb_totalWeight.Size = new System.Drawing.Size(204, 79);
-            this.lb_totalWeight.TabIndex = 0;
-            this.lb_totalWeight.Text = "00.00";
-            // 
-            // lb_totalWeightUnit
-            // 
-            this.lb_totalWeightUnit.AutoSize = true;
-            this.lb_totalWeightUnit.BackColor = System.Drawing.Color.Black;
-            this.lb_totalWeightUnit.Font = new System.Drawing.Font("DS-Digital", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_totalWeightUnit.ForeColor = System.Drawing.Color.White;
-            this.lb_totalWeightUnit.Location = new System.Drawing.Point(278, 35);
-            this.lb_totalWeightUnit.Name = "lb_totalWeightUnit";
-            this.lb_totalWeightUnit.Size = new System.Drawing.Size(55, 37);
-            this.lb_totalWeightUnit.TabIndex = 1;
-            this.lb_totalWeightUnit.Text = "KG";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(538, 232);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 79);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "SAVE TO MES";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btn_resetTotalWeight
-            // 
-            this.btn_resetTotalWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btn_resetTotalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_resetTotalWeight.ForeColor = System.Drawing.Color.White;
-            this.btn_resetTotalWeight.Location = new System.Drawing.Point(345, 283);
-            this.btn_resetTotalWeight.Name = "btn_resetTotalWeight";
-            this.btn_resetTotalWeight.Size = new System.Drawing.Size(129, 32);
-            this.btn_resetTotalWeight.TabIndex = 7;
-            this.btn_resetTotalWeight.Text = "RESET";
-            this.btn_resetTotalWeight.UseVisualStyleBackColor = false;
-            // 
-            // cxb_stackWeight
-            // 
-            this.cxb_stackWeight.AutoSize = true;
-            this.cxb_stackWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cxb_stackWeight.Location = new System.Drawing.Point(492, 81);
-            this.cxb_stackWeight.Name = "cxb_stackWeight";
-            this.cxb_stackWeight.Size = new System.Drawing.Size(150, 22);
-            this.cxb_stackWeight.TabIndex = 8;
-            this.cxb_stackWeight.Text = "Add to total weight";
-            this.cxb_stackWeight.UseVisualStyleBackColor = true;
-            this.cxb_stackWeight.CheckedChanged += new System.EventHandler(this.cxb_stackWeight_CheckedChanged);
-            // 
-            // cxb_updateTotalWeight
-            // 
-            this.cxb_updateTotalWeight.AutoSize = true;
-            this.cxb_updateTotalWeight.Checked = true;
-            this.cxb_updateTotalWeight.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cxb_updateTotalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cxb_updateTotalWeight.Location = new System.Drawing.Point(492, 114);
-            this.cxb_updateTotalWeight.Name = "cxb_updateTotalWeight";
-            this.cxb_updateTotalWeight.Size = new System.Drawing.Size(155, 22);
-            this.cxb_updateTotalWeight.TabIndex = 9;
-            this.cxb_updateTotalWeight.Text = "Update total weight";
-            this.cxb_updateTotalWeight.UseVisualStyleBackColor = true;
-            this.cxb_updateTotalWeight.CheckedChanged += new System.EventHandler(this.cxb_updateTotalWeight_CheckedChanged);
-            // 
-            // lb_erpCodeInfoLabel
-            // 
-            this.lb_erpCodeInfoLabel.AutoSize = true;
-            this.lb_erpCodeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_erpCodeInfoLabel.Location = new System.Drawing.Point(3, 9);
-            this.lb_erpCodeInfoLabel.Name = "lb_erpCodeInfoLabel";
-            this.lb_erpCodeInfoLabel.Size = new System.Drawing.Size(73, 17);
-            this.lb_erpCodeInfoLabel.TabIndex = 8;
-            this.lb_erpCodeInfoLabel.Text = "ERP Code";
-            // 
-            // lb_erpCodeInfo
-            // 
-            this.lb_erpCodeInfo.AutoSize = true;
-            this.lb_erpCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_erpCodeInfo.Location = new System.Drawing.Point(109, 9);
-            this.lb_erpCodeInfo.Name = "lb_erpCodeInfo";
-            this.lb_erpCodeInfo.Size = new System.Drawing.Size(18, 17);
-            this.lb_erpCodeInfo.TabIndex = 10;
-            this.lb_erpCodeInfo.Text = "..";
-            // 
-            // lb_prodCodeInfoLabel
-            // 
-            this.lb_prodCodeInfoLabel.AutoSize = true;
-            this.lb_prodCodeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_prodCodeInfoLabel.Location = new System.Drawing.Point(3, 45);
-            this.lb_prodCodeInfoLabel.Name = "lb_prodCodeInfoLabel";
-            this.lb_prodCodeInfoLabel.Size = new System.Drawing.Size(94, 17);
-            this.lb_prodCodeInfoLabel.TabIndex = 11;
-            this.lb_prodCodeInfoLabel.Text = "Product Code";
-            // 
-            // lb_prodCodeInfo
-            // 
-            this.lb_prodCodeInfo.AutoSize = true;
-            this.lb_prodCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_prodCodeInfo.Location = new System.Drawing.Point(109, 45);
-            this.lb_prodCodeInfo.Name = "lb_prodCodeInfo";
-            this.lb_prodCodeInfo.Size = new System.Drawing.Size(18, 17);
-            this.lb_prodCodeInfo.TabIndex = 12;
-            this.lb_prodCodeInfo.Text = "..";
-            // 
-            // lb_prodNameInfoLabel
-            // 
-            this.lb_prodNameInfoLabel.AutoSize = true;
-            this.lb_prodNameInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_prodNameInfoLabel.Location = new System.Drawing.Point(3, 81);
-            this.lb_prodNameInfoLabel.Name = "lb_prodNameInfoLabel";
-            this.lb_prodNameInfoLabel.Size = new System.Drawing.Size(98, 17);
-            this.lb_prodNameInfoLabel.TabIndex = 13;
-            this.lb_prodNameInfoLabel.Text = "Product Name";
-            // 
-            // lb_prodNameInfo
-            // 
-            this.lb_prodNameInfo.AutoSize = true;
-            this.lb_prodNameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_prodNameInfo.Location = new System.Drawing.Point(109, 81);
-            this.lb_prodNameInfo.Name = "lb_prodNameInfo";
-            this.lb_prodNameInfo.Size = new System.Drawing.Size(18, 17);
-            this.lb_prodNameInfo.TabIndex = 14;
-            this.lb_prodNameInfo.Text = "..";
+            this.btn_resetSearch.BackColor = System.Drawing.Color.Silver;
+            this.btn_resetSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_resetSearch.Location = new System.Drawing.Point(860, 13);
+            this.btn_resetSearch.Name = "btn_resetSearch";
+            this.btn_resetSearch.Size = new System.Drawing.Size(139, 62);
+            this.btn_resetSearch.TabIndex = 13;
+            this.btn_resetSearch.Text = "RESET";
+            this.btn_resetSearch.UseVisualStyleBackColor = false;
+            this.btn_resetSearch.Click += new System.EventHandler(this.btn_resetSearch_Click);
             // 
             // Scale2MES
             // 
@@ -579,8 +693,8 @@ namespace ElectronicScale2MES
             this.ClientSize = new System.Drawing.Size(1061, 673);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_mainTask);
+            this.Controls.Add(this.panel_selectData);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -589,17 +703,17 @@ namespace ElectronicScale2MES
             this.Text = "Scale2MES";
             this.Load += new System.EventHandler(this.Scale2MES_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_mesData)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel_selectData.ResumeLayout(false);
+            this.panel_selectData.PerformLayout();
+            this.panel_mainTask.ResumeLayout(false);
+            this.panel_mainTask.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -608,8 +722,8 @@ namespace ElectronicScale2MES
 
         private System.Windows.Forms.DataGridView dtgv_mesData;
         private System.Windows.Forms.TextBox txb_searchErpCode;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel_selectData;
+        private System.Windows.Forms.Panel panel_mainTask;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -634,7 +748,7 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.TextBox txb_searchProdCode;
         private System.Windows.Forms.Label lb_productCode;
         private System.Windows.Forms.Button btn_searchDatatable;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lb_materialCode;
         private System.Windows.Forms.Button btn_undoWeightAdding;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel4;
@@ -643,11 +757,21 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.CheckBox cxb_updateTotalWeight;
         private System.Windows.Forms.CheckBox cxb_stackWeight;
         private System.Windows.Forms.Button btn_resetTotalWeight;
-        private System.Windows.Forms.Label lb_prodNameInfo;
-        private System.Windows.Forms.Label lb_prodNameInfoLabel;
+        private System.Windows.Forms.Label lb_matCodeInfo;
+        private System.Windows.Forms.Label lb_matCodeInfoLabel;
         private System.Windows.Forms.Label lb_prodCodeInfo;
         private System.Windows.Forms.Label lb_prodCodeInfoLabel;
         private System.Windows.Forms.Label lb_erpCodeInfo;
         private System.Windows.Forms.Label lb_erpCodeInfoLabel;
+        private System.Windows.Forms.TextBox txb_searchMatCode;
+        private System.Windows.Forms.Label lb_finishQtyInfo;
+        private System.Windows.Forms.Label lb_finishQtyInfoLabel;
+        private System.Windows.Forms.Label lb_dispatchQtyInfo;
+        private System.Windows.Forms.Label lb_dispatchQtyInfoLabel;
+        private System.Windows.Forms.Label lb_planQtyInfo;
+        private System.Windows.Forms.Label lb_planQtyInfoLabel;
+        private System.Windows.Forms.Label lb_createDateInfo;
+        private System.Windows.Forms.Label lb_createDateInfoLabel;
+        private System.Windows.Forms.Button btn_resetSearch;
     }
 }

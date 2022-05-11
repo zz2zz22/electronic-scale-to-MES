@@ -14,13 +14,15 @@ namespace ElectronicScale2MES
     public partial class Scale2MES : Form
     {
         string dataIn;
-        double tempWeight;
+        double tempWeight = 0;
         double totalWeight = 0;
         public Scale2MES()
         {
             InitializeComponent();
             //txb_searchData.Text = UUIDGenerator.getAscId();
             dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
+            dtgv_mesData.Columns["UUID"].Visible = false;
+            
         }
 
         public DataTable GetDataFromMatsCode(string matsCode)
@@ -106,9 +108,16 @@ namespace ElectronicScale2MES
             if (cxb_stackWeight.Checked)
             {
                 lb_dataIn.Text = dataIn;
-                tempWeight = totalWeight;
-                totalWeight = totalWeight + double.Parse(dataIn);
-                lb_totalWeight.Text = totalWeight.ToString();
+                if (dataIn != null)
+                {
+                    tempWeight = totalWeight;
+                    totalWeight = totalWeight + double.Parse(dataIn);
+                    lb_totalWeight.Text = totalWeight.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
+                }
             }
             else if (cxb_updateTotalWeight.Checked)
             {
@@ -138,16 +147,17 @@ namespace ElectronicScale2MES
 
         private void btn_searchDatatable_Click(object sender, EventArgs e)
         {
-            DataRow[] results = GetBaseData.getWorkOrderDTtoDataGrid().Select("ERP_Code like '%" + txb_searchErpCode.Text.Trim() + "%' AND Product_Code like '%" + txb_searchProdCode.Text.Trim() + "%' ");
+            DataRow[] results = GetBaseData.getWorkOrderDTtoDataGrid().Select("ERP_Code like '%" + txb_searchErpCode.Text.Trim() + "%' AND Product_Code like '%" + txb_searchProdCode.Text.Trim() + "%' AND Material_Code like '%" + txb_searchMatCode.Text.Trim() + "%'");
             if (results.Length > 0)
             {
                 DataTable searchResultTable = results.CopyToDataTable();
                 dtgv_mesData.DataSource = null;
                 dtgv_mesData.DataSource = searchResultTable;
+                dtgv_mesData.Columns["UUID"].Visible = false;
             }
             else
             {
-                MessageBox.Show("Không tìm thấy kết quả nào!");
+                MessageBox.Show("No result!");
             }
         }
 
@@ -158,7 +168,12 @@ namespace ElectronicScale2MES
                 DataGridViewRow row = this.dtgv_mesData.Rows[e.RowIndex];
                 lb_erpCodeInfo.Text = row.Cells[0].Value.ToString();
                 lb_prodCodeInfo.Text = row.Cells[1].Value.ToString();
-                lb_prodNameInfo.Text = row.Cells[2].Value.ToString();
+                lb_matCodeInfo.Text = row.Cells[2].Value.ToString();
+                lb_planQtyInfo.Text = row.Cells[3].Value.ToString();
+                lb_dispatchQtyInfo.Text = row.Cells[4].Value.ToString();
+                lb_finishQtyInfo.Text = row.Cells[5].Value.ToString();
+                lb_createDateInfo.Text = row.Cells[6].Value.ToString();
+                
             }
         }
 
@@ -186,6 +201,28 @@ namespace ElectronicScale2MES
             {
                 cxb_stackWeight.Checked = true;
             }
+        }
+
+        private void btn_resetTotalWeight_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Reset total weight to 0?", "Reset confirmation", MessageBoxButtons.OKCancel);
+            if(dialogResult == DialogResult.OK)
+            {
+                lb_totalWeight.Text = "00.00";
+                totalWeight = 0;
+                tempWeight = 0;
+            }
+        }
+
+        private void btn_resetSearch_Click(object sender, EventArgs e)
+        {
+            dtgv_mesData.DataSource = null;
+            dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
+            dtgv_mesData.Columns["UUID"].Visible = false;
+            txb_searchErpCode.Text = "";
+            txb_searchMatCode.Text = "";
+            txb_searchProdCode.Text = "";
+            
         }
     }
 }

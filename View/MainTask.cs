@@ -22,5 +22,11 @@ namespace ElectronicScale2MES
             Scale2MES scale2MES = new Scale2MES();
             scale2MES.ShowDialog();
         }
+
+        private void xuibtn_changeDTB_Click(object sender, EventArgs e)
+        {
+            ChangeDatabase changeDatabase = new ChangeDatabase();
+            changeDatabase.ShowDialog();
+        }
     }
 }

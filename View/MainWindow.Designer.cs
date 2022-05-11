@@ -36,7 +36,6 @@ namespace ElectronicScale2MES
             this.tlp_mainWindow = new System.Windows.Forms.TableLayoutPanel();
             this.xuiWidgetPanel1 = new XanderUI.XUIWidgetPanel();
             this.ptb_logo = new System.Windows.Forms.PictureBox();
-            this.xuibtn_scaleConnect = new XanderUI.XUIButton();
             this.tableLayoutPanel2.SuspendLayout();
             this.tlp_mainWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
@@ -52,15 +51,13 @@ namespace ElectronicScale2MES
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.xuibtn_setting, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.xuibtn_mainTask, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.xuibtn_scaleConnect, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.xuibtn_mainTask, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.xuibtn_setting, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 175);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 89);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // xuibtn_setting
@@ -77,7 +74,7 @@ namespace ElectronicScale2MES
             this.xuibtn_setting.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.xuibtn_setting.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.xuibtn_setting.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuibtn_setting.Location = new System.Drawing.Point(3, 90);
+            this.xuibtn_setting.Location = new System.Drawing.Point(409, 3);
             this.xuibtn_setting.Name = "xuibtn_setting";
             this.xuibtn_setting.Size = new System.Drawing.Size(400, 82);
             this.xuibtn_setting.TabIndex = 2;
@@ -98,7 +95,7 @@ namespace ElectronicScale2MES
             this.xuibtn_mainTask.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.xuibtn_mainTask.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.xuibtn_mainTask.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuibtn_mainTask.Location = new System.Drawing.Point(409, 3);
+            this.xuibtn_mainTask.Location = new System.Drawing.Point(3, 3);
             this.xuibtn_mainTask.Name = "xuibtn_mainTask";
             this.xuibtn_mainTask.Size = new System.Drawing.Size(400, 81);
             this.xuibtn_mainTask.TabIndex = 1;
@@ -123,9 +120,9 @@ namespace ElectronicScale2MES
             // xuiWidgetPanel1
             // 
             this.xuiWidgetPanel1.ControlsAsWidgets = false;
-            this.xuiWidgetPanel1.Location = new System.Drawing.Point(3, 184);
+            this.xuiWidgetPanel1.Location = new System.Drawing.Point(3, 98);
             this.xuiWidgetPanel1.Name = "xuiWidgetPanel1";
-            this.xuiWidgetPanel1.Size = new System.Drawing.Size(809, 278);
+            this.xuiWidgetPanel1.Size = new System.Drawing.Size(809, 364);
             this.xuiWidgetPanel1.TabIndex = 1;
             // 
             // ptb_logo
@@ -137,28 +134,6 @@ namespace ElectronicScale2MES
             this.ptb_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptb_logo.TabIndex = 0;
             this.ptb_logo.TabStop = false;
-            // 
-            // xuibtn_scaleConnect
-            // 
-            this.xuibtn_scaleConnect.BackgroundColor = System.Drawing.Color.White;
-            this.xuibtn_scaleConnect.ButtonImage = global::ElectronicScale2MES.Properties.Resources.puzzle;
-            this.xuibtn_scaleConnect.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuibtn_scaleConnect.ButtonText = "SCALE CONNECT";
-            this.xuibtn_scaleConnect.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.xuibtn_scaleConnect.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.xuibtn_scaleConnect.CornerRadius = 5;
-            this.xuibtn_scaleConnect.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xuibtn_scaleConnect.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuibtn_scaleConnect.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.xuibtn_scaleConnect.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.xuibtn_scaleConnect.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuibtn_scaleConnect.Location = new System.Drawing.Point(3, 3);
-            this.xuibtn_scaleConnect.Name = "xuibtn_scaleConnect";
-            this.xuibtn_scaleConnect.Size = new System.Drawing.Size(400, 81);
-            this.xuibtn_scaleConnect.TabIndex = 0;
-            this.xuibtn_scaleConnect.TextColor = System.Drawing.Color.DodgerBlue;
-            this.xuibtn_scaleConnect.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.xuibtn_scaleConnect.Click += new System.EventHandler(this.xuibtn_scaleConnect_Click);
             // 
             // MainWindow
             // 
@@ -188,7 +163,6 @@ namespace ElectronicScale2MES
         private XanderUI.XUIButton xuibtn_mainTask;
         private System.Windows.Forms.TableLayoutPanel tlp_mainWindow;
         private XanderUI.XUIWidgetPanel xuiWidgetPanel1;
-        private XanderUI.XUIButton xuibtn_scaleConnect;
     }
 }
 

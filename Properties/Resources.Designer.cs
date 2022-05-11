@@ -73,6 +73,16 @@ namespace ElectronicScale2MES.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap geography {
+            get {
+                object obj = ResourceManager.GetObject("geography", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap key_person {
             get {
                 object obj = ResourceManager.GetObject("key-person", resourceCulture);
