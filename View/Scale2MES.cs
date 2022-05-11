@@ -141,6 +141,7 @@ namespace ElectronicScale2MES
 
         private void btn_portRefresh_Click(object sender, EventArgs e)
         {
+            cbComPort.Items.Clear();
             string[] ports = SerialPort.GetPortNames();
             cbComPort.Items.AddRange(ports);
         }
