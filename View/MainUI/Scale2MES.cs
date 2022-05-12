@@ -16,6 +16,7 @@ namespace ElectronicScale2MES
         string dataIn;
         double tempWeight = 0;
         double totalWeight = 0;
+        string tempWorkOrderUUID = "";
         public Scale2MES()
         {
             InitializeComponent();
@@ -55,8 +56,6 @@ namespace ElectronicScale2MES
             }
             if (serialPort1.IsOpen)
             {
-
-                Properties.Settings.Default.ScaleStatus = true;
                 if (btOpen.Enabled)
                 {
                     if (progressBar1.Value == 100)
@@ -83,7 +82,6 @@ namespace ElectronicScale2MES
             if (serialPort1.IsOpen)
             {
                 serialPort1.Close();
-                Properties.Settings.Default.ScaleStatus = false;
                 progressBar1.Value = 0;
             }
             if (btClose.Enabled)
@@ -113,6 +111,7 @@ namespace ElectronicScale2MES
                     tempWeight = totalWeight;
                     totalWeight = totalWeight + double.Parse(dataIn);
                     lb_totalWeight.Text = totalWeight.ToString();
+                    SaveVariables.scaleTotalQty = totalWeight;
                 }
                 else
                 {
@@ -121,8 +120,17 @@ namespace ElectronicScale2MES
             }
             else if (cxb_updateTotalWeight.Checked)
             {
-                lb_dataIn.Text = dataIn;
-                lb_totalWeight.Text = dataIn;
+                if (dataIn != null)
+                {
+                    lb_dataIn.Text = dataIn;
+                    lb_totalWeight.Text = dataIn;
+                    totalWeight = double.Parse(dataIn);
+                    SaveVariables.scaleTotalQty = double.Parse(dataIn);
+                }
+                else
+                {
+                    MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
+                }
             }
         }
 
@@ -168,13 +176,24 @@ namespace ElectronicScale2MES
             {
                 DataGridViewRow row = this.dtgv_mesData.Rows[e.RowIndex];
                 lb_erpCodeInfo.Text = row.Cells[0].Value.ToString();
+                SaveVariables.erpCode = lb_erpCodeInfo.Text;
                 lb_prodCodeInfo.Text = row.Cells[1].Value.ToString();
+                SaveVariables.productCode = lb_prodCodeInfo.Text;
                 lb_matCodeInfo.Text = row.Cells[2].Value.ToString();
+                SaveVariables.materialCode = lb_matCodeInfo.Text;
                 lb_planQtyInfo.Text = row.Cells[3].Value.ToString();
                 lb_dispatchQtyInfo.Text = row.Cells[4].Value.ToString();
+                if (lb_dispatchQtyInfo.Text != null)
+                {
+                    SaveVariables.dispatchQty = double.Parse(lb_dispatchQtyInfo.Text);
+                }
                 lb_finishQtyInfo.Text = row.Cells[5].Value.ToString();
+                if (lb_finishQtyInfo.Text != null)
+                {
+                    SaveVariables.finishQty = double.Parse(lb_finishQtyInfo.Text);
+                }
                 lb_createDateInfo.Text = row.Cells[6].Value.ToString();
-                
+                tempWorkOrderUUID = row.Cells[7].Value.ToString();
             }
         }
 
@@ -211,6 +230,7 @@ namespace ElectronicScale2MES
             {
                 lb_totalWeight.Text = "00.00";
                 totalWeight = 0;
+                SaveVariables.scaleTotalQty = totalWeight;
                 tempWeight = 0;
             }
         }
@@ -223,7 +243,41 @@ namespace ElectronicScale2MES
             txb_searchErpCode.Text = "";
             txb_searchMatCode.Text = "";
             txb_searchProdCode.Text = "";
-            
+        }
+
+        private void btn_save2MES_Click(object sender, EventArgs e)
+        {
+            if (totalWeight + SaveVariables.finishQty > SaveVariables.dispatchQty)
+            {
+                MessageBox.Show("The total quantity is exceed over the dispatch quantity!", "Alert");
+            }
+            else
+            {
+                if (tempWorkOrderUUID != "")
+                {
+                    SaveVariables.workOrderUUID = tempWorkOrderUUID;
+                }
+                if (SaveVariables.workOrderUUID != null)
+                {
+                    string btnClicked = SaveMESMessageBox.ShowBox();
+                }
+                else
+                {
+                    if (SaveVariables.scaleTotalQty == 0)
+                    {
+                        MessageBox.Show("Invalid scale input value!", "Alert");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please choose an order to proceed!", "Alert");
+                    }
+                }
+            }
+        }
+
+        private void Scale2MES_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

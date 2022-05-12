@@ -12,8 +12,7 @@ namespace ElectronicScale2MES
         
         public static string generateProdLotNo()
         {
-            SaveVariables saveVariables = new SaveVariables();
-            string prodLotNo = (GetBaseData.getProdNo(saveVariables.workOrderUUID) + prodDate).Trim();
+            string prodLotNo = (GetBaseData.getProdNo(SaveVariables.workOrderUUID) + prodDate).Trim();
             return prodLotNo;
         }
     }

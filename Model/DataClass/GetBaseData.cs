@@ -9,6 +9,7 @@ namespace ElectronicScale2MES
 {
     public class GetBaseData
     {
+        
         public static string getProdNo(string workOrderUUID)
         {
             StringBuilder sqlGetProdNo = new StringBuilder();

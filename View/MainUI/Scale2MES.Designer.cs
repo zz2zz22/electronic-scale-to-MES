@@ -33,6 +33,7 @@ namespace ElectronicScale2MES
             this.dtgv_mesData = new System.Windows.Forms.DataGridView();
             this.txb_searchErpCode = new System.Windows.Forms.TextBox();
             this.panel_selectData = new System.Windows.Forms.Panel();
+            this.btn_resetSearch = new System.Windows.Forms.Button();
             this.txb_searchMatCode = new System.Windows.Forms.TextBox();
             this.btn_searchDatatable = new System.Windows.Forms.Button();
             this.lb_materialCode = new System.Windows.Forms.Label();
@@ -57,7 +58,7 @@ namespace ElectronicScale2MES
             this.cxb_updateTotalWeight = new System.Windows.Forms.CheckBox();
             this.cxb_stackWeight = new System.Windows.Forms.CheckBox();
             this.btn_resetTotalWeight = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_save2MES = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lb_totalWeight = new System.Windows.Forms.Label();
             this.lb_totalWeightUnit = new System.Windows.Forms.Label();
@@ -82,7 +83,6 @@ namespace ElectronicScale2MES
             this.btClose = new System.Windows.Forms.Button();
             this.btOpen = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.btn_resetSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_mesData)).BeginInit();
             this.panel_selectData.SuspendLayout();
             this.panel_mainTask.SuspendLayout();
@@ -136,6 +136,18 @@ namespace ElectronicScale2MES
             this.panel_selectData.Name = "panel_selectData";
             this.panel_selectData.Size = new System.Drawing.Size(1037, 320);
             this.panel_selectData.TabIndex = 3;
+            // 
+            // btn_resetSearch
+            // 
+            this.btn_resetSearch.BackColor = System.Drawing.Color.Silver;
+            this.btn_resetSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_resetSearch.Location = new System.Drawing.Point(860, 13);
+            this.btn_resetSearch.Name = "btn_resetSearch";
+            this.btn_resetSearch.Size = new System.Drawing.Size(139, 62);
+            this.btn_resetSearch.TabIndex = 13;
+            this.btn_resetSearch.Text = "RESET";
+            this.btn_resetSearch.UseVisualStyleBackColor = false;
+            this.btn_resetSearch.Click += new System.EventHandler(this.btn_resetSearch_Click);
             // 
             // txb_searchMatCode
             // 
@@ -213,7 +225,7 @@ namespace ElectronicScale2MES
             this.panel_mainTask.Controls.Add(this.cxb_updateTotalWeight);
             this.panel_mainTask.Controls.Add(this.cxb_stackWeight);
             this.panel_mainTask.Controls.Add(this.btn_resetTotalWeight);
-            this.panel_mainTask.Controls.Add(this.button1);
+            this.panel_mainTask.Controls.Add(this.btn_save2MES);
             this.panel_mainTask.Controls.Add(this.panel4);
             this.panel_mainTask.Controls.Add(this.btn_undoWeightAdding);
             this.panel_mainTask.Controls.Add(this.panel3);
@@ -395,16 +407,17 @@ namespace ElectronicScale2MES
             this.btn_resetTotalWeight.UseVisualStyleBackColor = false;
             this.btn_resetTotalWeight.Click += new System.EventHandler(this.btn_resetTotalWeight_Click);
             // 
-            // button1
+            // btn_save2MES
             // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(538, 232);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 79);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "SAVE TO MES";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_save2MES.BackColor = System.Drawing.Color.Yellow;
+            this.btn_save2MES.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save2MES.Location = new System.Drawing.Point(538, 232);
+            this.btn_save2MES.Name = "btn_save2MES";
+            this.btn_save2MES.Size = new System.Drawing.Size(180, 79);
+            this.btn_save2MES.TabIndex = 6;
+            this.btn_save2MES.Text = "SAVE TO MES";
+            this.btn_save2MES.UseVisualStyleBackColor = false;
+            this.btn_save2MES.Click += new System.EventHandler(this.btn_save2MES_Click);
             // 
             // panel4
             // 
@@ -674,18 +687,6 @@ namespace ElectronicScale2MES
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // btn_resetSearch
-            // 
-            this.btn_resetSearch.BackColor = System.Drawing.Color.Silver;
-            this.btn_resetSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_resetSearch.Location = new System.Drawing.Point(860, 13);
-            this.btn_resetSearch.Name = "btn_resetSearch";
-            this.btn_resetSearch.Size = new System.Drawing.Size(139, 62);
-            this.btn_resetSearch.TabIndex = 13;
-            this.btn_resetSearch.Text = "RESET";
-            this.btn_resetSearch.UseVisualStyleBackColor = false;
-            this.btn_resetSearch.Click += new System.EventHandler(this.btn_resetSearch_Click);
-            // 
             // Scale2MES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -701,6 +702,7 @@ namespace ElectronicScale2MES
             this.Name = "Scale2MES";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Scale2MES";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Scale2MES_FormClosed);
             this.Load += new System.EventHandler(this.Scale2MES_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_mesData)).EndInit();
             this.panel_selectData.ResumeLayout(false);
@@ -750,7 +752,7 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.Button btn_searchDatatable;
         private System.Windows.Forms.Label lb_materialCode;
         private System.Windows.Forms.Button btn_undoWeightAdding;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_save2MES;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lb_totalWeight;
         private System.Windows.Forms.Label lb_totalWeightUnit;

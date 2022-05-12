@@ -25,13 +25,49 @@ namespace ElectronicScale2MES.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ScaleStatus {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int conType {
             get {
-                return ((bool)(this["ScaleStatus"]));
+                return ((int)(this["conType"]));
             }
             set {
-                this["ScaleStatus"] = value;
+                this["conType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string conHost {
+            get {
+                return ((string)(this["conHost"]));
+            }
+            set {
+                this["conHost"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string conUser {
+            get {
+                return ((string)(this["conUser"]));
+            }
+            set {
+                this["conUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string conPassword {
+            get {
+                return ((string)(this["conPassword"]));
+            }
+            set {
+                this["conPassword"] = value;
             }
         }
     }

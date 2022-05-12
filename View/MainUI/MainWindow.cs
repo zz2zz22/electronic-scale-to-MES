@@ -17,11 +17,6 @@ namespace ElectronicScale2MES
         {
             InitializeComponent();
         }
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.ScaleStatus = false;
-        }
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {

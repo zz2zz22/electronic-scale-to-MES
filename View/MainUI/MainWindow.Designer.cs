@@ -146,7 +146,6 @@ namespace ElectronicScale2MES
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Scale program";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tlp_mainWindow.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).EndInit();
