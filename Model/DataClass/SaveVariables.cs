@@ -15,5 +15,21 @@ namespace ElectronicScale2MES
         public static double finishQty { get; set; }
         public static String workOrderUUID { get; set; }
         public static double scaleTotalQty { get; set; }
+        public static String employeeUUID { get; set; }
+
+        public static void ResetVariables()
+        { 
+            erpCode = null;
+            workOrderUUID = null;
+            materialCode = null;
+            productCode = null;
+            finishQty = 0;
+            dispatchQty = 0;
+            scaleTotalQty = 0;
+        } 
+        public static void ResetEmployee()
+        {
+            employeeUUID = null;
+        }
     }
 }

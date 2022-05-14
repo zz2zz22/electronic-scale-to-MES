@@ -20,10 +20,7 @@ namespace ElectronicScale2MES
         public Scale2MES()
         {
             InitializeComponent();
-            //txb_searchData.Text = UUIDGenerator.getAscId();
-            dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
-            dtgv_mesData.Columns["UUID"].Visible = false;
-            
+            //txb_searchData.Text = UUIDGenerator.getAscId();  
         }
 
         public DataTable GetDataFromMatsCode(string matsCode)
@@ -145,6 +142,20 @@ namespace ElectronicScale2MES
             serialPort1.RtsEnable = false;
 
             cbComPort.Enabled = true;
+
+            dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
+            dtgv_mesData.Columns["UUID"].Visible = false;
+            DataTable dt = new DataTable();
+            sqlMesBaseDataCon sqlMesBaseData = new sqlMesBaseDataCon();
+            StringBuilder sqlSelectEmployee = new StringBuilder();
+            sqlSelectEmployee.Append("SELECT UUID AS EmpUID, CONCAT(CODE,' - ' ,NAME) AS EmpCodeName ");
+            sqlSelectEmployee.Append("FROM mes_base_data.employee_info WHERE employee_info.uuid ");
+            sqlSelectEmployee.Append("IN(SELECT DISTINCT group_employee.employee_uuid FROM mes_base_data.group_employee ");
+            sqlSelectEmployee.Append("WHERE group_employee.group_uuid = '44Z7XSMACV41' AND group_employee.delete_flag = '0') AND employee_info.delete_flag = '0'");
+            sqlMesBaseData.sqlDataAdapterFillDatatable(sqlSelectEmployee.ToString(), ref dt);
+            this.cbx_employeeInfo.DataSource = dt;
+            this.cbx_employeeInfo.DisplayMember = "EmpCodeName";
+            this.cbx_employeeInfo.ValueMember = "EmpUID";
         }
 
         private void btn_portRefresh_Click(object sender, EventArgs e)
@@ -192,7 +203,6 @@ namespace ElectronicScale2MES
                 {
                     SaveVariables.finishQty = double.Parse(lb_finishQtyInfo.Text);
                 }
-                lb_createDateInfo.Text = row.Cells[6].Value.ToString();
                 tempWorkOrderUUID = row.Cells[7].Value.ToString();
             }
         }
@@ -260,12 +270,16 @@ namespace ElectronicScale2MES
                 if (SaveVariables.workOrderUUID != null)
                 {
                     string btnClicked = SaveMESMessageBox.ShowBox();
+                    if (btnClicked == "1")
+                    {
+                        //Run Upload logic here
+                    }
                 }
                 else
                 {
                     if (SaveVariables.scaleTotalQty == 0)
                     {
-                        MessageBox.Show("Invalid scale input value!", "Alert");
+                        MessageBox.Show("Invalid input value!", "Alert");
                     }
                     else
                     {
@@ -276,6 +290,11 @@ namespace ElectronicScale2MES
         }
 
         private void Scale2MES_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SaveVariables.ResetVariables();
+        }
+
+        private void btn_addNGQty_Click(object sender, EventArgs e)
         {
 
         }

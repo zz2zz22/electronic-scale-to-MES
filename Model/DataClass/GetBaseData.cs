@@ -9,14 +9,21 @@ namespace ElectronicScale2MES
 {
     public class GetBaseData
     {
-        
-        public static string getProdNo(string workOrderUUID)
+        public static string prodDate = DateTime.Now.ToString("yyyyMdd");
+        private static String moveNo = "";
+        public static String moveNoGenerate()
+        {
+            DateTime date = DateTime.Now;
+            moveNo = "MV" + date.ToString("yyyyMMddHHmmssfff");
+            return moveNo;
+        }
+        public static string getProdLotNo(string workOrderUUID)
         {
             StringBuilder sqlGetProdNo = new StringBuilder();
             sqlMesPlanningExcutionCon sqlMesPlanningExcutionCon = new sqlMesPlanningExcutionCon();
             sqlGetProdNo.Append("Select distinct product_no from job_order where work_order_uuid = '" + workOrderUUID + "' and delete_flag = 0");
             string prodNo = sqlMesPlanningExcutionCon.sqlExecuteScalarString(sqlGetProdNo.ToString());
-            return prodNo;
+            return (prodNo + prodDate).Trim();
         }
         public static DataTable getWorkOrderDTtoDataGrid()
         {

@@ -40,9 +40,7 @@ namespace ElectronicScale2MES
             this.txb_searchProdCode = new System.Windows.Forms.TextBox();
             this.lb_productCode = new System.Windows.Forms.Label();
             this.lb_erpCode = new System.Windows.Forms.Label();
-            this.panel_mainTask = new System.Windows.Forms.Panel();
-            this.lb_createDateInfo = new System.Windows.Forms.Label();
-            this.lb_createDateInfoLabel = new System.Windows.Forms.Label();
+            this.btn_addNGQty = new System.Windows.Forms.Button();
             this.lb_finishQtyInfo = new System.Windows.Forms.Label();
             this.lb_finishQtyInfoLabel = new System.Windows.Forms.Label();
             this.lb_dispatchQtyInfo = new System.Windows.Forms.Label();
@@ -83,13 +81,16 @@ namespace ElectronicScale2MES
             this.btClose = new System.Windows.Forms.Button();
             this.btOpen = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.grbx_dataInfos = new System.Windows.Forms.GroupBox();
+            this.cbx_employeeInfo = new System.Windows.Forms.ComboBox();
+            this.lb_employeeInfoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_mesData)).BeginInit();
             this.panel_selectData.SuspendLayout();
-            this.panel_mainTask.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.grbx_dataInfos.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgv_mesData
@@ -206,59 +207,22 @@ namespace ElectronicScale2MES
             this.lb_erpCode.TabIndex = 3;
             this.lb_erpCode.Text = "ERP Code";
             // 
-            // panel_mainTask
+            // btn_addNGQty
             // 
-            this.panel_mainTask.Controls.Add(this.lb_createDateInfo);
-            this.panel_mainTask.Controls.Add(this.lb_createDateInfoLabel);
-            this.panel_mainTask.Controls.Add(this.lb_finishQtyInfo);
-            this.panel_mainTask.Controls.Add(this.lb_finishQtyInfoLabel);
-            this.panel_mainTask.Controls.Add(this.lb_dispatchQtyInfo);
-            this.panel_mainTask.Controls.Add(this.lb_dispatchQtyInfoLabel);
-            this.panel_mainTask.Controls.Add(this.lb_planQtyInfo);
-            this.panel_mainTask.Controls.Add(this.lb_planQtyInfoLabel);
-            this.panel_mainTask.Controls.Add(this.lb_matCodeInfo);
-            this.panel_mainTask.Controls.Add(this.lb_matCodeInfoLabel);
-            this.panel_mainTask.Controls.Add(this.lb_prodCodeInfo);
-            this.panel_mainTask.Controls.Add(this.lb_prodCodeInfoLabel);
-            this.panel_mainTask.Controls.Add(this.lb_erpCodeInfo);
-            this.panel_mainTask.Controls.Add(this.lb_erpCodeInfoLabel);
-            this.panel_mainTask.Controls.Add(this.cxb_updateTotalWeight);
-            this.panel_mainTask.Controls.Add(this.cxb_stackWeight);
-            this.panel_mainTask.Controls.Add(this.btn_resetTotalWeight);
-            this.panel_mainTask.Controls.Add(this.btn_save2MES);
-            this.panel_mainTask.Controls.Add(this.panel4);
-            this.panel_mainTask.Controls.Add(this.btn_undoWeightAdding);
-            this.panel_mainTask.Controls.Add(this.panel3);
-            this.panel_mainTask.Location = new System.Drawing.Point(293, 335);
-            this.panel_mainTask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel_mainTask.Name = "panel_mainTask";
-            this.panel_mainTask.Size = new System.Drawing.Size(756, 327);
-            this.panel_mainTask.TabIndex = 4;
-            // 
-            // lb_createDateInfo
-            // 
-            this.lb_createDateInfo.AutoSize = true;
-            this.lb_createDateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_createDateInfo.Location = new System.Drawing.Point(119, 181);
-            this.lb_createDateInfo.Name = "lb_createDateInfo";
-            this.lb_createDateInfo.Size = new System.Drawing.Size(0, 17);
-            this.lb_createDateInfo.TabIndex = 24;
-            // 
-            // lb_createDateInfoLabel
-            // 
-            this.lb_createDateInfoLabel.AutoSize = true;
-            this.lb_createDateInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_createDateInfoLabel.Location = new System.Drawing.Point(13, 181);
-            this.lb_createDateInfoLabel.Name = "lb_createDateInfoLabel";
-            this.lb_createDateInfoLabel.Size = new System.Drawing.Size(84, 17);
-            this.lb_createDateInfoLabel.TabIndex = 23;
-            this.lb_createDateInfoLabel.Text = "Create Date";
+            this.btn_addNGQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_addNGQty.Location = new System.Drawing.Point(632, 147);
+            this.btn_addNGQty.Name = "btn_addNGQty";
+            this.btn_addNGQty.Size = new System.Drawing.Size(116, 68);
+            this.btn_addNGQty.TabIndex = 25;
+            this.btn_addNGQty.Text = "ADD NOT GOOD QUANTITY";
+            this.btn_addNGQty.UseVisualStyleBackColor = true;
+            this.btn_addNGQty.Click += new System.EventHandler(this.btn_addNGQty_Click);
             // 
             // lb_finishQtyInfo
             // 
             this.lb_finishQtyInfo.AutoSize = true;
             this.lb_finishQtyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_finishQtyInfo.Location = new System.Drawing.Point(398, 84);
+            this.lb_finishQtyInfo.Location = new System.Drawing.Point(125, 201);
             this.lb_finishQtyInfo.Name = "lb_finishQtyInfo";
             this.lb_finishQtyInfo.Size = new System.Drawing.Size(0, 17);
             this.lb_finishQtyInfo.TabIndex = 22;
@@ -267,7 +231,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_finishQtyInfoLabel.AutoSize = true;
             this.lb_finishQtyInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_finishQtyInfoLabel.Location = new System.Drawing.Point(303, 81);
+            this.lb_finishQtyInfoLabel.Location = new System.Drawing.Point(16, 198);
             this.lb_finishQtyInfoLabel.Name = "lb_finishQtyInfoLabel";
             this.lb_finishQtyInfoLabel.Size = new System.Drawing.Size(71, 17);
             this.lb_finishQtyInfoLabel.TabIndex = 21;
@@ -277,7 +241,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_dispatchQtyInfo.AutoSize = true;
             this.lb_dispatchQtyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dispatchQtyInfo.Location = new System.Drawing.Point(398, 45);
+            this.lb_dispatchQtyInfo.Location = new System.Drawing.Point(125, 162);
             this.lb_dispatchQtyInfo.Name = "lb_dispatchQtyInfo";
             this.lb_dispatchQtyInfo.Size = new System.Drawing.Size(0, 17);
             this.lb_dispatchQtyInfo.TabIndex = 20;
@@ -286,7 +250,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_dispatchQtyInfoLabel.AutoSize = true;
             this.lb_dispatchQtyInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dispatchQtyInfoLabel.Location = new System.Drawing.Point(303, 45);
+            this.lb_dispatchQtyInfoLabel.Location = new System.Drawing.Point(16, 162);
             this.lb_dispatchQtyInfoLabel.Name = "lb_dispatchQtyInfoLabel";
             this.lb_dispatchQtyInfoLabel.Size = new System.Drawing.Size(89, 17);
             this.lb_dispatchQtyInfoLabel.TabIndex = 19;
@@ -296,7 +260,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_planQtyInfo.AutoSize = true;
             this.lb_planQtyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_planQtyInfo.Location = new System.Drawing.Point(398, 9);
+            this.lb_planQtyInfo.Location = new System.Drawing.Point(125, 126);
             this.lb_planQtyInfo.Name = "lb_planQtyInfo";
             this.lb_planQtyInfo.Size = new System.Drawing.Size(0, 17);
             this.lb_planQtyInfo.TabIndex = 18;
@@ -305,7 +269,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_planQtyInfoLabel.AutoSize = true;
             this.lb_planQtyInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_planQtyInfoLabel.Location = new System.Drawing.Point(304, 9);
+            this.lb_planQtyInfoLabel.Location = new System.Drawing.Point(16, 126);
             this.lb_planQtyInfoLabel.Name = "lb_planQtyInfoLabel";
             this.lb_planQtyInfoLabel.Size = new System.Drawing.Size(62, 17);
             this.lb_planQtyInfoLabel.TabIndex = 17;
@@ -315,7 +279,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_matCodeInfo.AutoSize = true;
             this.lb_matCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_matCodeInfo.Location = new System.Drawing.Point(17, 144);
+            this.lb_matCodeInfo.Location = new System.Drawing.Point(125, 87);
             this.lb_matCodeInfo.Name = "lb_matCodeInfo";
             this.lb_matCodeInfo.Size = new System.Drawing.Size(0, 17);
             this.lb_matCodeInfo.TabIndex = 14;
@@ -324,7 +288,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_matCodeInfoLabel.AutoSize = true;
             this.lb_matCodeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_matCodeInfoLabel.Location = new System.Drawing.Point(3, 111);
+            this.lb_matCodeInfoLabel.Location = new System.Drawing.Point(16, 87);
             this.lb_matCodeInfoLabel.Name = "lb_matCodeInfoLabel";
             this.lb_matCodeInfoLabel.Size = new System.Drawing.Size(95, 17);
             this.lb_matCodeInfoLabel.TabIndex = 13;
@@ -334,7 +298,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_prodCodeInfo.AutoSize = true;
             this.lb_prodCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_prodCodeInfo.Location = new System.Drawing.Point(17, 81);
+            this.lb_prodCodeInfo.Location = new System.Drawing.Point(125, 54);
             this.lb_prodCodeInfo.Name = "lb_prodCodeInfo";
             this.lb_prodCodeInfo.Size = new System.Drawing.Size(0, 17);
             this.lb_prodCodeInfo.TabIndex = 12;
@@ -343,7 +307,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_prodCodeInfoLabel.AutoSize = true;
             this.lb_prodCodeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_prodCodeInfoLabel.Location = new System.Drawing.Point(4, 53);
+            this.lb_prodCodeInfoLabel.Location = new System.Drawing.Point(16, 54);
             this.lb_prodCodeInfoLabel.Name = "lb_prodCodeInfoLabel";
             this.lb_prodCodeInfoLabel.Size = new System.Drawing.Size(94, 17);
             this.lb_prodCodeInfoLabel.TabIndex = 11;
@@ -353,7 +317,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_erpCodeInfo.AutoSize = true;
             this.lb_erpCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_erpCodeInfo.Location = new System.Drawing.Point(82, 9);
+            this.lb_erpCodeInfo.Location = new System.Drawing.Point(125, 24);
             this.lb_erpCodeInfo.Name = "lb_erpCodeInfo";
             this.lb_erpCodeInfo.Size = new System.Drawing.Size(0, 17);
             this.lb_erpCodeInfo.TabIndex = 10;
@@ -362,7 +326,7 @@ namespace ElectronicScale2MES
             // 
             this.lb_erpCodeInfoLabel.AutoSize = true;
             this.lb_erpCodeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_erpCodeInfoLabel.Location = new System.Drawing.Point(3, 9);
+            this.lb_erpCodeInfoLabel.Location = new System.Drawing.Point(16, 24);
             this.lb_erpCodeInfoLabel.Name = "lb_erpCodeInfoLabel";
             this.lb_erpCodeInfoLabel.Size = new System.Drawing.Size(73, 17);
             this.lb_erpCodeInfoLabel.TabIndex = 8;
@@ -374,7 +338,7 @@ namespace ElectronicScale2MES
             this.cxb_updateTotalWeight.Checked = true;
             this.cxb_updateTotalWeight.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cxb_updateTotalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cxb_updateTotalWeight.Location = new System.Drawing.Point(492, 114);
+            this.cxb_updateTotalWeight.Location = new System.Drawing.Point(476, 157);
             this.cxb_updateTotalWeight.Name = "cxb_updateTotalWeight";
             this.cxb_updateTotalWeight.Size = new System.Drawing.Size(155, 22);
             this.cxb_updateTotalWeight.TabIndex = 9;
@@ -386,7 +350,7 @@ namespace ElectronicScale2MES
             // 
             this.cxb_stackWeight.AutoSize = true;
             this.cxb_stackWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cxb_stackWeight.Location = new System.Drawing.Point(492, 81);
+            this.cxb_stackWeight.Location = new System.Drawing.Point(476, 187);
             this.cxb_stackWeight.Name = "cxb_stackWeight";
             this.cxb_stackWeight.Size = new System.Drawing.Size(150, 22);
             this.cxb_stackWeight.TabIndex = 8;
@@ -399,9 +363,9 @@ namespace ElectronicScale2MES
             this.btn_resetTotalWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_resetTotalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_resetTotalWeight.ForeColor = System.Drawing.Color.White;
-            this.btn_resetTotalWeight.Location = new System.Drawing.Point(345, 283);
+            this.btn_resetTotalWeight.Location = new System.Drawing.Point(809, 634);
             this.btn_resetTotalWeight.Name = "btn_resetTotalWeight";
-            this.btn_resetTotalWeight.Size = new System.Drawing.Size(129, 32);
+            this.btn_resetTotalWeight.Size = new System.Drawing.Size(97, 32);
             this.btn_resetTotalWeight.TabIndex = 7;
             this.btn_resetTotalWeight.Text = "RESET";
             this.btn_resetTotalWeight.UseVisualStyleBackColor = false;
@@ -411,9 +375,9 @@ namespace ElectronicScale2MES
             // 
             this.btn_save2MES.BackColor = System.Drawing.Color.Yellow;
             this.btn_save2MES.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save2MES.Location = new System.Drawing.Point(538, 232);
+            this.btn_save2MES.Location = new System.Drawing.Point(912, 583);
             this.btn_save2MES.Name = "btn_save2MES";
-            this.btn_save2MES.Size = new System.Drawing.Size(180, 79);
+            this.btn_save2MES.Size = new System.Drawing.Size(137, 79);
             this.btn_save2MES.TabIndex = 6;
             this.btn_save2MES.Text = "SAVE TO MES";
             this.btn_save2MES.UseVisualStyleBackColor = false;
@@ -424,7 +388,7 @@ namespace ElectronicScale2MES
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Controls.Add(this.lb_totalWeight);
             this.panel4.Controls.Add(this.lb_totalWeightUnit);
-            this.panel4.Location = new System.Drawing.Point(3, 232);
+            this.panel4.Location = new System.Drawing.Point(467, 583);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(336, 83);
             this.panel4.TabIndex = 5;
@@ -434,7 +398,7 @@ namespace ElectronicScale2MES
             this.lb_totalWeight.AutoSize = true;
             this.lb_totalWeight.Font = new System.Drawing.Font("DS-Digital", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_totalWeight.ForeColor = System.Drawing.Color.White;
-            this.lb_totalWeight.Location = new System.Drawing.Point(3, 0);
+            this.lb_totalWeight.Location = new System.Drawing.Point(12, 8);
             this.lb_totalWeight.Name = "lb_totalWeight";
             this.lb_totalWeight.Size = new System.Drawing.Size(204, 79);
             this.lb_totalWeight.TabIndex = 0;
@@ -457,9 +421,9 @@ namespace ElectronicScale2MES
             this.btn_undoWeightAdding.BackColor = System.Drawing.Color.Gray;
             this.btn_undoWeightAdding.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_undoWeightAdding.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_undoWeightAdding.Location = new System.Drawing.Point(345, 232);
+            this.btn_undoWeightAdding.Location = new System.Drawing.Point(809, 583);
             this.btn_undoWeightAdding.Name = "btn_undoWeightAdding";
-            this.btn_undoWeightAdding.Size = new System.Drawing.Size(129, 46);
+            this.btn_undoWeightAdding.Size = new System.Drawing.Size(97, 46);
             this.btn_undoWeightAdding.TabIndex = 4;
             this.btn_undoWeightAdding.Text = "UNDO";
             this.btn_undoWeightAdding.UseVisualStyleBackColor = false;
@@ -469,7 +433,7 @@ namespace ElectronicScale2MES
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Controls.Add(this.lb_dataIn);
             this.panel3.Controls.Add(this.lb_dataUnit);
-            this.panel3.Location = new System.Drawing.Point(492, 6);
+            this.panel3.Location = new System.Drawing.Point(214, 147);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(256, 68);
             this.panel3.TabIndex = 2;
@@ -687,18 +651,70 @@ namespace ElectronicScale2MES
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
+            // grbx_dataInfos
+            // 
+            this.grbx_dataInfos.Controls.Add(this.lb_employeeInfoLabel);
+            this.grbx_dataInfos.Controls.Add(this.cbx_employeeInfo);
+            this.grbx_dataInfos.Controls.Add(this.btn_addNGQty);
+            this.grbx_dataInfos.Controls.Add(this.lb_erpCodeInfoLabel);
+            this.grbx_dataInfos.Controls.Add(this.lb_finishQtyInfo);
+            this.grbx_dataInfos.Controls.Add(this.panel3);
+            this.grbx_dataInfos.Controls.Add(this.lb_finishQtyInfoLabel);
+            this.grbx_dataInfos.Controls.Add(this.cxb_stackWeight);
+            this.grbx_dataInfos.Controls.Add(this.lb_dispatchQtyInfo);
+            this.grbx_dataInfos.Controls.Add(this.cxb_updateTotalWeight);
+            this.grbx_dataInfos.Controls.Add(this.lb_dispatchQtyInfoLabel);
+            this.grbx_dataInfos.Controls.Add(this.lb_erpCodeInfo);
+            this.grbx_dataInfos.Controls.Add(this.lb_planQtyInfo);
+            this.grbx_dataInfos.Controls.Add(this.lb_prodCodeInfoLabel);
+            this.grbx_dataInfos.Controls.Add(this.lb_planQtyInfoLabel);
+            this.grbx_dataInfos.Controls.Add(this.lb_prodCodeInfo);
+            this.grbx_dataInfos.Controls.Add(this.lb_matCodeInfo);
+            this.grbx_dataInfos.Controls.Add(this.lb_matCodeInfoLabel);
+            this.grbx_dataInfos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbx_dataInfos.Location = new System.Drawing.Point(293, 340);
+            this.grbx_dataInfos.Name = "grbx_dataInfos";
+            this.grbx_dataInfos.Size = new System.Drawing.Size(756, 235);
+            this.grbx_dataInfos.TabIndex = 26;
+            this.grbx_dataInfos.TabStop = false;
+            this.grbx_dataInfos.Text = "Data Information";
+            // 
+            // cbx_employeeInfo
+            // 
+            this.cbx_employeeInfo.FormattingEnabled = true;
+            this.cbx_employeeInfo.Location = new System.Drawing.Point(391, 16);
+            this.cbx_employeeInfo.Name = "cbx_employeeInfo";
+            this.cbx_employeeInfo.Size = new System.Drawing.Size(327, 24);
+            this.cbx_employeeInfo.TabIndex = 26;
+            // 
+            // lb_employeeInfoLabel
+            // 
+            this.lb_employeeInfoLabel.AutoSize = true;
+            this.lb_employeeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_employeeInfoLabel.Location = new System.Drawing.Point(315, 23);
+            this.lb_employeeInfoLabel.Name = "lb_employeeInfoLabel";
+            this.lb_employeeInfoLabel.Size = new System.Drawing.Size(70, 17);
+            this.lb_employeeInfoLabel.TabIndex = 27;
+            this.lb_employeeInfoLabel.Text = "Employee";
+            // 
             // Scale2MES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 673);
+            this.Controls.Add(this.btn_resetTotalWeight);
+            this.Controls.Add(this.grbx_dataInfos);
+            this.Controls.Add(this.btn_save2MES);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.btn_undoWeightAdding);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.panel_mainTask);
             this.Controls.Add(this.panel_selectData);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1079, 720);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1079, 720);
             this.Name = "Scale2MES";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Scale2MES";
@@ -707,8 +723,6 @@ namespace ElectronicScale2MES
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_mesData)).EndInit();
             this.panel_selectData.ResumeLayout(false);
             this.panel_selectData.PerformLayout();
-            this.panel_mainTask.ResumeLayout(false);
-            this.panel_mainTask.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -716,6 +730,8 @@ namespace ElectronicScale2MES
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.grbx_dataInfos.ResumeLayout(false);
+            this.grbx_dataInfos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -725,7 +741,6 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.DataGridView dtgv_mesData;
         private System.Windows.Forms.TextBox txb_searchErpCode;
         private System.Windows.Forms.Panel panel_selectData;
-        private System.Windows.Forms.Panel panel_mainTask;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -772,8 +787,10 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.Label lb_dispatchQtyInfoLabel;
         private System.Windows.Forms.Label lb_planQtyInfo;
         private System.Windows.Forms.Label lb_planQtyInfoLabel;
-        private System.Windows.Forms.Label lb_createDateInfo;
-        private System.Windows.Forms.Label lb_createDateInfoLabel;
         private System.Windows.Forms.Button btn_resetSearch;
+        private System.Windows.Forms.Button btn_addNGQty;
+        private System.Windows.Forms.GroupBox grbx_dataInfos;
+        private System.Windows.Forms.Label lb_employeeInfoLabel;
+        private System.Windows.Forms.ComboBox cbx_employeeInfo;
     }
 }

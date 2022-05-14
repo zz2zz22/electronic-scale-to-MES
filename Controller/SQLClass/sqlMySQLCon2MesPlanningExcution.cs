@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace ElectronicScale2MES
 {
-    class sqlMesPlanningExcutionCon
+    public class sqlMySQLCon2MesPlanningExcution
     {
-        public MySqlConnection conn = DatabaseUtils.GetMes_Planning_ExcutionDBC();
 
+        public MySqlConnection conn = DatabaseUtils.GetMes_Planning_ExcutionDBC();
         public string sqlExecuteScalarString(string sql)
         {
 
@@ -69,7 +69,7 @@ namespace ElectronicScale2MES
             }
             catch (Exception)
             {
-              
+
             }
         }
         public bool sqlExecuteNonQuery(string sql)
@@ -82,6 +82,7 @@ namespace ElectronicScale2MES
                 int response = cmd.ExecuteNonQuery();
                 if (response >= 1)
                 {
+
                     conn.Close();
                     return true;
                 }

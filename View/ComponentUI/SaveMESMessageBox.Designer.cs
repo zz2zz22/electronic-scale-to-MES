@@ -200,7 +200,10 @@ namespace ElectronicScale2MES
             this.Controls.Add(this.lb_prodCode);
             this.Controls.Add(this.lb_erpCode);
             this.Controls.Add(this.lb_messageText);
+            this.MaximumSize = new System.Drawing.Size(724, 276);
+            this.MinimumSize = new System.Drawing.Size(724, 276);
             this.Name = "SaveMESMessageBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Confirmation";
             this.Load += new System.EventHandler(this.CustomMessageBox_Load);
             this.ResumeLayout(false);

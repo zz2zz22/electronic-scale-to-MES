@@ -183,13 +183,12 @@
   <ItemGroup>
     <Compile Include="Controller\SQLClass\DatabaseSQLServerUtils.cs" />
     <Compile Include="Controller\SQLClass\DatabaseUtils.cs" />
-    <Compile Include="Controller\SQLClass\sqlCustomCon2MesPlanningExcution.cs" />
+    <Compile Include="Controller\SQLClass\sqlMesBaseDataCon.cs" />
+    <Compile Include="Controller\SQLClass\sqlMySQLCon2MesPlanningExcution.cs" />
     <Compile Include="Controller\SQLClass\sqlMesPlanningExcutionCon.cs" />
     <Compile Include="Model\DataClass\GetBaseData.cs" />
     <Compile Include="Model\DataClass\SaveVariables.cs" />
     <Compile Include="Model\LogicClass\HexTransformatUtil.cs" />
-    <Compile Include="Model\LogicClass\MoveNoGenerator.cs" />
-    <Compile Include="Model\LogicClass\ProdLotNoGenerator.cs" />
     <Compile Include="Model\DataClass\UploadLogic.cs" />
     <Compile Include="Model\LogicClass\UUIDGenerator.cs" />
     <Compile Include="Program.cs" />

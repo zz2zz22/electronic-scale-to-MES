@@ -9,10 +9,9 @@ using System.Windows.Forms;
 
 namespace ElectronicScale2MES
 {
-    class sqlCustomCon2MesPlanningExcution
+    public class sqlMesBaseDataCon
     {
-        public MySqlConnection conn = DatabaseUtils.GetCustom2MesPlanningExcutionCon();
-
+        public MySqlConnection conn = DatabaseUtils.GetMes_Base_DataDBC();
         public string sqlExecuteScalarString(string sql)
         {
 
