@@ -1,7 +1,7 @@
 ﻿
 namespace ElectronicScale2MES
 {
-    partial class ChangeDatabase
+    partial class AddNotGoodQuantityUI
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,10 @@ namespace ElectronicScale2MES
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // ChangeDatabase
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "ChangeDatabase";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-
+            this.Text = "AddNotGoodQuantityUI";
         }
 
         #endregion

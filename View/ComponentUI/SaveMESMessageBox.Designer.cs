@@ -40,9 +40,10 @@ namespace ElectronicScale2MES
             this.lb_matCodeInfo = new System.Windows.Forms.Label();
             this.lb_scaleQtyInfo = new System.Windows.Forms.Label();
             this.lb_dispatchQtyInfo = new System.Windows.Forms.Label();
-            this.lb_testUUID = new System.Windows.Forms.Label();
             this.btn_msgBoxConfirm = new System.Windows.Forms.Button();
             this.btn_msgBoxCancel = new System.Windows.Forms.Button();
+            this.lb_employee = new System.Windows.Forms.Label();
+            this.lb_employeeInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lb_messageText
@@ -146,22 +147,12 @@ namespace ElectronicScale2MES
             this.lb_dispatchQtyInfo.Size = new System.Drawing.Size(0, 17);
             this.lb_dispatchQtyInfo.TabIndex = 10;
             // 
-            // lb_testUUID
-            // 
-            this.lb_testUUID.AutoSize = true;
-            this.lb_testUUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_testUUID.Location = new System.Drawing.Point(544, 135);
-            this.lb_testUUID.Name = "lb_testUUID";
-            this.lb_testUUID.Size = new System.Drawing.Size(52, 17);
-            this.lb_testUUID.TabIndex = 11;
-            this.lb_testUUID.Text = "label1";
-            // 
             // btn_msgBoxConfirm
             // 
             this.btn_msgBoxConfirm.BackColor = System.Drawing.Color.Red;
             this.btn_msgBoxConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_msgBoxConfirm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_msgBoxConfirm.Location = new System.Drawing.Point(414, 174);
+            this.btn_msgBoxConfirm.Location = new System.Drawing.Point(415, 218);
             this.btn_msgBoxConfirm.Name = "btn_msgBoxConfirm";
             this.btn_msgBoxConfirm.Size = new System.Drawing.Size(129, 43);
             this.btn_msgBoxConfirm.TabIndex = 12;
@@ -172,7 +163,7 @@ namespace ElectronicScale2MES
             // btn_msgBoxCancel
             // 
             this.btn_msgBoxCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_msgBoxCancel.Location = new System.Drawing.Point(565, 174);
+            this.btn_msgBoxCancel.Location = new System.Drawing.Point(566, 218);
             this.btn_msgBoxCancel.Name = "btn_msgBoxCancel";
             this.btn_msgBoxCancel.Size = new System.Drawing.Size(129, 43);
             this.btn_msgBoxCancel.TabIndex = 13;
@@ -180,15 +171,34 @@ namespace ElectronicScale2MES
             this.btn_msgBoxCancel.UseVisualStyleBackColor = true;
             this.btn_msgBoxCancel.Click += new System.EventHandler(this.btn_msgBoxCancel_Click);
             // 
+            // lb_employee
+            // 
+            this.lb_employee.AutoSize = true;
+            this.lb_employee.Location = new System.Drawing.Point(16, 182);
+            this.lb_employee.Name = "lb_employee";
+            this.lb_employee.Size = new System.Drawing.Size(74, 17);
+            this.lb_employee.TabIndex = 14;
+            this.lb_employee.Text = "Employee:";
+            // 
+            // lb_employeeInfo
+            // 
+            this.lb_employeeInfo.AutoSize = true;
+            this.lb_employeeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_employeeInfo.Location = new System.Drawing.Point(122, 182);
+            this.lb_employeeInfo.Name = "lb_employeeInfo";
+            this.lb_employeeInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_employeeInfo.TabIndex = 15;
+            // 
             // SaveMESMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(706, 229);
+            this.ClientSize = new System.Drawing.Size(706, 273);
             this.ControlBox = false;
+            this.Controls.Add(this.lb_employeeInfo);
+            this.Controls.Add(this.lb_employee);
             this.Controls.Add(this.btn_msgBoxCancel);
             this.Controls.Add(this.btn_msgBoxConfirm);
-            this.Controls.Add(this.lb_testUUID);
             this.Controls.Add(this.lb_dispatchQtyInfo);
             this.Controls.Add(this.lb_scaleQtyInfo);
             this.Controls.Add(this.lb_matCodeInfo);
@@ -200,8 +210,8 @@ namespace ElectronicScale2MES
             this.Controls.Add(this.lb_prodCode);
             this.Controls.Add(this.lb_erpCode);
             this.Controls.Add(this.lb_messageText);
-            this.MaximumSize = new System.Drawing.Size(724, 276);
-            this.MinimumSize = new System.Drawing.Size(724, 276);
+            this.MaximumSize = new System.Drawing.Size(724, 320);
+            this.MinimumSize = new System.Drawing.Size(724, 320);
             this.Name = "SaveMESMessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Confirmation";
@@ -224,8 +234,9 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.Label lb_matCodeInfo;
         private System.Windows.Forms.Label lb_scaleQtyInfo;
         private System.Windows.Forms.Label lb_dispatchQtyInfo;
-        private System.Windows.Forms.Label lb_testUUID;
         private System.Windows.Forms.Button btn_msgBoxConfirm;
         private System.Windows.Forms.Button btn_msgBoxCancel;
+        private System.Windows.Forms.Label lb_employee;
+        private System.Windows.Forms.Label lb_employeeInfo;
     }
 }

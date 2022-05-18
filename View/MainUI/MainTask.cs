@@ -28,5 +28,11 @@ namespace ElectronicScale2MES
             ChangeDatabase changeDatabase = new ChangeDatabase();
             changeDatabase.ShowDialog();
         }
+
+        private void xuibtn_scaleConnect_Click(object sender, EventArgs e)
+        {
+            ScaleConnect scaleConnect = new ScaleConnect();
+            scaleConnect.ShowDialog();
+        }
     }
 }

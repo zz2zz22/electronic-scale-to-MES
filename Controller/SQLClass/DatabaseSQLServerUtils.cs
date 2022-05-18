@@ -17,9 +17,17 @@ namespace ElectronicScale2MES
             MySqlConnection con = new MySqlConnection(connectionString);
             return con;
         }
-        public static SqlConnection GetCustomDatabaseConnection(string host, string user, string password, string database)
+        public static SqlConnection GetCustomDatabaseConnection(string datasource, string database, string username, string password)
         {
-            string connectionString = String.Format("host={0};user={1};password={2}; database={3};", host, user, password, database);
+            string connectionString = "";
+            if (Properties.Settings.Default.conHostType == 0)
+            {
+                connectionString = @"Data Source=" + datasource + ";Initial Catalog=" + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
+            }
+            else 
+            {
+                connectionString = @"Data Source=" + datasource + ";Initial Catalog=" + database + ";Integrated Security=True";
+            }
             SqlConnection con = new SqlConnection(connectionString);
             return con;
         }

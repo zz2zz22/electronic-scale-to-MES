@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySqlConnector;
+using System.Data.SqlClient;
 
 namespace ElectronicScale2MES
 {
@@ -16,83 +18,13 @@ namespace ElectronicScale2MES
         string dataIn;
         double tempWeight = 0;
         double totalWeight = 0;
+        double tempNGWeight = 0;
         string tempWorkOrderUUID = "";
         public Scale2MES()
         {
             InitializeComponent();
             //txb_searchData.Text = UUIDGenerator.getAscId();  
         }
-
-        public DataTable GetDataFromMatsCode(string matsCode)
-        {
-            DataTable loadInDT = new DataTable();
-
-            return loadInDT;
-        }
-        private DataTable loadWOtoDT()
-        {
-            DataTable dt = new DataTable();
-
-            return dt;
-        }
-        private void btOpen_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                serialPort1.PortName = cbComPort.Text;
-                serialPort1.BaudRate = Convert.ToInt32(cbBaudRate.Text);
-                serialPort1.DataBits = Convert.ToInt32(cbDataBits.Text);
-                serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cbStopBits.Text);
-                serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), cbParityBits.Text);
-                serialPort1.Open();
-                progressBar1.Value = 100;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (serialPort1.IsOpen)
-            {
-                if (btOpen.Enabled)
-                {
-                    if (progressBar1.Value == 100)
-                    {
-                        btOpen.Enabled = false;
-                        btClose.Enabled = true;
-                    }
-                    else
-                    {
-                        btOpen.Enabled = true;
-                        btClose.Enabled = false;
-                    }
-                }
-                else
-                {
-                    btClose.Enabled = false;
-                }
-                cbComPort.Enabled = false;
-            }
-        }
-
-        private void btClose_Click(object sender, EventArgs e)
-        {
-            if (serialPort1.IsOpen)
-            {
-                serialPort1.Close();
-                progressBar1.Value = 0;
-            }
-            if (btClose.Enabled)
-            {
-                btOpen.Enabled = true;
-                btClose.Enabled = false;
-            }
-            else
-            {
-                btOpen.Enabled = false;
-            }
-            cbComPort.Enabled = true;
-        }
-
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             dataIn = serialPort1.ReadExisting().Trim().Replace("kg","");
@@ -133,37 +65,46 @@ namespace ElectronicScale2MES
 
         private void Scale2MES_Load(object sender, EventArgs e)
         {
-            string[] ports = SerialPort.GetPortNames();
-            cbComPort.Items.AddRange(ports);
+            //if (SaveVariables.portName != null)
+            //{
+                //try
+                //{
+                //    serialPort1.PortName = SaveVariables.portName;
+                //    serialPort1.BaudRate = SaveVariables.baudRate;
+                //    serialPort1.DataBits = SaveVariables.dataBits;
+                //    serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), SaveVariables.stopBits);
+                //    serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), SaveVariables.parityBits);
+                //    serialPort1.Open();
+                //}
+                //catch (Exception err)
+                //{
+                //    MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
 
-            btOpen.Enabled = true;
-            btClose.Enabled = false;
-            serialPort1.DtrEnable = false;
-            serialPort1.RtsEnable = false;
-
-            cbComPort.Enabled = true;
-
-            dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
-            dtgv_mesData.Columns["UUID"].Visible = false;
-            DataTable dt = new DataTable();
-            sqlMesBaseDataCon sqlMesBaseData = new sqlMesBaseDataCon();
-            StringBuilder sqlSelectEmployee = new StringBuilder();
-            sqlSelectEmployee.Append("SELECT UUID AS EmpUID, CONCAT(CODE,' - ' ,NAME) AS EmpCodeName ");
-            sqlSelectEmployee.Append("FROM mes_base_data.employee_info WHERE employee_info.uuid ");
-            sqlSelectEmployee.Append("IN(SELECT DISTINCT group_employee.employee_uuid FROM mes_base_data.group_employee ");
-            sqlSelectEmployee.Append("WHERE group_employee.group_uuid = '44Z7XSMACV41' AND group_employee.delete_flag = '0') AND employee_info.delete_flag = '0'");
-            sqlMesBaseData.sqlDataAdapterFillDatatable(sqlSelectEmployee.ToString(), ref dt);
-            this.cbx_employeeInfo.DataSource = dt;
-            this.cbx_employeeInfo.DisplayMember = "EmpCodeName";
-            this.cbx_employeeInfo.ValueMember = "EmpUID";
+                dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
+                dtgv_mesData.Columns["UUID"].Visible = false;
+                DataTable dt = new DataTable();
+                sqlMesBaseDataCon sqlMesBaseData = new sqlMesBaseDataCon();
+                StringBuilder sqlSelectEmployee = new StringBuilder();
+                sqlSelectEmployee.Append("SELECT UUID AS EmpUID, CONCAT(CODE,' - ' ,NAME) AS EmpCodeName ");
+                sqlSelectEmployee.Append("FROM mes_base_data.employee_info WHERE employee_info.uuid ");
+                sqlSelectEmployee.Append("IN(SELECT DISTINCT group_employee.employee_uuid FROM mes_base_data.group_employee ");
+                sqlSelectEmployee.Append("WHERE group_employee.group_uuid = '44Z7XSMACV41' AND group_employee.delete_flag = '0') AND employee_info.delete_flag = '0'");
+                sqlMesBaseData.sqlDataAdapterFillDatatable(sqlSelectEmployee.ToString(), ref dt);
+                this.cbx_employeeInfo.DataSource = dt;
+                this.cbx_employeeInfo.DisplayMember = "EmpCodeName";
+                this.cbx_employeeInfo.ValueMember = "EmpUID";
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please connect to Scale first!");
+            //    this.Close();
+            //    ScaleConnect scaleConnect = new ScaleConnect();
+            //    scaleConnect.ShowDialog();
+            //}
+            
         }
 
-        private void btn_portRefresh_Click(object sender, EventArgs e)
-        {
-            cbComPort.Items.Clear();
-            string[] ports = SerialPort.GetPortNames();
-            cbComPort.Items.AddRange(ports);
-        }
 
         private void btn_searchDatatable_Click(object sender, EventArgs e)
         {
@@ -273,6 +214,36 @@ namespace ElectronicScale2MES
                     if (btnClicked == "1")
                     {
                         //Run Upload logic here
+                        if (Properties.Settings.Default.conType == 1)
+                        {
+                            SqlConnection conn1 = DatabaseUtils.GetCustomMesPlanningExcutionCon();
+                            //SqlConnection conn2 = DatabaseUtils.GetCustomMesQualityControlCon();
+                            SqlTransaction trans1 = null;
+                            //SqlTransaction trans2 = null;
+                            SqlCommand cmd1 = new SqlCommand();
+                            //SqlCommand cmd2 = new SqlCommand();
+                            try
+                            {
+                                conn1.Open();
+                                //conn2.Open();
+                                trans1 = conn1.BeginTransaction();
+                                //trans2 = conn2.BeginTransaction();
+                                cmd1.Transaction = trans1;
+                                cmd1.Connection = conn1;
+                                //cmd2.Transaction = trans2;
+                                cmd1.CommandText = UploadLogic.insertScale2JobMove(SaveVariables.workOrderUUID, SaveVariables.employeeUUID, SaveVariables.scaleTotalQty, SaveVariables.passQty);
+                                cmd1.ExecuteNonQuery();
+                                MessageBox.Show("Cbi commit");
+                                trans1.Rollback();
+                                
+                                MessageBox.Show("Rollback thanh cong");
+                            }
+                            catch(Exception ex )
+                            {
+                                MessageBox.Show(ex.Message);
+                                trans1.Rollback();
+                            }
+                        }
                     }
                 }
                 else
@@ -296,7 +267,13 @@ namespace ElectronicScale2MES
 
         private void btn_addNGQty_Click(object sender, EventArgs e)
         {
+            AddNotGoodQuantityUI addNotGoodQuantityUI = new AddNotGoodQuantityUI();
+            addNotGoodQuantityUI.ShowDialog();
+        }
 
+        private void cbx_employeeInfo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            SaveVariables.employeeUUID = cbx_employeeInfo.SelectedValue.ToString();
         }
     }
 }

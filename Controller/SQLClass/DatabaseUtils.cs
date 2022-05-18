@@ -70,34 +70,44 @@ namespace ElectronicScale2MES
             return DatabaseSQLServerUtils.GetCustom2DatabaseConnection(host, user, password, database);
         }
 
-        public static SqlConnection GetCustomMesBaseDataCon()
-        {
-            string host = Properties.Settings.Default.conHost;
-            string user = Properties.Settings.Default.conUser;
-            string password = Properties.Settings.Default.conPassword;
-            string database = "mes_base_data";
-
-            return DatabaseSQLServerUtils.GetCustomDatabaseConnection(host, user, password, database);
-        }
-
         public static SqlConnection GetCustomMesPlanningExcutionCon()
         {
-            string host = Properties.Settings.Default.conHost;
-            string user = Properties.Settings.Default.conUser;
-            string password = Properties.Settings.Default.conPassword;
-            string database = "mes_planning_excution";
+            if (Properties.Settings.Default.conHostType == 0)
+            {
+                string datasource = Properties.Settings.Default.conHost;
+                string user = Properties.Settings.Default.conUser;
+                string password = Properties.Settings.Default.conPassword;
+                string database = "mes_planning_excution";
 
-            return DatabaseSQLServerUtils.GetCustomDatabaseConnection(host, user, password, database);
+                return DatabaseSQLServerUtils.GetCustomDatabaseConnection(datasource, database, user, password);
+            }
+            else 
+            {
+                string datasource = "DESKTOP-R9UCIUR\\SQLEXPRESS"; //test
+                string database = "mes_planning_excution";
+
+                return DatabaseSQLServerUtils.GetCustomDatabaseConnection(datasource, database, null, null);
+            }
         }
 
         public static SqlConnection GetCustomMesQualityControlCon()
         {
-            string host = Properties.Settings.Default.conHost;
-            string user = Properties.Settings.Default.conUser;
-            string password = Properties.Settings.Default.conPassword;
-            string database = "mes_quality_control";
+            if (Properties.Settings.Default.conHostType == 0)
+            {
+                string datasource = Properties.Settings.Default.conHost;
+                string user = Properties.Settings.Default.conUser;
+                string password = Properties.Settings.Default.conPassword;
+                string database = "mes_quality_control";
 
-            return DatabaseSQLServerUtils.GetCustomDatabaseConnection(host, user, password, database);
+                return DatabaseSQLServerUtils.GetCustomDatabaseConnection(datasource, database, user, password);
+            }
+            else 
+            {
+                string datasource = "DESKTOP-R9UCIUR\\SQLEXPRESS"; //test
+                string database = "mes_quality_control";
+
+                return DatabaseSQLServerUtils.GetCustomDatabaseConnection(datasource, database, null, null);
+            }
         }
     }
 }

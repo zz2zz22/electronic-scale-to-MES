@@ -33,7 +33,7 @@ namespace ElectronicScale2MES
             lb_matCodeInfo.Text = SaveVariables.materialCode;
             lb_scaleQtyInfo.Text = SaveVariables.scaleTotalQty.ToString();
             lb_dispatchQtyInfo.Text = SaveVariables.dispatchQty.ToString();
-            lb_testUUID.Text = SaveVariables.workOrderUUID; //test
+            lb_employeeInfo.Text = GetBaseData.getEmployeeName(SaveVariables.employeeUUID);
         }
 
         private void btn_msgBoxConfirm_Click(object sender, EventArgs e)
