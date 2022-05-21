@@ -19,13 +19,15 @@ namespace ElectronicScale2MES
         public static String erpCode { get; set; }
         public static String productCode { get; set; }
         public static String materialCode { get; set; }
-        public static double dispatchQty { get; set; }
-        public static double finishQty { get; set; }
-        public static double passQty { get; set; }
+        public static int dispatchQty { get; set; }
+        public static int finishQty { get; set; }
+        public static int passQty { get; set; }
         public static String workOrderUUID { get; set; }
-        public static double scaleTotalQty { get; set; }
+        public static int scaleTotalQty { get; set; }
         public static String employeeUUID { get; set; }
-        public static double notGoodQty { get; set; }
+        public static int notGoodQty { get; set; }
+        public static bool isEmptyAutoCode { get; set; }
+        public static bool isAddNG { get; set; }
         
         public static void ResetScaleCon()
         {
@@ -46,6 +48,8 @@ namespace ElectronicScale2MES
             dispatchQty = 0;
             scaleTotalQty = 0;
             notGoodQty = 0;
+            isEmptyAutoCode = false;
+            isAddNG = false;
         } 
         public static void ResetEmployee()
         {

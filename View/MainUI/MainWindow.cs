@@ -17,6 +17,7 @@ namespace ElectronicScale2MES
         {
             InitializeComponent();
         }
+        
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
@@ -34,6 +35,16 @@ namespace ElectronicScale2MES
         private void xuibtn_mainTask_Click(object sender, EventArgs e)
         {
             openChildForm(new MainTask());
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            openChildForm(new MainTask());
+        }
+
+        private void xuibtn_setting_Click(object sender, EventArgs e)
+        {
+            openChildForm(new SettingTask());
         }
     }
 }

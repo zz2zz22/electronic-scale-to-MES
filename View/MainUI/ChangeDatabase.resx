@@ -117,4 +117,481 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lb_dbType.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lb_dbType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lb_dbType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 32</value>
+  </data>
+  <data name="lb_dbType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 18</value>
+  </data>
+  <data name="lb_dbType.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lb_dbType.Text" xml:space="preserve">
+    <value>Database type</value>
+  </data>
+  <data name="&gt;&gt;lb_dbType.Name" xml:space="preserve">
+    <value>lb_dbType</value>
+  </data>
+  <data name="&gt;&gt;lb_dbType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_dbType.Parent" xml:space="preserve">
+    <value>gb_dbConfig</value>
+  </data>
+  <data name="&gt;&gt;lb_dbType.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbx_dbType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="cbx_dbType.Items" xml:space="preserve">
+    <value>MySql Server</value>
+  </data>
+  <data name="cbx_dbType.Items1" xml:space="preserve">
+    <value>MSSQL Server ( Microsoft SQL Server)</value>
+  </data>
+  <data name="cbx_dbType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 31</value>
+  </data>
+  <data name="cbx_dbType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 26</value>
+  </data>
+  <data name="cbx_dbType.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbx_dbType.Name" xml:space="preserve">
+    <value>cbx_dbType</value>
+  </data>
+  <data name="&gt;&gt;cbx_dbType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbx_dbType.Parent" xml:space="preserve">
+    <value>gb_dbConfig</value>
+  </data>
+  <data name="&gt;&gt;cbx_dbType.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lb_hostType.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lb_hostType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lb_hostType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 76</value>
+  </data>
+  <data name="lb_hostType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 18</value>
+  </data>
+  <data name="lb_hostType.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lb_hostType.Text" xml:space="preserve">
+    <value>Host type</value>
+  </data>
+  <data name="lb_hostType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lb_hostType.Name" xml:space="preserve">
+    <value>lb_hostType</value>
+  </data>
+  <data name="&gt;&gt;lb_hostType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_hostType.Parent" xml:space="preserve">
+    <value>gb_dbConfig</value>
+  </data>
+  <data name="&gt;&gt;lb_hostType.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbx_hostType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="cbx_hostType.Items" xml:space="preserve">
+    <value>Remote SQL Server</value>
+  </data>
+  <data name="cbx_hostType.Items1" xml:space="preserve">
+    <value>localhost (test purpose)</value>
+  </data>
+  <data name="cbx_hostType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 73</value>
+  </data>
+  <data name="cbx_hostType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 26</value>
+  </data>
+  <data name="cbx_hostType.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cbx_hostType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;cbx_hostType.Name" xml:space="preserve">
+    <value>cbx_hostType</value>
+  </data>
+  <data name="&gt;&gt;cbx_hostType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbx_hostType.Parent" xml:space="preserve">
+    <value>gb_dbConfig</value>
+  </data>
+  <data name="&gt;&gt;cbx_hostType.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lb_hostName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lb_hostName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lb_hostName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 36</value>
+  </data>
+  <data name="lb_hostName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 18</value>
+  </data>
+  <data name="lb_hostName.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lb_hostName.Text" xml:space="preserve">
+    <value>Host name</value>
+  </data>
+  <data name="&gt;&gt;lb_hostName.Name" xml:space="preserve">
+    <value>lb_hostName</value>
+  </data>
+  <data name="&gt;&gt;lb_hostName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_hostName.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;lb_hostName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="gb_dbConfig.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="gb_dbConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="gb_dbConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>341, 126</value>
+  </data>
+  <data name="gb_dbConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="gb_dbConfig.Text" xml:space="preserve">
+    <value>Database config</value>
+  </data>
+  <data name="&gt;&gt;gb_dbConfig.Name" xml:space="preserve">
+    <value>gb_dbConfig</value>
+  </data>
+  <data name="&gt;&gt;gb_dbConfig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gb_dbConfig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gb_dbConfig.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txb_hostPassword.Name" xml:space="preserve">
+    <value>txb_hostPassword</value>
+  </data>
+  <data name="&gt;&gt;txb_hostPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_hostPassword.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;txb_hostPassword.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txb_hostUsername.Name" xml:space="preserve">
+    <value>txb_hostUsername</value>
+  </data>
+  <data name="&gt;&gt;txb_hostUsername.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_hostUsername.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;txb_hostUsername.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txb_hostName.Name" xml:space="preserve">
+    <value>txb_hostName</value>
+  </data>
+  <data name="&gt;&gt;txb_hostName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_hostName.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;txb_hostName.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lb_hostPassword.Name" xml:space="preserve">
+    <value>lb_hostPassword</value>
+  </data>
+  <data name="&gt;&gt;lb_hostPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_hostPassword.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;lb_hostPassword.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lb_hostUsername.Name" xml:space="preserve">
+    <value>lb_hostUsername</value>
+  </data>
+  <data name="&gt;&gt;lb_hostUsername.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_hostUsername.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;lb_hostUsername.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="gb_connConfig.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="gb_connConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 144</value>
+  </data>
+  <data name="gb_connConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>341, 169</value>
+  </data>
+  <data name="gb_connConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gb_connConfig.Text" xml:space="preserve">
+    <value>Connection config</value>
+  </data>
+  <data name="&gt;&gt;gb_connConfig.Name" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;gb_connConfig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gb_connConfig.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gb_connConfig.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txb_hostPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 129</value>
+  </data>
+  <data name="txb_hostPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="txb_hostPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 24</value>
+  </data>
+  <data name="txb_hostPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;txb_hostPassword.Name" xml:space="preserve">
+    <value>txb_hostPassword</value>
+  </data>
+  <data name="&gt;&gt;txb_hostPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_hostPassword.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;txb_hostPassword.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txb_hostUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 81</value>
+  </data>
+  <data name="txb_hostUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 24</value>
+  </data>
+  <data name="txb_hostUsername.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;txb_hostUsername.Name" xml:space="preserve">
+    <value>txb_hostUsername</value>
+  </data>
+  <data name="&gt;&gt;txb_hostUsername.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_hostUsername.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;txb_hostUsername.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txb_hostName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 33</value>
+  </data>
+  <data name="txb_hostName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 24</value>
+  </data>
+  <data name="txb_hostName.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txb_hostName.Name" xml:space="preserve">
+    <value>txb_hostName</value>
+  </data>
+  <data name="&gt;&gt;txb_hostName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_hostName.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;txb_hostName.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lb_hostPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lb_hostPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lb_hostPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 132</value>
+  </data>
+  <data name="lb_hostPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 18</value>
+  </data>
+  <data name="lb_hostPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lb_hostPassword.Text" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="&gt;&gt;lb_hostPassword.Name" xml:space="preserve">
+    <value>lb_hostPassword</value>
+  </data>
+  <data name="&gt;&gt;lb_hostPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_hostPassword.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;lb_hostPassword.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lb_hostUsername.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lb_hostUsername.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="lb_hostUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 84</value>
+  </data>
+  <data name="lb_hostUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 18</value>
+  </data>
+  <data name="lb_hostUsername.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lb_hostUsername.Text" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="&gt;&gt;lb_hostUsername.Name" xml:space="preserve">
+    <value>lb_hostUsername</value>
+  </data>
+  <data name="&gt;&gt;lb_hostUsername.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_hostUsername.Parent" xml:space="preserve">
+    <value>gb_connConfig</value>
+  </data>
+  <data name="&gt;&gt;lb_hostUsername.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btn_save.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
+  </data>
+  <data name="btn_save.Location" type="System.Drawing.Point, System.Drawing">
+    <value>382, 224</value>
+  </data>
+  <data name="btn_save.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 70</value>
+  </data>
+  <data name="btn_save.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btn_save.Text" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="&gt;&gt;btn_save.Name" xml:space="preserve">
+    <value>btn_save</value>
+  </data>
+  <data name="&gt;&gt;btn_save.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_save.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_save.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rtb_logShow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 320</value>
+  </data>
+  <data name="rtb_logShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>518, 58</value>
+  </data>
+  <data name="rtb_logShow.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="rtb_logShow.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;rtb_logShow.Name" xml:space="preserve">
+    <value>rtb_logShow</value>
+  </data>
+  <data name="&gt;&gt;rtb_logShow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtb_logShow.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rtb_logShow.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>543, 390</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>561, 437</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>561, 437</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Database Change</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ChangeDatabase</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

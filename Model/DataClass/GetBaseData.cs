@@ -50,5 +50,6 @@ namespace ElectronicScale2MES
             sqlSelectEmp.Append("SELECT CONCAT(CODE,' - ' ,NAME) FROM mes_base_data.employee_info WHERE employee_info.uuid = '" + empUUID + "'");
             return sqlMesBaseData.sqlExecuteScalarString(sqlSelectEmp.ToString());
         }
+        
     }
 }
