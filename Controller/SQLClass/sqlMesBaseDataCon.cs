@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ElectronicScale2MES
 {
-    public class sqlMesBaseDataCon
+    public class sqlMesBaseDataCon //Quick function to get some data to string without generate database.open() each time
     {
         public MySqlConnection conn = DatabaseUtils.GetMes_Base_DataDBC();
         public string sqlExecuteScalarString(string sql)

@@ -12,7 +12,6 @@ namespace ElectronicScale2MES
     public class HexTransformatUtil
     {
         static String hexDigith = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        //static String digith = "0123456789";
         
         HexTransformatUtil() { }
 

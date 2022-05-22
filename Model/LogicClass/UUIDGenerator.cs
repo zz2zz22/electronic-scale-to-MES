@@ -12,9 +12,7 @@ namespace ElectronicScale2MES
     public class UUIDGenerator
     {
         private static long START_TMP = 1465142400000L;
-        //private static long DIFF_TIME = 19700101000000000L;
         private static String PID = "";
-        //private static long PARTITION_ID = 1L;
         private static long sequence = 0L;
         private static long userSequence = 0L;
         private static long tenantSequence = 0L;

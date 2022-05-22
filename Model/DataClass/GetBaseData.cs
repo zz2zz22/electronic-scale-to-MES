@@ -11,13 +11,13 @@ namespace ElectronicScale2MES
     {
         public static string prodDate = DateTime.Now.ToString("yyyyMd");
         private static String moveNo = "";
-        public static String moveNoGenerate()
+        public static String moveNoGenerate() //Move No generate rule
         {
             DateTime date = DateTime.Now;
             moveNo = "MV" + date.ToString("yyyyMMddHHmmssfff");
             return moveNo;
         }
-        public static string getProdLotNo(string workOrderUUID)
+        public static string getProdLotNo(string workOrderUUID) //Product Lot No generate rule
         {
             StringBuilder sqlGetProdNo = new StringBuilder();
             sqlMesPlanningExcutionCon sqlMesPlanningExcutionCon = new sqlMesPlanningExcutionCon();
@@ -25,7 +25,15 @@ namespace ElectronicScale2MES
             string prodNo = sqlMesPlanningExcutionCon.sqlExecuteScalarString(sqlGetProdNo.ToString());
             return (prodNo + prodDate).Trim();
         }
-        public static DataTable getWorkOrderDTtoDataGrid()
+        
+        public static string getEmployeeName(string empUUID) //Get employee code - name from employee uuid for user to select
+        {
+            sqlMesBaseDataCon sqlMesBaseData = new sqlMesBaseDataCon();
+            StringBuilder sqlSelectEmp = new StringBuilder();
+            sqlSelectEmp.Append("SELECT CONCAT(CODE,' - ' ,NAME) FROM mes_base_data.employee_info WHERE employee_info.uuid = '" + empUUID + "'");
+            return sqlMesBaseData.sqlExecuteScalarString(sqlSelectEmp.ToString());
+        }
+        public static DataTable getWorkOrderDTtoDataGrid() // get all order to data grid view
         {
             DataTable dt = new DataTable();
             sqlMesPlanningExcutionCon sqlMesPlanningExcutionCon = new sqlMesPlanningExcutionCon();
@@ -40,16 +48,8 @@ namespace ElectronicScale2MES
             sqlGetWO.Append("AND work_order.order_no LIKE '%SEMI%' AND work_order.delete_flag = '0' AND work_order_material.delete_flag = '0' ");
             sqlGetWO.Append("GROUP BY work_order.order_uuid order by work_order.create_date desc");
             sqlMesPlanningExcutionCon.sqlDataAdapterFillDatatable(sqlGetWO.ToString(), ref dt);
-            
+
             return dt;
-        }    
-        public static string getEmployeeName(string empUUID)
-        {
-            sqlMesBaseDataCon sqlMesBaseData = new sqlMesBaseDataCon();
-            StringBuilder sqlSelectEmp = new StringBuilder();
-            sqlSelectEmp.Append("SELECT CONCAT(CODE,' - ' ,NAME) FROM mes_base_data.employee_info WHERE employee_info.uuid = '" + empUUID + "'");
-            return sqlMesBaseData.sqlExecuteScalarString(sqlSelectEmp.ToString());
         }
-        
     }
 }

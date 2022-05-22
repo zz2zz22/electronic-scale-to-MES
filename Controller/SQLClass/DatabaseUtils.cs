@@ -10,7 +10,9 @@ namespace ElectronicScale2MES
 {
     class DatabaseUtils
     {
-        public static MySqlConnection GetMes_Base_DataDBC()
+        //Data connection to get data 
+        #region BaseDataCon 
+        public static MySqlConnection GetMes_Base_DataDBC() 
         {
             string host = "172.16.0.22";
             string user = "guest";
@@ -39,7 +41,10 @@ namespace ElectronicScale2MES
 
             return DatabaseSQLServerUtils.GetMesDBConnection(host, user, password, database);
         }
+        #endregion
 
+        //Data connection to insert data to / test database con is valid ?
+        #region Test&CustomDataCon
         public static MySqlConnection Get_TestMySQLDB()
         {
             string host = Properties.Settings.Default.conHost;
@@ -156,5 +161,6 @@ namespace ElectronicScale2MES
                 return DatabaseSQLServerUtils.GetCustomDatabaseConnection(datasource, database, null, null);
             }
         }
+        #endregion
     }
 }

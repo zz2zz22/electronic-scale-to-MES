@@ -188,7 +188,7 @@
     <Compile Include="Model\DataClass\GetBaseData.cs" />
     <Compile Include="Model\DataClass\SaveVariables.cs" />
     <Compile Include="Model\LogicClass\HexTransformatUtil.cs" />
-    <Compile Include="Model\DataClass\UploadLogic.cs" />
+    <Compile Include="Model\LogicClass\UploadLogic.cs" />
     <Compile Include="Model\LogicClass\UUIDGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

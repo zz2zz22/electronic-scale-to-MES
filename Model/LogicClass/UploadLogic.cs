@@ -137,15 +137,7 @@ namespace ElectronicScale2MES
             string materialNo = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct product_no from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
             string materialName = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct product_name from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
             string specification = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct specification from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
-            string tempSpec;
-            if (specification == string.Empty)
-            {
-                tempSpec = "NULL";
-            }
-            else
-            {
-                tempSpec = "N'" + specification + "'";
-            }
+            
             string productLotNo = GetBaseData.getProdLotNo(workOrderUUID);
             string lot_no = GetBaseData.getProdLotNo(workOrderUUID);
             string getEmpCreateCode = sqlMesBaseData.sqlExecuteScalarString("SELECT CODE FROM mes_base_data.employee_info WHERE employee_info.uuid = '" + employeeUUID + "'"); // get employee code from mes_base_data
@@ -155,7 +147,7 @@ namespace ElectronicScale2MES
             sqlInsertWOL.Append(@"(uuid, work_order_uuid, material_uuid, material_no, material_name, specification, lot_no, ");
             sqlInsertWOL.Append(@"serial_no, lot_qty, is_product, tenant_id, delete_flag, create_by, update_by, create_date, update_date )");
             sqlInsertWOL.Append(" values ( ");
-            sqlInsertWOL.Append("'" + workOrderLotsUUID + "','" + workOrderUUID + "','" + materialUUID + "',N'" + materialNo + "',N'" + materialName + "'," + tempSpec + ",'" + lot_no + "', ");
+            sqlInsertWOL.Append("'" + workOrderLotsUUID + "','" + workOrderUUID + "','" + materialUUID + "',N'" + materialNo + "',N'" + materialName + "',N'" + specification + "','" + lot_no + "', ");
             sqlInsertWOL.Append("NULL,'" + scaleTotalQty + "','1','-1','0','" + getEmpCreateCode + "','" + getEmpCreateCode + "','" + Date + "','" + Date + "' )");
 
             return sqlInsertWOL.ToString();
@@ -284,15 +276,7 @@ namespace ElectronicScale2MES
             string productNo = sqlMesPlanningExcution.sqlExecuteScalarString("select product_no from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
             string productName = sqlMesPlanningExcution.sqlExecuteScalarString("select product_name from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
             string specification = sqlMesPlanningExcution.sqlExecuteScalarString("select specification from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
-            string tempSpec;
-            if (specification == String.Empty)
-            {
-                tempSpec = "NULL";
-            }
-            else
-            {
-                tempSpec = "'" + specification + "'";
-            }
+            
             string jobOrderUUID = sqlMesPlanningExcution.sqlExecuteScalarString("select uuid from job_order where work_order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
             string jobOrderRecordUUID = sqlMesPlanningExcution.sqlExecuteScalarString("select uuid from job_order_record where job_order_uuid = '" + jobOrderUUID + "' and delete_flag = '0'");
             string workOrderProcessUUID = sqlMesPlanningExcution.sqlExecuteScalarString("select work_order_process_uuid from job_order where work_order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
@@ -337,11 +321,11 @@ namespace ElectronicScale2MES
             sqlInsertQLCO.Append(@"create_by, update_by, create_date, update_date, tenant_id ) ");
             sqlInsertQLCO.Append(" values (");
             sqlInsertQLCO.Append("'" + UUIDGenerator.getAscId() + "','" + qcNo + "','" + workOrderUUID + "','" + workOrderNo + "','" + saleOrderNo + "','" + productUUID + "',N'" + productNo + "', ");
-            sqlInsertQLCO.Append("N'" + productName + "'," + tempSpec + ",'" + jobOrderUUID + "','" + jobOrderRecordUUID + "','" + workOrderProcessUUID + "','" + operationUUID + "', ");
+            sqlInsertQLCO.Append("N'" + productName + "',N'" + specification + "','" + jobOrderUUID + "','" + jobOrderRecordUUID + "','" + workOrderProcessUUID + "','" + operationUUID + "', ");
             sqlInsertQLCO.Append("'" + operationNo + "',N'" + operationName + "',N'" + operationDesc + "','" + sectionUUID + "','" + tempGroupUUID + "','" + organizationUUID + "', NULL, ");
             sqlInsertQLCO.Append("NULL, NULL, NULL, NULL, '" + employeeUUID + "','1','QC_OPERATION_TYPE1', NULL, '0', ");
             sqlInsertQLCO.Append("NULL, NULL, " + tempUnitUUID + ", '" + planStartTime + "','" + planEndTime + "', NULL, NULL, '" + productLotNo + "', NULL, '0', '0' , ");
-            sqlInsertQLCO.Append("NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', ");
+            sqlInsertQLCO.Append("NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', ");
             sqlInsertQLCO.Append("'" + getEmpCreateCode + "', '" + getEmpCreateCode + "','" + Date + "','" + Date + "', '-1')");
 
             return sqlInsertQLCO.ToString();

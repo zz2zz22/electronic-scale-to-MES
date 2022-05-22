@@ -25,13 +25,128 @@ namespace ElectronicScale2MES
         {
             InitializeComponent();
         }
-        //Event arguments
-        #region EventArgs
-        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+
+        //Sub component
+        static void uploadWithTransactionSupport(string cmd1, string cmd2, string cmd3, string cmd4, string cmd5, string cmd6, string cmd7, string cmd8)
         {
-            dataIn = serialPort1.ReadExisting().Trim().Replace("kg","");
-            this.Invoke(new EventHandler(showData));
+            if (Properties.Settings.Default.conType == 1)
+            {
+                SqlConnection conn1 = DatabaseUtils.GetCustomMesPlanningExcutionCon();
+                SqlConnection conn2 = DatabaseUtils.GetCustomMesBaseData();
+                SqlConnection conn3 = DatabaseUtils.GetCustomMesQualityControlCon();
+                SqlTransaction trans1 = null;
+                SqlTransaction trans2 = null;
+                SqlTransaction trans3 = null;
+                SqlCommand cmdMS1 = new SqlCommand();
+                SqlCommand cmdMS2 = new SqlCommand();
+                SqlCommand cmdMS3 = new SqlCommand();
+                try
+                {
+                    conn1.Open();
+                    conn2.Open();
+                    conn3.Open();
+                    trans1 = conn1.BeginTransaction();
+                    trans2 = conn2.BeginTransaction();
+                    trans3 = conn3.BeginTransaction();
+                    cmdMS1.Transaction = trans1;
+                    cmdMS2.Transaction = trans2;
+                    cmdMS3.Transaction = trans3;
+                    cmdMS1.Connection = conn1;
+                    cmdMS2.Connection = conn2;
+                    cmdMS3.Connection = conn3;
+                    //Insert and update Mes_planning_excution commands execute
+                    cmdMS1.CommandText = cmd1;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd2;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd3;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd4;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd5;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd6;
+                    cmdMS1.ExecuteNonQuery();
+                    //Insert and update mes_base_data commands execute
+                    cmdMS2.CommandText = cmd7;
+                    cmdMS2.ExecuteNonQuery();
+                    //Insert and update mes_quality_control commands execute
+                    cmdMS3.CommandText = cmd8;
+                    cmdMS3.ExecuteNonQuery();
+
+                    trans1.Commit();
+                    trans2.Commit();
+                    trans3.Commit();
+                    MessageBox.Show("Successfully add and update data to MES!", "Complete!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + "\nFail to add and update data to MES!", "Error");
+                    trans1.Rollback();
+                    trans2.Rollback();
+                    trans3.Rollback();
+                }
+            }
+            else if (Properties.Settings.Default.conType == 0)
+            {
+                MySqlConnection conn1 = DatabaseUtils.GetCustom2MesPlanningExcutionCon();
+                MySqlConnection conn2 = DatabaseUtils.GetCustom2MesBaseDataCon();
+                MySqlConnection conn3 = DatabaseUtils.GetCustom2MesQualityControlCon();
+                MySqlTransaction trans1 = null;
+                MySqlTransaction trans2 = null;
+                MySqlTransaction trans3 = null;
+                MySqlCommand cmdMS1 = new MySqlCommand();
+                MySqlCommand cmdMS2 = new MySqlCommand();
+                MySqlCommand cmdMS3 = new MySqlCommand();
+                try
+                {
+                    conn1.Open();
+                    conn2.Open();
+                    conn3.Open();
+                    trans1 = conn1.BeginTransaction();
+                    trans2 = conn2.BeginTransaction();
+                    trans3 = conn3.BeginTransaction();
+                    cmdMS1.Transaction = trans1;
+                    cmdMS2.Transaction = trans2;
+                    cmdMS3.Transaction = trans3;
+                    cmdMS1.Connection = conn1;
+                    cmdMS2.Connection = conn2;
+                    cmdMS3.Connection = conn3;
+                    //Insert and update Mes_planning_excution commands execute
+                    cmdMS1.CommandText = cmd1;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd2;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd3;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd4;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd5;
+                    cmdMS1.ExecuteNonQuery();
+                    cmdMS1.CommandText = cmd6;
+                    cmdMS1.ExecuteNonQuery();
+                    //Insert and update mes_base_data commands execute
+                    cmdMS2.CommandText = cmd7;
+                    cmdMS2.ExecuteNonQuery();
+                    //Insert and update mes_quality_control commands execute
+                    cmdMS3.CommandText = cmd8;
+                    cmdMS3.ExecuteNonQuery();
+
+                    trans1.Commit();
+                    trans2.Commit();
+                    trans3.Commit();
+                    MessageBox.Show("Successfully add and update data to MES!", "Complete!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + "\nFail to add and update data to MES!", "Error");
+                    trans1.Rollback();
+                    trans2.Rollback();
+                    trans3.Rollback();
+                }
+            }
         }
+
         private void showData(object sender, EventArgs e)
         {
             if (SaveVariables.isAddNG == false)
@@ -78,28 +193,38 @@ namespace ElectronicScale2MES
                     MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
                 }
             }
-            
+
+        }
+
+        //Event arguments
+        #region EventArgs
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            dataIn = serialPort1.ReadExisting().Trim().Replace("kg","");
+            dataIn = dataIn.Replace(".", ",");
+            this.Invoke(new EventHandler(showData));
         }
 
         private void Scale2MES_Load(object sender, EventArgs e)
         {
-            //if (SaveVariables.portName != null)
-            //{
-            //try
-            //{
-            //    serialPort1.PortName = SaveVariables.portName;
-            //    serialPort1.BaudRate = SaveVariables.baudRate;
-            //    serialPort1.DataBits = SaveVariables.dataBits;
-            //    serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), SaveVariables.stopBits);
-            //    serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), SaveVariables.parityBits);
-            //    serialPort1.Open();
-            //}
-            //catch (Exception err)
-            //{
-            //    MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            try
+            if (SaveVariables.portName != null)
             {
+                try
+                {
+                    serialPort1.PortName = SaveVariables.portName;
+                    serialPort1.BaudRate = SaveVariables.baudRate;
+                    serialPort1.DataBits = SaveVariables.dataBits;
+                    serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), SaveVariables.stopBits);
+                    serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), SaveVariables.parityBits);
+                    serialPort1.Open();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                    ScaleConnect scaleConnect = new ScaleConnect();
+                    scaleConnect.ShowDialog();
+                }
                 SaveVariables.ResetVariables();
                 dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
                 dtgv_mesData.Columns["UUID"].Visible = false;
@@ -114,21 +239,17 @@ namespace ElectronicScale2MES
                 this.cbx_employeeInfo.DataSource = dt;
                 this.cbx_employeeInfo.DisplayMember = "EmpCodeName";
                 this.cbx_employeeInfo.ValueMember = "EmpUID";
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please connect to Scale first!");
-            //    this.Close();
-            //    ScaleConnect scaleConnect = new ScaleConnect();
-            //    scaleConnect.ShowDialog();
-            //}
-            
-        }
 
+            }
+            else
+            {
+                MessageBox.Show("Please connect to Scale first!");
+                this.Close();
+                ScaleConnect scaleConnect = new ScaleConnect();
+                scaleConnect.ShowDialog();
+            }
+
+        }
 
         private void btn_searchDatatable_Click(object sender, EventArgs e)
         {
@@ -221,7 +342,6 @@ namespace ElectronicScale2MES
 
         private void btn_save2MES_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Do you want to save ", "", MessageBoxButtons.OKCancel);
             if (totalWeight + SaveVariables.finishQty > SaveVariables.dispatchQty)
             {
                 MessageBox.Show("The total quantity is exceed over the dispatch quantity!", "Alert");
@@ -256,7 +376,7 @@ namespace ElectronicScale2MES
                         }
                         string cmd8 = UploadLogic.insertQualityControlOrder(SaveVariables.workOrderUUID, SaveVariables.employeeUUID);
 
-                        uploadWithTransactionSupport(cmd1, cmd2, cmd3, cmd4, cmd5, cmd6, cmd7, cmd8);//Upload logic go through here
+                        uploadWithTransactionSupport(cmd1, cmd2, cmd3, cmd4, cmd5, cmd6, cmd7, cmd8); //Upload logic go through here
                         SaveVariables.ResetVariables();
                         SaveVariables.ResetEmployee();
                         tempWeight = 0;
@@ -314,127 +434,6 @@ namespace ElectronicScale2MES
         {
             SaveVariables.employeeUUID = cbx_employeeInfo.SelectedValue.ToString();
         }
-        #endregion
-
-        //Sub component
-        static void uploadWithTransactionSupport(string cmd1, string cmd2, string cmd3, string cmd4, string cmd5, string cmd6, string cmd7, string cmd8)
-        {
-            if (Properties.Settings.Default.conType == 1)
-            {
-                SqlConnection conn1 = DatabaseUtils.GetCustomMesPlanningExcutionCon();
-                SqlConnection conn2 = DatabaseUtils.GetCustomMesBaseData();
-                SqlConnection conn3 = DatabaseUtils.GetCustomMesQualityControlCon();
-                SqlTransaction trans1 = null;
-                SqlTransaction trans2 = null;
-                SqlTransaction trans3 = null;
-                SqlCommand cmdMS1 = new SqlCommand();
-                SqlCommand cmdMS2 = new SqlCommand();
-                SqlCommand cmdMS3 = new SqlCommand();
-                try
-                {
-                    conn1.Open();
-                    conn2.Open();
-                    conn3.Open();
-                    trans1 = conn1.BeginTransaction();
-                    trans2 = conn2.BeginTransaction();
-                    trans3 = conn3.BeginTransaction();
-                    cmdMS1.Transaction = trans1;
-                    cmdMS2.Transaction = trans2;
-                    cmdMS3.Transaction = trans3;
-                    cmdMS1.Connection = conn1;
-                    cmdMS2.Connection = conn2;
-                    cmdMS3.Connection = conn3;
-                    //Insert and update Mes_planning_excution commands execute
-                    cmdMS1.CommandText = cmd1;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd2;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd3;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd4;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd5;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd6;
-                    cmdMS1.ExecuteNonQuery();
-                    //Insert and update mes_base_data commands execute
-                    cmdMS2.CommandText = cmd7;
-                    cmdMS2.ExecuteNonQuery();
-                    //Insert and update mes_quality_control commands execute
-                    cmdMS3.CommandText = cmd8;
-                    cmdMS3.ExecuteNonQuery();
-
-                    trans1.Commit();
-                    trans2.Commit();
-                    trans3.Commit();
-                    MessageBox.Show("Successfully add and update data to MES!", "Complete!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + "\nFail to add and update data to MES!", "Error");
-                    trans1.Rollback();
-                    trans2.Rollback();
-                    trans3.Rollback();
-                }
-            }else if (Properties.Settings.Default.conType == 0)
-            {
-                MySqlConnection conn1 = DatabaseUtils.GetCustom2MesPlanningExcutionCon();
-                MySqlConnection conn2 = DatabaseUtils.GetCustom2MesBaseDataCon();
-                MySqlConnection conn3 = DatabaseUtils.GetCustom2MesQualityControlCon();
-                MySqlTransaction trans1 = null;
-                MySqlTransaction trans2 = null;
-                MySqlTransaction trans3 = null;
-                MySqlCommand cmdMS1 = new MySqlCommand();
-                MySqlCommand cmdMS2 = new MySqlCommand();
-                MySqlCommand cmdMS3 = new MySqlCommand();
-                try
-                {
-                    conn1.Open();
-                    conn2.Open();
-                    conn3.Open();
-                    trans1 = conn1.BeginTransaction();
-                    trans2 = conn2.BeginTransaction();
-                    trans3 = conn3.BeginTransaction();
-                    cmdMS1.Transaction = trans1;
-                    cmdMS2.Transaction = trans2;
-                    cmdMS3.Transaction = trans3;
-                    cmdMS1.Connection = conn1;
-                    cmdMS2.Connection = conn2;
-                    cmdMS3.Connection = conn3;
-                    //Insert and update Mes_planning_excution commands execute
-                    cmdMS1.CommandText = cmd1;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd2;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd3;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd4;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd5;
-                    cmdMS1.ExecuteNonQuery();
-                    cmdMS1.CommandText = cmd6;
-                    cmdMS1.ExecuteNonQuery();
-                    //Insert and update mes_base_data commands execute
-                    cmdMS2.CommandText = cmd7;
-                    cmdMS2.ExecuteNonQuery();
-                    //Insert and update mes_quality_control commands execute
-                    cmdMS3.CommandText = cmd8;
-                    cmdMS3.ExecuteNonQuery();
-
-                    trans1.Commit();
-                    trans2.Commit();
-                    trans3.Commit();
-                    MessageBox.Show("Successfully add and update data to MES!", "Complete!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + "\nFail to add and update data to MES!", "Error");
-                    trans1.Rollback();
-                    trans2.Rollback();
-                    trans3.Rollback();
-                }
-            }
-        }
 
         private void btn_undoWeightAdding_Click(object sender, EventArgs e)
         {
@@ -464,5 +463,8 @@ namespace ElectronicScale2MES
                 SaveVariables.notGoodQty = totalNG;
             }
         }
+        #endregion
+
+        
     }
 }
