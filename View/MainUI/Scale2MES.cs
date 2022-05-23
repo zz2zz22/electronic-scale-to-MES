@@ -16,10 +16,10 @@ namespace ElectronicScale2MES
     public partial class Scale2MES : Form
     {
         string dataIn;
-        int tempWeight = 0;
-        int totalWeight = 0;
-        int tempNG = 0;
-        int totalNG = 0;
+        double tempWeight = 0;
+        double totalWeight = 0;
+        double tempNG = 0;
+        double totalNG = 0;
         string tempWorkOrderUUID = "";
         public Scale2MES()
         {
@@ -149,59 +149,62 @@ namespace ElectronicScale2MES
 
         private void showData(object sender, EventArgs e)
         {
-            if (SaveVariables.isAddNG == false)
+            double returnValue;
+            if (double.TryParse(dataIn, out returnValue))
             {
-                if (cxb_stackWeight.Checked)
+                if (SaveVariables.isAddNG == false)
                 {
-                    if (dataIn != null)
+                    if (cxb_stackWeight.Checked)
                     {
-                        tempWeight = totalWeight;
-                        totalWeight = totalWeight + int.Parse(dataIn);
-                        lb_totalWeight.Text = totalWeight.ToString();
-                        SaveVariables.scaleTotalQty = totalWeight;
+                        if (dataIn != null)
+                        {
+                            tempWeight = totalWeight;
+                            totalWeight = totalWeight + returnValue;
+                            lb_totalWeight.Text = totalWeight.ToString();
+                            SaveVariables.scaleTotalQty = totalWeight;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
+                        }
                     }
-                    else
+                    else if (cxb_updateTotalWeight.Checked)
                     {
-                        MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
+                        if (dataIn != null)
+                        {
+                            totalWeight = returnValue;
+                            lb_totalWeight.Text = totalWeight.ToString();
+                            SaveVariables.scaleTotalQty = returnValue;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
+                        }
                     }
-                }
-                else if (cxb_updateTotalWeight.Checked)
-                {
-                    if (dataIn != null)
-                    {
-                        lb_totalWeight.Text = dataIn;
-                        totalWeight = int.Parse(dataIn);
-                        SaveVariables.scaleTotalQty = int.Parse(dataIn);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
-                    }
-                }
-            }
-            else
-            {
-                if (dataIn != null)
-                {
-                    tempNG = totalNG;
-                    totalNG = totalNG + int.Parse(dataIn);
-                    lb_dataNG.Text = totalNG.ToString();
-                    SaveVariables.notGoodQty = totalNG;
                 }
                 else
                 {
-                    MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
+                    if (dataIn != null)
+                    {
+                        tempNG = totalNG;
+                        totalNG = totalNG + returnValue;
+                        lb_dataNG.Text = totalNG.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error when connect to Scale. Please reconnect and try again!");
+                    }
                 }
             }
-
         }
 
         //Event arguments
         #region EventArgs
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            dataIn = serialPort1.ReadExisting().Trim().Replace("kg","");
-            dataIn = dataIn.Replace(".", ",");
+           
+            dataIn = serialPort1.ReadLine().Replace("kg", "").Trim();
+            //dataIn = dataIn.Replace(".", ",");
             this.Invoke(new EventHandler(showData));
         }
 
@@ -214,6 +217,7 @@ namespace ElectronicScale2MES
                     serialPort1.PortName = SaveVariables.portName;
                     serialPort1.BaudRate = SaveVariables.baudRate;
                     serialPort1.DataBits = SaveVariables.dataBits;
+                    serialPort1.Handshake = Handshake.None;
                     serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), SaveVariables.stopBits);
                     serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), SaveVariables.parityBits);
                     serialPort1.Open();
@@ -402,6 +406,10 @@ namespace ElectronicScale2MES
         private void Scale2MES_FormClosed(object sender, FormClosedEventArgs e)
         {
             SaveVariables.ResetVariables();
+            if (serialPort1.IsOpen)
+            {
+                serialPort1.Close();
+            }
         }
 
         private void btn_addNGQty_Click(object sender, EventArgs e)
@@ -422,11 +430,20 @@ namespace ElectronicScale2MES
             }
             else
             {
-                SaveVariables.isAddNG = false;
-                btn_addNGQty.Text = "ADD NOT GOOD QUANTITY";
-                btn_addNGQty.BackColor = DefaultBackColor;
-                btn_ngReset.Enabled = false;
-                btn_ngUndo.Enabled = false;
+                DialogResult dialogResult1 = MessageBox.Show("Save : " + totalNG + " to database ?", "Confirmation", MessageBoxButtons.OKCancel);
+                if (dialogResult1 == DialogResult.OK)
+                {
+                    if (lb_dataNG.Text != null)
+                    {
+                        SaveVariables.notGoodQty = totalNG;
+                    }
+                    SaveVariables.isAddNG = false;
+                    btn_addNGQty.Text = "ADD NOT GOOD QUANTITY";
+                    btn_addNGQty.BackColor = DefaultBackColor;
+                    btn_ngReset.Enabled = false;
+                    btn_ngUndo.Enabled = false;
+                    MessageBox.Show("Not good quantity saved !");
+                }
             }
         }
 
@@ -440,6 +457,7 @@ namespace ElectronicScale2MES
             if (totalWeight != 0)
             {
                 lb_totalWeight.Text = tempWeight.ToString();
+                totalWeight = tempWeight;
                 SaveVariables.scaleTotalQty = tempWeight;
             }
         }
@@ -449,6 +467,7 @@ namespace ElectronicScale2MES
             if (totalNG != 0)
             {
                 lb_dataNG.Text = tempNG.ToString();
+                totalNG = tempNG;
                 SaveVariables.notGoodQty = tempNG;
             }
         }

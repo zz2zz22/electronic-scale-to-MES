@@ -68,7 +68,7 @@ namespace ElectronicScale2MES
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.grbx_dataInfos = new System.Windows.Forms.GroupBox();
             this.btn_ngReset = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_ngQtyInfo = new System.Windows.Forms.Label();
             this.btn_ngUndo = new System.Windows.Forms.Button();
             this.lb_employeeInfoLabel = new System.Windows.Forms.Label();
             this.cbx_employeeInfo = new System.Windows.Forms.ComboBox();
@@ -313,7 +313,7 @@ namespace ElectronicScale2MES
             // grbx_dataInfos
             // 
             this.grbx_dataInfos.Controls.Add(this.btn_ngReset);
-            this.grbx_dataInfos.Controls.Add(this.label1);
+            this.grbx_dataInfos.Controls.Add(this.lb_ngQtyInfo);
             this.grbx_dataInfos.Controls.Add(this.btn_ngUndo);
             this.grbx_dataInfos.Controls.Add(this.lb_employeeInfoLabel);
             this.grbx_dataInfos.Controls.Add(this.cbx_employeeInfo);
@@ -344,10 +344,10 @@ namespace ElectronicScale2MES
             this.btn_ngReset.UseVisualStyleBackColor = false;
             this.btn_ngReset.Click += new System.EventHandler(this.btn_ngReset_Click);
             // 
-            // label1
+            // lb_ngQtyInfo
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lb_ngQtyInfo, "lb_ngQtyInfo");
+            this.lb_ngQtyInfo.Name = "lb_ngQtyInfo";
             // 
             // btn_ngUndo
             // 
@@ -447,7 +447,7 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.GroupBox grbx_dataInfos;
         private System.Windows.Forms.Label lb_employeeInfoLabel;
         private System.Windows.Forms.ComboBox cbx_employeeInfo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_ngQtyInfo;
         private System.Windows.Forms.Label lb_totalWeightInfo;
         private System.Windows.Forms.Button btn_ngReset;
         private System.Windows.Forms.Button btn_ngUndo;

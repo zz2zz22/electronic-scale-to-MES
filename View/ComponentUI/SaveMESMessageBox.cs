@@ -34,6 +34,8 @@ namespace ElectronicScale2MES
             lb_scaleQtyInfo.Text = SaveVariables.scaleTotalQty.ToString();
             lb_dispatchQtyInfo.Text = SaveVariables.dispatchQty.ToString();
             lb_employeeInfo.Text = GetBaseData.getEmployeeName(SaveVariables.employeeUUID);
+            lb_ngQtyInfo.Text = SaveVariables.notGoodQty.ToString();
+            lb_actualQtyInfo.Text = (SaveVariables.scaleTotalQty - SaveVariables.notGoodQty).ToString();
         }
 
         private void btn_msgBoxConfirm_Click(object sender, EventArgs e)

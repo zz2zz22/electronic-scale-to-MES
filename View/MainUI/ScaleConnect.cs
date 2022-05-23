@@ -38,10 +38,6 @@ namespace ElectronicScale2MES
 
         private void btOpen_Click(object sender, EventArgs e)
         {
-            if (SaveVariables.portName != null)
-            {
-                rtb_testConnection.Text = "Program is connected to " + SaveVariables.portName;
-            }
             try
             {
                 serialPort1.PortName = cbComPort.Text;
@@ -76,7 +72,9 @@ namespace ElectronicScale2MES
                     SaveVariables.dataBits = Convert.ToInt32(cbDataBits.Text);
                     SaveVariables.stopBits = cbStopBits.Text;
                     SaveVariables.parityBits = cbParityBits.Text;
+                    rtb_testConnection.Text = "Program is connected to " + SaveVariables.portName;
                 }
+                
             }
             catch (Exception err)
             {
@@ -121,6 +119,10 @@ namespace ElectronicScale2MES
 
         private void ScaleConnect_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (serialPort1.IsOpen)
+            {
+                serialPort1.Close();
+            }
             if (SaveVariables.portName == null)
             {
                 DialogResult dialogResult = MessageBox.Show("No scale connected. Do you want to exit ?", "Confirmation", MessageBoxButtons.OKCancel);

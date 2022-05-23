@@ -44,8 +44,8 @@ namespace ElectronicScale2MES
             sqlGetWO.Append("from work_order ");
             sqlGetWO.Append("JOIN work_order_process ON work_order.order_uuid = work_order_process.work_order_uuid ");
             sqlGetWO.Append("JOIN work_order_material ON work_order.order_uuid = work_order_material.work_order_uuid ");
-            sqlGetWO.Append("WHERE work_order.order_uuid in (select work_order_process.work_order_uuid from work_order_process where work_order_process.dispatch_quantity > work_order_process.finish_quantity) ");
-            sqlGetWO.Append("AND work_order.order_no LIKE '%SEMI%' AND work_order.delete_flag = '0' AND work_order_material.delete_flag = '0' ");
+            sqlGetWO.Append("WHERE work_order.order_uuid in (select work_order_process.work_order_uuid from work_order_process where work_order_process.dispatch_quantity != work_order_process.finish_quantity AND work_order_process.delete_flag = '0') ");
+            sqlGetWO.Append("AND work_order.order_no LIKE '%SEMI%' AND work_order.order_status = 'ORDER_3' AND work_order.delete_flag = '0' AND work_order_material.delete_flag = '0' ");
             sqlGetWO.Append("GROUP BY work_order.order_uuid order by work_order.create_date desc");
             sqlMesPlanningExcutionCon.sqlDataAdapterFillDatatable(sqlGetWO.ToString(), ref dt);
 

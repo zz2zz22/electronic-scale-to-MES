@@ -44,6 +44,10 @@ namespace ElectronicScale2MES
             this.btn_msgBoxCancel = new System.Windows.Forms.Button();
             this.lb_employee = new System.Windows.Forms.Label();
             this.lb_employeeInfo = new System.Windows.Forms.Label();
+            this.lb_ngQtyInfo = new System.Windows.Forms.Label();
+            this.lb_ngQty = new System.Windows.Forms.Label();
+            this.lb_actualQtyInfo = new System.Windows.Forms.Label();
+            this.lb_actualQty = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lb_messageText
@@ -189,12 +193,52 @@ namespace ElectronicScale2MES
             this.lb_employeeInfo.Size = new System.Drawing.Size(0, 17);
             this.lb_employeeInfo.TabIndex = 15;
             // 
+            // lb_ngQtyInfo
+            // 
+            this.lb_ngQtyInfo.AutoSize = true;
+            this.lb_ngQtyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ngQtyInfo.Location = new System.Drawing.Point(545, 135);
+            this.lb_ngQtyInfo.Name = "lb_ngQtyInfo";
+            this.lb_ngQtyInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_ngQtyInfo.TabIndex = 17;
+            // 
+            // lb_ngQty
+            // 
+            this.lb_ngQty.AutoSize = true;
+            this.lb_ngQty.Location = new System.Drawing.Point(420, 135);
+            this.lb_ngQty.Name = "lb_ngQty";
+            this.lb_ngQty.Size = new System.Drawing.Size(90, 17);
+            this.lb_ngQty.TabIndex = 16;
+            this.lb_ngQty.Text = "NG Quantity:";
+            // 
+            // lb_actualQtyInfo
+            // 
+            this.lb_actualQtyInfo.AutoSize = true;
+            this.lb_actualQtyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_actualQtyInfo.Location = new System.Drawing.Point(545, 182);
+            this.lb_actualQtyInfo.Name = "lb_actualQtyInfo";
+            this.lb_actualQtyInfo.Size = new System.Drawing.Size(0, 17);
+            this.lb_actualQtyInfo.TabIndex = 19;
+            // 
+            // lb_actualQty
+            // 
+            this.lb_actualQty.AutoSize = true;
+            this.lb_actualQty.Location = new System.Drawing.Point(420, 182);
+            this.lb_actualQty.Name = "lb_actualQty";
+            this.lb_actualQty.Size = new System.Drawing.Size(108, 17);
+            this.lb_actualQty.TabIndex = 18;
+            this.lb_actualQty.Text = "Actual Quantity:";
+            // 
             // SaveMESMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 273);
             this.ControlBox = false;
+            this.Controls.Add(this.lb_actualQtyInfo);
+            this.Controls.Add(this.lb_actualQty);
+            this.Controls.Add(this.lb_ngQtyInfo);
+            this.Controls.Add(this.lb_ngQty);
             this.Controls.Add(this.lb_employeeInfo);
             this.Controls.Add(this.lb_employee);
             this.Controls.Add(this.btn_msgBoxCancel);
@@ -238,5 +282,9 @@ namespace ElectronicScale2MES
         private System.Windows.Forms.Button btn_msgBoxCancel;
         private System.Windows.Forms.Label lb_employee;
         private System.Windows.Forms.Label lb_employeeInfo;
+        private System.Windows.Forms.Label lb_ngQtyInfo;
+        private System.Windows.Forms.Label lb_ngQty;
+        private System.Windows.Forms.Label lb_actualQtyInfo;
+        private System.Windows.Forms.Label lb_actualQty;
     }
 }
