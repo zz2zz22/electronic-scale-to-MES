@@ -40,7 +40,7 @@ namespace ElectronicScale2MES
             StringBuilder sqlGetWO = new StringBuilder();
             sqlGetWO.Append("select work_order.order_no as ERP_Code, work_order.product_no as Product_Code, ");
             sqlGetWO.Append("GROUP_CONCAT(work_order_material.material_no) AS Material_Code, ");
-            sqlGetWO.Append("work_order_process.plan_quantity AS Plan, work_order_process.dispatch_quantity AS Dispatch, work_order_process.finish_quantity AS Finish, work_order.create_date AS CreateDate, work_order.order_uuid AS UUID ");
+            sqlGetWO.Append("work_order_process.plan_quantity AS Plan, work_order_process.dispatch_quantity AS Dispatch, work_order_process.finish_quantity AS Finish, DATE_FORMAT(work_order.create_date, '%d/%m/%Y %H:%i:%s') AS CreateDate, work_order.order_uuid AS UUID ");
             sqlGetWO.Append("from work_order ");
             sqlGetWO.Append("JOIN work_order_process ON work_order.order_uuid = work_order_process.work_order_uuid ");
             sqlGetWO.Append("JOIN work_order_material ON work_order.order_uuid = work_order_material.work_order_uuid ");

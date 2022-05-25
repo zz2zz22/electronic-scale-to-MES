@@ -210,25 +210,25 @@ namespace ElectronicScale2MES
 
         private void Scale2MES_Load(object sender, EventArgs e)
         {
-            if (SaveVariables.portName != null)
-            {
-                try
-                {
-                    serialPort1.PortName = SaveVariables.portName;
-                    serialPort1.BaudRate = SaveVariables.baudRate;
-                    serialPort1.DataBits = SaveVariables.dataBits;
-                    serialPort1.Handshake = Handshake.None;
-                    serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), SaveVariables.stopBits);
-                    serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), SaveVariables.parityBits);
-                    serialPort1.Open();
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                    ScaleConnect scaleConnect = new ScaleConnect();
-                    scaleConnect.ShowDialog();
-                }
+            //if (SaveVariables.portName != null)
+            //{
+                //try
+                //{
+                //    serialPort1.PortName = SaveVariables.portName;
+                //    serialPort1.BaudRate = SaveVariables.baudRate;
+                //    serialPort1.DataBits = SaveVariables.dataBits;
+                //    serialPort1.Handshake = Handshake.None;
+                //    serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), SaveVariables.stopBits);
+                //    serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), SaveVariables.parityBits);
+                //    serialPort1.Open();
+                //}
+                //catch (Exception err)
+                //{
+                //    MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    this.Close();
+                //    ScaleConnect scaleConnect = new ScaleConnect();
+                //    scaleConnect.ShowDialog();
+                //}
                 SaveVariables.ResetVariables();
                 dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
                 dtgv_mesData.Columns["UUID"].Visible = false;
@@ -244,14 +244,14 @@ namespace ElectronicScale2MES
                 this.cbx_employeeInfo.DisplayMember = "EmpCodeName";
                 this.cbx_employeeInfo.ValueMember = "EmpUID";
 
-            }
-            else
-            {
-                MessageBox.Show("Please connect to Scale first!");
-                this.Close();
-                ScaleConnect scaleConnect = new ScaleConnect();
-                scaleConnect.ShowDialog();
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please connect to Scale first!");
+            //    this.Close();
+            //    ScaleConnect scaleConnect = new ScaleConnect();
+            //    scaleConnect.ShowDialog();
+            //}
 
         }
 
