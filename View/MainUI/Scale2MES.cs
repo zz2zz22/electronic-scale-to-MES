@@ -82,6 +82,7 @@ namespace ElectronicScale2MES
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message + "\nFail to add and update data to MES!", "Error");
+                    DataReport.addReport(DataReport.RP_TYPE.Fail, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "", "", "", "", "", "", "", "", ex.ToString());
                     trans1.Rollback();
                     trans2.Rollback();
                     trans3.Rollback();
@@ -210,25 +211,25 @@ namespace ElectronicScale2MES
 
         private void Scale2MES_Load(object sender, EventArgs e)
         {
-            //if (SaveVariables.portName != null)
-            //{
-                //try
-                //{
-                //    serialPort1.PortName = SaveVariables.portName;
-                //    serialPort1.BaudRate = SaveVariables.baudRate;
-                //    serialPort1.DataBits = SaveVariables.dataBits;
-                //    serialPort1.Handshake = Handshake.None;
-                //    serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), SaveVariables.stopBits);
-                //    serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), SaveVariables.parityBits);
-                //    serialPort1.Open();
-                //}
-                //catch (Exception err)
-                //{
-                //    MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    this.Close();
-                //    ScaleConnect scaleConnect = new ScaleConnect();
-                //    scaleConnect.ShowDialog();
-                //}
+            if (SaveVariables.portName != null)
+            {
+                try
+                {
+                    serialPort1.PortName = SaveVariables.portName;
+                    serialPort1.BaudRate = SaveVariables.baudRate;
+                    serialPort1.DataBits = SaveVariables.dataBits;
+                    serialPort1.Handshake = Handshake.None;
+                    serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), SaveVariables.stopBits);
+                    serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), SaveVariables.parityBits);
+                    serialPort1.Open();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                    ScaleConnect scaleConnect = new ScaleConnect();
+                    scaleConnect.ShowDialog();
+                }
                 SaveVariables.ResetVariables();
                 dtgv_mesData.DataSource = GetBaseData.getWorkOrderDTtoDataGrid();
                 dtgv_mesData.Columns["UUID"].Visible = false;
@@ -244,14 +245,14 @@ namespace ElectronicScale2MES
                 this.cbx_employeeInfo.DisplayMember = "EmpCodeName";
                 this.cbx_employeeInfo.ValueMember = "EmpUID";
 
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please connect to Scale first!");
-            //    this.Close();
-            //    ScaleConnect scaleConnect = new ScaleConnect();
-            //    scaleConnect.ShowDialog();
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Please connect to Scale first!");
+                this.Close();
+                ScaleConnect scaleConnect = new ScaleConnect();
+                scaleConnect.ShowDialog();
+            }
 
         }
 
@@ -381,8 +382,10 @@ namespace ElectronicScale2MES
                         string cmd8 = UploadLogic.insertQualityControlOrder(SaveVariables.workOrderUUID, SaveVariables.employeeUUID);
 
                         uploadWithTransactionSupport(cmd1, cmd2, cmd3, cmd4, cmd5, cmd6, cmd7, cmd8); //Upload logic go through here
+                        DataReport.addReport(DataReport.RP_TYPE.Success, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), SaveVariables.moveNo, SaveVariables.erpCode, SaveVariables.productCode, SaveVariables.prodName, SaveVariables.passQty.ToString(), SaveVariables.notGoodQty.ToString(), SaveVariables.scaleTotalQty.ToString(), SaveVariables.empCodeandName, "");
                         SaveVariables.ResetVariables();
                         SaveVariables.ResetEmployee();
+                        SaveVariables.ResetReport();
                         tempWeight = 0;
                         totalWeight = 0;
                         tempNG = 0;
@@ -483,7 +486,5 @@ namespace ElectronicScale2MES
             }
         }
         #endregion
-
-        
     }
 }

@@ -27,5 +27,11 @@ namespace ElectronicScale2MES
                 changeDatabase.ShowDialog();
             }
         }
+
+        private void xuibtn_emailSetting_Click(object sender, EventArgs e)
+        {
+            EmailSetting emailSetting = new EmailSetting();
+            emailSetting.ShowDialog();
+        }
     }
 }

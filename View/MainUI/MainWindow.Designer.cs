@@ -29,12 +29,11 @@ namespace ElectronicScale2MES
         /// </summary>
         private void InitializeComponent()
         {
-            this.xuiWifiPercentageAPI1 = new XanderUI.XUIWifiPercentageAPI();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlp_mainWindow = new System.Windows.Forms.TableLayoutPanel();
-            this.xuiWidgetPanel1 = new XanderUI.XUIWidgetPanel();
             this.xuibtn_mainTask = new XanderUI.XUIButton();
             this.xuibtn_setting = new XanderUI.XUIButton();
+            this.tlp_mainWindow = new System.Windows.Forms.TableLayoutPanel();
+            this.xuiWidgetPanel1 = new XanderUI.XUIWidgetPanel();
             this.ptb_logo = new System.Windows.Forms.PictureBox();
             this.lb_dbInfo = new System.Windows.Forms.Label();
             this.lb_dbInfoShow = new System.Windows.Forms.Label();
@@ -44,11 +43,6 @@ namespace ElectronicScale2MES
             this.tlp_mainWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_logo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // xuiWifiPercentageAPI1
-            // 
-            this.xuiWifiPercentageAPI1.Enabled = true;
-            this.xuiWifiPercentageAPI1.Interval = 3000;
             // 
             // tableLayoutPanel2
             // 
@@ -63,28 +57,6 @@ namespace ElectronicScale2MES
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 88);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // tlp_mainWindow
-            // 
-            this.tlp_mainWindow.ColumnCount = 1;
-            this.tlp_mainWindow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_mainWindow.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tlp_mainWindow.Controls.Add(this.xuiWidgetPanel1, 0, 1);
-            this.tlp_mainWindow.Location = new System.Drawing.Point(12, 86);
-            this.tlp_mainWindow.Name = "tlp_mainWindow";
-            this.tlp_mainWindow.RowCount = 2;
-            this.tlp_mainWindow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_mainWindow.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlp_mainWindow.Size = new System.Drawing.Size(818, 287);
-            this.tlp_mainWindow.TabIndex = 1;
-            // 
-            // xuiWidgetPanel1
-            // 
-            this.xuiWidgetPanel1.ControlsAsWidgets = false;
-            this.xuiWidgetPanel1.Location = new System.Drawing.Point(3, 97);
-            this.xuiWidgetPanel1.Name = "xuiWidgetPanel1";
-            this.xuiWidgetPanel1.Size = new System.Drawing.Size(809, 187);
-            this.xuiWidgetPanel1.TabIndex = 1;
             // 
             // xuibtn_mainTask
             // 
@@ -129,6 +101,28 @@ namespace ElectronicScale2MES
             this.xuibtn_setting.TextColor = System.Drawing.Color.DodgerBlue;
             this.xuibtn_setting.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.xuibtn_setting.Click += new System.EventHandler(this.xuibtn_setting_Click);
+            // 
+            // tlp_mainWindow
+            // 
+            this.tlp_mainWindow.ColumnCount = 1;
+            this.tlp_mainWindow.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_mainWindow.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tlp_mainWindow.Controls.Add(this.xuiWidgetPanel1, 0, 1);
+            this.tlp_mainWindow.Location = new System.Drawing.Point(12, 86);
+            this.tlp_mainWindow.Name = "tlp_mainWindow";
+            this.tlp_mainWindow.RowCount = 2;
+            this.tlp_mainWindow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp_mainWindow.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlp_mainWindow.Size = new System.Drawing.Size(818, 287);
+            this.tlp_mainWindow.TabIndex = 1;
+            // 
+            // xuiWidgetPanel1
+            // 
+            this.xuiWidgetPanel1.ControlsAsWidgets = false;
+            this.xuiWidgetPanel1.Location = new System.Drawing.Point(3, 97);
+            this.xuiWidgetPanel1.Name = "xuiWidgetPanel1";
+            this.xuiWidgetPanel1.Size = new System.Drawing.Size(809, 187);
+            this.xuiWidgetPanel1.TabIndex = 1;
             // 
             // ptb_logo
             // 
@@ -207,7 +201,6 @@ namespace ElectronicScale2MES
         #endregion
 
         private System.Windows.Forms.PictureBox ptb_logo;
-        private XanderUI.XUIWifiPercentageAPI xuiWifiPercentageAPI1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private XanderUI.XUIButton xuibtn_setting;
         private XanderUI.XUIButton xuibtn_mainTask;

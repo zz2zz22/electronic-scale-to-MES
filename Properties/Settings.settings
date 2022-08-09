@@ -6,16 +6,34 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="conHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">172.16.0.22</Value>
     </Setting>
     <Setting Name="conUser" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">root</Value>
     </Setting>
     <Setting Name="conPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">cloud-123456</Value>
     </Setting>
     <Setting Name="conHostType" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="sender" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tlms@techlink.vn</Value>
+    </Setting>
+    <Setting Name="senderPwd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">techlink@123</Value>
+    </Setting>
+    <Setting Name="receivers" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="excelFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="excelFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="selectedReceiver" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

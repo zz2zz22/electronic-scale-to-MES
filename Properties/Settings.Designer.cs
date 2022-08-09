@@ -37,7 +37,7 @@ namespace ElectronicScale2MES.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("172.16.0.22")]
         public string conHost {
             get {
                 return ((string)(this["conHost"]));
@@ -49,7 +49,7 @@ namespace ElectronicScale2MES.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
         public string conUser {
             get {
                 return ((string)(this["conUser"]));
@@ -61,7 +61,7 @@ namespace ElectronicScale2MES.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("cloud-123456")]
         public string conPassword {
             get {
                 return ((string)(this["conPassword"]));
@@ -80,6 +80,78 @@ namespace ElectronicScale2MES.Properties {
             }
             set {
                 this["conHostType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("tlms@techlink.vn")]
+        public string sender {
+            get {
+                return ((string)(this["sender"]));
+            }
+            set {
+                this["sender"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("techlink@123")]
+        public string senderPwd {
+            get {
+                return ((string)(this["senderPwd"]));
+            }
+            set {
+                this["senderPwd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string receivers {
+            get {
+                return ((string)(this["receivers"]));
+            }
+            set {
+                this["receivers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string excelFilePath {
+            get {
+                return ((string)(this["excelFilePath"]));
+            }
+            set {
+                this["excelFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string excelFileName {
+            get {
+                return ((string)(this["excelFileName"]));
+            }
+            set {
+                this["excelFileName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string selectedReceiver {
+            get {
+                return ((string)(this["selectedReceiver"]));
+            }
+            set {
+                this["selectedReceiver"] = value;
             }
         }
     }

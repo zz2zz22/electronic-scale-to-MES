@@ -44,6 +44,7 @@ namespace ElectronicScale2MES
 
             string jobMoveUUID = UUIDGenerator.getAscId();
             string moveNo = GetBaseData.moveNoGenerate();
+            SaveVariables.moveNo = moveNo;
             string jobOrderUUID = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct uuid from job_order where work_order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
             string jobNo = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct job_no from job_order where uuid = '" + jobOrderUUID + "'");
             string organizationUUID = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct belong_organization from job_order where uuid = '" + jobOrderUUID + "'");
@@ -57,6 +58,7 @@ namespace ElectronicScale2MES
             string productUUID = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct product_uuid from job_order where uuid = '" + jobOrderUUID + "'");
             string productNo = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct product_no from job_order where uuid = '" + jobOrderUUID + "'");
             string productName = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct product_name from job_order where uuid = '" + jobOrderUUID + "'");
+            SaveVariables.prodName = productName;
             string unitUUID = sqlMesPlanningExcution.sqlExecuteScalarString("select distinct unit_uuid from job_order where uuid = '" + jobOrderUUID + "'");
             string tempUnitUUID;
             
@@ -270,6 +272,7 @@ namespace ElectronicScale2MES
             sqlMesBaseDataCon sqlMesBaseData = new sqlMesBaseDataCon();
             string productLotNo = GetBaseData.getProdLotNo(workOrderUUID);
             string qcNo = qcNoGenerator(workOrderUUID);
+            SaveVariables.qcNo = qcNo;
             string workOrderNo = sqlMesPlanningExcution.sqlExecuteScalarString("select order_no from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
             string saleOrderNo = sqlMesPlanningExcution.sqlExecuteScalarString("select sales_order_no from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");
             string productUUID = sqlMesPlanningExcution.sqlExecuteScalarString("select product_uuid from work_order where order_uuid = '" + workOrderUUID + "' and delete_flag = '0'");

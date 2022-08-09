@@ -28,7 +28,13 @@ namespace ElectronicScale2MES
         public static double notGoodQty { get; set; }
         public static bool isEmptyAutoCode { get; set; }
         public static bool isAddNG { get; set; }
-        
+
+        //Report variables
+        public static String moveNo { get; set; }
+        public static String prodName { get; set; }
+        public static String qcNo { get; set; }
+        public static String empCodeandName { get; set; }
+
         public static void ResetScaleCon()
         {
             portName = null;
@@ -54,6 +60,13 @@ namespace ElectronicScale2MES
         public static void ResetEmployee()
         {
             employeeUUID = null;
+        }
+        public static void ResetReport()
+        {
+            moveNo = null;
+            prodName = null;
+            qcNo = null;
+            empCodeandName = null;
         }
     }
 }

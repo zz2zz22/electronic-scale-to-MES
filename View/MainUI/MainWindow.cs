@@ -39,6 +39,7 @@ namespace ElectronicScale2MES
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            EmailSetting.schedule_Timer();
             openChildForm(new MainTask());
         }
 
